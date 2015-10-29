@@ -16,8 +16,9 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 
     @Override
-    public void saveUser(User user) {
-        this.getHibernateTemplate().save(user);
+    public Long createUser(User user) {
+        return (Long) this.getHibernateTemplate().save(user);
     }
+
     
 }

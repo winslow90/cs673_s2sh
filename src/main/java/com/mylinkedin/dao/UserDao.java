@@ -12,5 +12,6 @@ import com.mylinkedin.domain.User;
  * @author superman90
  */
 public interface UserDao {
-    public void saveUser(User user)    ;
+    Long createUser(User user);
+    
 }

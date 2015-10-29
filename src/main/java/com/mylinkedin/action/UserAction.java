@@ -22,14 +22,14 @@ public class UserAction extends ActionSupport {
     
     public String saveUser(){
         
-        User user = new User();
-        
-        user.setEmail("liwentao90@yahoo.com");
-        user.setFname("Winslow");
-        user.setLname("Leigh");
-        
-        userService.saveUser(user);
-        
+//        User user = new User();
+//        
+//        user.setEmail("liwentao90@yahoo.com");
+//        user.setFname("Winslow");
+//        user.setLname("Leigh");
+//        
+//        userService.saveUser(user);
+//        
         return SUCCESS;
     }
     

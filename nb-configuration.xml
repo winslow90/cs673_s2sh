@@ -21,6 +21,9 @@ Any value defined here will override the pom.xml file value but is only applicab
             <config-file>src/main/resources/com/mylinkedin/spring/applicationContext.xml</config-file>
             <config-file>src/main/resources/com/mylinkedin/spring/applicationContext-db.xml</config-file>
             <config-file>src/main/resources/com/mylinkedin/spring/applicationContext-user.xml</config-file>
+            <config-file>src/main/resources/com/mylinkedin/spring/applicationContext-dao.xml</config-file>
+            <config-file>src/main/resources/com/mylinkedin/spring/applicationContext-service.xml</config-file>
+            <config-file>src/main/resources/com/mylinkedin/spring/applicationContext-action.xml</config-file>
         </config-files>
         <config-file-groups/>
     </spring-data>

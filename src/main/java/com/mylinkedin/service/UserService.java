@@ -12,5 +12,5 @@ import com.mylinkedin.domain.User;
  * @author superman90
  */
 public interface UserService {
-    public void saveUser(User user);
+    
 }
