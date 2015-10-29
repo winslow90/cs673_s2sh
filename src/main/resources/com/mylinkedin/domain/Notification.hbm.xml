@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.mylinkedin.domain.Notification" table="notification">
+        
+        <id name="ntid" type="java.lang.Long" length="5" column="ntid">
+            <generator class="increment"></generator>
+        </id>
+        
+        <property name="nt_type" type="java.lang.Long" length="5"></property>
+        <property name="nt_content" type="java.lang.String" length="512"></property>
+        <property name="nt_datetime" type="date" length="64"></property>
+        <property name="nt_read" type="java.lang.String" length="16"></property>
+        
+        <many-to-one name="user" 
+		class="com.mylinkedin.domain.User"
+		column="uid" cascade="save-update"></many-to-one>
+        
+        
+    </class>
+  
+
+</hibernate-mapping>
