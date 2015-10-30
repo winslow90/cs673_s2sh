@@ -5,17 +5,18 @@
  */
 package com.mylinkedin.dao;
 
-import com.mylinkedin.domain.User;
+import com.mylinkedin.domain.Company;
 import java.util.List;
 
 /**
  *
  * @author superman90
  */
-public interface UserDao {
-    public Long createUser(User user);
-    public void updateUser(User user);
-    public List<User> listUsers();
+public interface CompanyDao {
+    
+    public Long createCompany(Company company);
+    public void updateCompany(Company company);
+    public List<Company> listCompanies();
     
     public void test();
     

@@ -19,7 +19,7 @@
       </key>
       <many-to-many class="com.mylinkedin.domain.University" column="uniid"/>
     </set>
-    <set cascade="save-update" name="skills" table="user_skill">
+    <set cascade="save-update" name="skills" table="user_skill" >
       <key>
         <column name="uid"/>
       </key>

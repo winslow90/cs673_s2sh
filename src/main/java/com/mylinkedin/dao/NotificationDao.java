@@ -5,17 +5,18 @@
  */
 package com.mylinkedin.dao;
 
-import com.mylinkedin.domain.User;
+import com.mylinkedin.domain.Notification;
 import java.util.List;
 
 /**
  *
  * @author superman90
  */
-public interface UserDao {
-    public Long createUser(User user);
-    public void updateUser(User user);
-    public List<User> listUsers();
+public interface NotificationDao {
+    
+    public Long createNotification(Notification notification);
+    public void updateNotification(Notification notification);
+    public List<Notification> listNotifications();
     
     public void test();
     

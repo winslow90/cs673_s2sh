@@ -7,30 +7,195 @@ package com.mylinkedin.action;
 
 import com.mylinkedin.domain.User;
 import com.mylinkedin.service.UserService;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import org.apache.struts2.interceptor.validation.SkipValidation;
 
 /**
  *
  * @author superman90
  */
 public class UserAction extends ActionSupport {
+    
     private UserService userService;
-
-    public void setUserService(UserService userService) {
-        this.userService = userService;
+    
+    //form1
+    private String logemail;
+    private String logpd;
+    
+    //form2
+    private String email;
+    private String pd[];
+    private String fname;
+    private String lname;
+    private String gender;
+    
+    
+    private Map<String, Object> getSession(){
+        return ActionContext.getContext().getSession();
     }
     
-    public String saveUser(){
+    
+    @Override
+    public void validate() {
+//        Pattern p = Pattern.compile("a*b");
+//        Matcher m = p.matcher("aaaaab");
+//        boolean b = m.matches();
+        Pattern p = Pattern.compile("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*");
+        Matcher m;
         
-//        User user = new User();
+       if (logemail==null){
+            //register validation
+            if (email==null){
+                this.addFieldError("email", "You need to enter an email address");
+            }else{
+                m=p.matcher(email);
+                if (m.matches()){
+//                    if (this.userService.checkEmailExist(email)){
+//                        this.addFieldError("email", "The email you enter has already exsited");
+//                    }
+                }else{
+                    this.addFieldError("email", "Please enter a valid email");
+                }
+            }
+            
+            if (pd[0].isEmpty()||pd[1].isEmpty()){
+                this.addFieldError("pd", "Password cannot be none");
+            }else{
+                if (!pd[0].equals(pd[1])){
+                    this.addFieldError("pd", "Two passwords you enter don't match");
+                } 
+            }
+            
+            if (fname==null){
+                this.addFieldError("fname", "You need enter your first name");
+            }
+            
+            if (lname==null){
+                this.addFieldError("lname", "You need enter your last name");
+            }
+            
+        }else{
+            //login validation
+            m=p.matcher(logemail);
+            if (m.matches()){
+                if (logpd.isEmpty()){
+                    this.addFieldError("logpd", "Please enter your password");
+                }
+            }else{
+                this.addFieldError("logemail", "Please enter a valid email");
+            }
+           
+        }
+    }
+
+    public String login(){
+        
+//        List<User> userlist = this.userService.retrieveUserbyEmail(logemail);
 //        
-//        user.setEmail("liwentao90@yahoo.com");
-//        user.setFname("Winslow");
-//        user.setLname("Leigh");
+//        if (userlist.size()!=1){
+//            this.addActionError("Email or Password is incorrect");
+//            return INPUT;
+//        }else{
+//            if (!userlist.get(0).getPd().equals(logpd)){
+//                this.addActionError("Email or Password is incorrect");
+//                return INPUT;
+//            } 
+//        }
 //        
-//        userService.saveUser(user);
-//        
+//        getSession().put("myself", userlist.get(0));
+        
         return SUCCESS;
+    }
+    
+    public String register(){
+        User user =new User();
+        
+        user.setEmail(email);
+        user.setPd(pd[0]);
+        user.setFname(fname);
+        user.setLname(lname);
+        user.setGender(gender);
+        
+//        userService.savenewUser(user);
+        
+        return SUCCESS;
+    }
+    @SkipValidation()
+    public String logout(){
+        
+        getSession().remove("myself");
+        
+        return INPUT;
+    }
+    
+    
+    
+    
+    
+
+    public String getLogemail() {
+        return logemail;
+    }
+
+    public void setLogemail(String logemail) {
+        this.logemail = logemail;
+    }
+
+    public String getLogpd() {
+        return logpd;
+    }
+
+    public void setLogpd(String logpd) {
+        this.logpd = logpd;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String[] getPd() {
+        return pd;
+    }
+
+    public void setPd(String[] pd) {
+        this.pd = pd;
+    }
+
+    public String getFname() {
+        return fname;
+    }
+
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
+
+    public String getLname() {
+        return lname;
+    }
+
+    public void setLname(String lname) {
+        this.lname = lname;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+    
+    public void setUserService(UserService userService) {
+        this.userService = userService;
     }
     
 }
