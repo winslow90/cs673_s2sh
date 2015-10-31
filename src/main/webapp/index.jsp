@@ -18,6 +18,7 @@
         <h1>Welcome Linkedin</h1>
         <s:actionerror/>
         <hr/>
+        
         <s:form action="userAction_login">
             <s:textfield name="logemail" label="Email"></s:textfield>
             <s:password name="logpd" label="Password"></s:password>

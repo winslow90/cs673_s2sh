@@ -15,4 +15,8 @@
     		<ref bean="userService"/>
     	</property>	
     </bean>
+    
+    <bean id="testAction" class="com.mylinkedin.action.TestAction"
+    	scope="prototype">
+    </bean>
 </beans>

@@ -21,7 +21,9 @@ import com.mylinkedin.domain.Updates;
 import com.mylinkedin.domain.User;
 import com.mylinkedin.test.utils.SpringUtils;
 import java.util.Date;
-import org.hibernate.sql.Update;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import org.junit.Test;
 
 /**
@@ -140,6 +142,22 @@ public class HibernateConnTest extends SpringUtils {
 //        universityDao.test();
 //        updateDao.test();        
 //        userDao.test();
+        
+        User me = userDao.getUserbyId(1L);
+        
+        List<Company> cps = companyDao.listCompanies();
+        
+        HashSet<Company> thecps = new HashSet();
+        
+        for (Company cp : cps){
+            thecps.add(cp);
+        }
+        
+        me.setCompanies(thecps);
+        
+        userDao.updateUser(me);
+        
+        
                 
     }
     

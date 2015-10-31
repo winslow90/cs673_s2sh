@@ -27,7 +27,7 @@ public class UpdateDaoImpl extends HibernateDaoSupport implements UpdateDao {
     }
 
     @Override
-    public void updateUPdate(Updates update) {
+    public void updateUpdate(Updates update) {
         this.getHibernateTemplate().update(update);
     }
 

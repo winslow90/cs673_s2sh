@@ -16,7 +16,7 @@ import java.util.List;
 public interface UpdateDao {
     
     public Long createUpdate(Updates update);
-    public void updateUPdate(Updates update);
+    public void updateUpdate(Updates update);
     public List<Updates> listupdates();
     
     public void test();

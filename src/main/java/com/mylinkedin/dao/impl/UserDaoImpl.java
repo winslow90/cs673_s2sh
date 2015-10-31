@@ -7,6 +7,7 @@ package com.mylinkedin.dao.impl;
 
 import com.mylinkedin.dao.UserDao;
 import com.mylinkedin.domain.User;
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -42,6 +43,11 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
             }
             
         });
+    }
+    
+    @Override
+    public User getUserbyId(Serializable uid) {
+        return this.getHibernateTemplate().get(User.class, uid);
     }
 
     

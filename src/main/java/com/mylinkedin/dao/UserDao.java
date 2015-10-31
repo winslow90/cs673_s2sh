@@ -6,6 +6,7 @@
 package com.mylinkedin.dao;
 
 import com.mylinkedin.domain.User;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -16,6 +17,8 @@ public interface UserDao {
     public Long createUser(User user);
     public void updateUser(User user);
     public List<User> listUsers();
+    
+    public User getUserbyId(Serializable uid);
     
     public void test();
     
