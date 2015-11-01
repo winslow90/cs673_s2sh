@@ -13,24 +13,18 @@
     <property length="512" name="summary" type="java.lang.String"/>
     <property length="256" name="photo_url" type="java.lang.String"/>
     <property length="256" name="location" type="java.lang.String"/>
-    
-    
     <set cascade="save-update" name="universities" table="user_university">
       <key>
         <column name="uid"/>
       </key>
       <many-to-many class="com.mylinkedin.domain.University" column="uniid"/>
     </set>
-    
-    
-    <set cascade="save-update" name="skills" table="user_skill" >
+    <set cascade="save-update" name="skills" table="user_skill">
       <key>
         <column name="uid"/>
       </key>
       <many-to-many class="com.mylinkedin.domain.Skill" column="skid"/>
     </set>
-    
-    
     <set cascade="save-update" name="companies" table="user_company">
       <key>
         <column name="uid"/>
@@ -38,12 +32,11 @@
       <many-to-many class="com.mylinkedin.domain.Company" column="cpid"/>
     </set>
     
-    
-    <set cascade="save-update" name="languages" table="user_language">
+    <set cascade="save-update" name="languages" table="user_languages">
       <key>
         <column name="uid"/>
       </key>
-      <many-to-many class="com.mylinkedin.domain.Language" column="langid"/>
+      <many-to-many class="com.mylinkedin.domain.Languages" column="lang_id"/>
     </set>
     
     
@@ -54,22 +47,17 @@
       <many-to-many class="com.mylinkedin.domain.User" column="to_uid"/>
     </set>
     
-    
     <set cascade="save-update" name="notifications">
       <key>
         <column name="uid"/>
       </key>
       <one-to-many class="com.mylinkedin.domain.Notification"/>
     </set>
-    
-    
     <set cascade="save-update" name="updates">
       <key>
         <column name="uid"/>
       </key>
       <one-to-many class="com.mylinkedin.domain.Updates"/>
     </set>
-    
-    
   </class>
 </hibernate-mapping>

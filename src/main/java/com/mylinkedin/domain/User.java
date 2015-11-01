@@ -29,13 +29,18 @@ public class User implements Serializable {
     private Set<University> universities;
     private Set<Skill> skills;
     private Set<Company> companies;
-    private Set<Language> languages;
+    private Set<Languages> languages;
+
+    
     private Set<User> connections;
 //    
 //    //one-to-many fields
     private Set<Notification> notifications;
     private Set<Updates> updates;
 
+    
+    
+    
     public Set<Updates> getUpdates() {
         return updates;
     }
@@ -58,14 +63,6 @@ public class User implements Serializable {
 
     public void setConnections(Set<User> connections) {
         this.connections = connections;
-    }
-
-    public Set<Language> getLanguages() {
-        return languages;
-    }
-
-    public void setLanguages(Set<Language> languages) {
-        this.languages = languages;
     }
 
     public Set<Company> getCompanies() {
@@ -91,6 +88,15 @@ public class User implements Serializable {
     public void setUniversities(Set<University> universities) {
         this.universities = universities;
     }
+    
+    public Set<Languages> getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(Set<Languages> languages) {
+        this.languages = languages;
+    }
+
 
     public Long getUid() {
         return uid;

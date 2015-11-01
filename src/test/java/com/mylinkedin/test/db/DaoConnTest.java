@@ -13,7 +13,7 @@ import com.mylinkedin.dao.UniversityDao;
 import com.mylinkedin.dao.UpdateDao;
 import com.mylinkedin.dao.UserDao;
 import com.mylinkedin.domain.Company;
-import com.mylinkedin.domain.Language;
+import com.mylinkedin.domain.Languages;
 import com.mylinkedin.domain.Notification;
 import com.mylinkedin.domain.Skill;
 import com.mylinkedin.domain.University;
@@ -59,7 +59,7 @@ public class DaoConnTest extends SpringUtils {
         }
         
         for (int i=1; i<n; i++){
-            Language lg = new Language();
+            Languages lg = new Languages();
             
             lg.setLang_name("Language"+i);
             
@@ -230,6 +230,52 @@ public class DaoConnTest extends SpringUtils {
             List<Updates> ups3 = updateDao.listUpdatebyUid(1L);
             List<Updates> ups4 = updateDao.listValidUpdatebyUid(1L);
         }
+        
+        
+        private void otherTest(CompanyDao companyDao,
+                            LanguageDao languageDao,
+                            NotificationDao notificationDao,
+                            SkillDao skillDao,
+                            UniversityDao universityDao,
+                            UpdateDao updateDao,
+                            UserDao userDao){
+            List<University> unis1 = universityDao.listUniversities();
+        
+            User me = userDao.getUserbyId(1L);
+            me.setUniversities(new HashSet(unis1));
+
+            userDao.updateUser(me);
+
+            List<University> unis2 = universityDao.listUniversitiesbyUid(1L);
+
+            University uni1= universityDao.getUniversitybyId(1L);
+            University uni2= universityDao.getUniversitybyName("University2");
+
+
+            List<Skill> sks=skillDao.listSkills();
+            List<Company> cps=companyDao.listCompanies();
+            
+
+            User me2 = userDao.getUserbyId(1L);
+
+            me2.setSkills(new HashSet(sks));
+            me2.setCompanies(new HashSet(cps));
+            
+
+            userDao.updateUser(me2);
+            
+            
+            List<Languages> langs= languageDao.listLanguage();
+        
+            HashSet<Languages> langsset = new HashSet(langs);
+               
+            User me3= userDao.getUserbyId(1L);
+        
+            me3.setLanguages(langsset);
+        
+            userDao.updateUser(me3);
+            
+        }
     
     @Test
     public void daotest(){
@@ -253,14 +299,10 @@ public class DaoConnTest extends SpringUtils {
 //        this.userDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
 //        this.notificationDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
 //        this.updateDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
+//        this.otherTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
         
-
-        
-        
-        
-        
-
-        
+     
+              
         
         
                 

@@ -1,28 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!DOCTYPE hibernate-mapping PUBLIC
-  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-
-    <class name="com.mylinkedin.domain.Language" table="language">
-        
-        <id name="langid" type="java.lang.Long" length="5" column="langid">
-            <generator class="increment"></generator>
-        </id>
-        
-        <property name="lang_name" type="java.lang.String" length="64"></property>
-        
-        <set name="users" table="user_language" cascade="save-update">
-            <key>
-                    <column name="langid"></column>
-            </key>
-            <many-to-many class="com.mylinkedin.domain.User" column="uid"></many-to-many>
-        </set> 
-        
-        
-    </class>
-  
-
+  <class name="com.mylinkedin.domain.Languages" table="languages">
+    <id column="lang_id" length="5" name="lang_id" type="java.lang.Long">
+      <generator class="increment"/>
+    </id>
+    <property length="64" name="lang_name" type="java.lang.String"/>
+    <set cascade="save-update" name="users" table="user_languages">
+      <key>
+        <column name="lang_id"/>
+      </key>
+      <many-to-many class="com.mylinkedin.domain.User" column="uid"/>
+    </set>
+  </class>
 </hibernate-mapping>

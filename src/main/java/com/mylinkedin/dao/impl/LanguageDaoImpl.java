@@ -6,7 +6,7 @@
 package com.mylinkedin.dao.impl;
 
 import com.mylinkedin.dao.LanguageDao;
-import com.mylinkedin.domain.Language;
+import com.mylinkedin.domain.Languages;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
@@ -23,23 +23,23 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 public class LanguageDaoImpl extends HibernateDaoSupport implements LanguageDao {
 
     @Override
-    public Long createLanguage(Language language) {
+    public Long createLanguage(Languages language) {
         return (Long) this.getHibernateTemplate().save(language);
     }
 
     @Override
-    public void updateLanguage(Language language) {
+    public void updateLanguage(Languages language) {
         this.getHibernateTemplate().update(language);
     }
 
     @Override
-    public List<Language> listLanguage() {
-        return (List<Language>) this.getHibernateTemplate().execute(
+    public List<Languages> listLanguage() {
+        return (List<Languages>) this.getHibernateTemplate().execute(
                 new HibernateCallback(){
 
                     @Override
                     public Object doInHibernate(Session session) throws HibernateException, SQLException {
-                        Query query = session.createQuery("from Company");
+                        Query query = session.createQuery("from Languages");
                         return query.list();
                     }
                     
@@ -47,39 +47,39 @@ public class LanguageDaoImpl extends HibernateDaoSupport implements LanguageDao 
     }
 
     @Override
-    public List<Language> listLanguagesbyUid(Serializable uid) {
+    public List<Languages> listLanguagesbyUid(Serializable uid) {
         final Serializable myuid = uid;
         
-        return (List<Language>) this.getHibernateTemplate().execute(new HibernateCallback(){
+        return (List<Languages>) this.getHibernateTemplate().execute(new HibernateCallback(){
 
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
-                Query query = session.createQuery("from Language lang join fetch lang.users us where us.uid=:theuid");
+                Query query = session.createQuery("from Languages lang join fetch lang.users us where us.uid=:theuid");
                 query.setParameter("theuid", myuid);
-                return (List<Language>) query.list();
+                return (List<Languages>) query.list();
             }
             
         });
     }
 
     @Override
-    public Language getLanguagebyId(Serializable langid) {
-        return this.getHibernateTemplate().get(Language.class, langid);
+    public Languages getLanguagebyId(Serializable langid) {
+        return this.getHibernateTemplate().get(Languages.class, langid);
     }
 
     @Override
-    public Language getLanguagebyName(String langname) {
+    public Languages getLanguagebyName(String langname) {
         
         final String mylangname = langname;
         
-        return (Language) this.getHibernateTemplate().execute(new HibernateCallback(){
+        return (Languages) this.getHibernateTemplate().execute(new HibernateCallback(){
 
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
-                Query query = session.createQuery("from Language lang where lang.lang_name=:thelangname");
+                Query query = session.createQuery("from Languages lang where lang.lang_name=:thelangname");
                 query.setParameter("thelangname", mylangname);
                 
-                return (Language) query.uniqueResult();
+                return (Languages) query.uniqueResult();
                 
             }
             

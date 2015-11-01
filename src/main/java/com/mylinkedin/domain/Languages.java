@@ -12,18 +12,20 @@ import java.util.Set;
  *
  * @author superman90
  */
-public class Language implements Serializable{
-    private Long langid;
+public class Languages implements Serializable{
+
+    private Long lang_id;
+
     private String lang_name;
     private Set<User> users;
-
-    public Long getLangid() {
-        return langid;
+    
+    public Long getLang_id() {
+        return lang_id;
     }
 
-    public void setLangid(Long langid) {
-        this.langid = langid;
-    }
+    public void setLang_id(Long lang_id) {
+        this.lang_id = lang_id;
+    }   
 
     public String getLang_name() {
         return lang_name;

@@ -5,7 +5,7 @@
  */
 package com.mylinkedin.dao;
 
-import com.mylinkedin.domain.Language;
+import com.mylinkedin.domain.Languages;
 import java.io.Serializable;
 import java.util.List;
 
@@ -15,13 +15,13 @@ import java.util.List;
  */
 public interface LanguageDao {
     
-    public Long createLanguage(Language language);
-    public void updateLanguage(Language language);
-    public List<Language> listLanguage();
+    public Long createLanguage(Languages language);
+    public void updateLanguage(Languages language);
+    public List<Languages> listLanguage();
     
-    public List<Language> listLanguagesbyUid(Serializable uid);
-    public Language getLanguagebyId(Serializable langid);
-    public Language getLanguagebyName(String langname);
+    public List<Languages> listLanguagesbyUid(Serializable uid);
+    public Languages getLanguagebyId(Serializable langid);
+    public Languages getLanguagebyName(String langname);
     
     public void test();
     
