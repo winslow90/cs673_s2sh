@@ -33,7 +33,7 @@ public class UpdateDaoImpl extends HibernateDaoSupport implements UpdateDao {
     }
 
     @Override
-    public List<Updates> listupdates() {
+    public List<Updates> listUpdates() {
         return (List<Updates>) this.getHibernateTemplate().execute(new HibernateCallback(){
 
             @Override

@@ -203,6 +203,33 @@ public class DaoConnTest extends SpringUtils {
             List<Notification> ntfs3=notificationDao.listNotificationsbyUid(1L);
             List<Notification> ntfs4=notificationDao.listValidNotificationbyUid(1L);
         }
+        
+        
+        private void updateDaoTest(CompanyDao companyDao,
+                            LanguageDao languageDao,
+                            NotificationDao notificationDao,
+                            SkillDao skillDao,
+                            UniversityDao universityDao,
+                            UpdateDao updateDao,
+                            UserDao userDao){
+            List<Updates> ups1=updateDao.listUpdates();
+
+            User me = userDao.getUserbyId(1L);
+
+            me.setUpdates(new HashSet(new HashSet(ups1)));
+            
+            userDao.updateUser(me);        
+
+
+            List<Updates> ups2=updateDao.listUpdates();
+
+            for (int i = ups2.size()/2; i <ups2.size();i++){
+                updateDao.invalidateUpdate(ups2.get(i));
+            }
+
+            List<Updates> ups3 = updateDao.listUpdatebyUid(1L);
+            List<Updates> ups4 = updateDao.listValidUpdatebyUid(1L);
+        }
     
     @Test
     public void daotest(){
@@ -223,8 +250,14 @@ public class DaoConnTest extends SpringUtils {
 //        updateDao.test();        
 //        userDao.test();
         
-        this.userDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
-        this.notificationDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
+//        this.userDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
+//        this.notificationDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
+//        this.updateDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
+        
+
+        
+        
+        
         
 
         

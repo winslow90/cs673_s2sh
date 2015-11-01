@@ -18,7 +18,7 @@ public interface UpdateDao {
     
     public Long createUpdate(Updates update);
     public void updateUpdate(Updates update);
-    public List<Updates> listupdates();
+    public List<Updates> listUpdates();
     
     public List<Updates> listUpdatebyUid(Serializable uid);
     public void invalidateUpdate(Updates ntf);
