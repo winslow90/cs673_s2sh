@@ -56,7 +56,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
                 Query query = session.createQuery("from User u where u.email=:theemail");
-                query.setParameter("theeamil", myemail);
+                query.setParameter("theemail", myemail);
                 return query.uniqueResult();
             }
             
@@ -77,7 +77,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
-                Query query = session.createQuery("form User u join fetch u.connections where u.uid=:theuid");
+                Query query = session.createQuery("from User u join fetch u.connections c where u.uid=:theuid");
                 query.setParameter("theuid", myuid);
                 
                 User me = (User) query.uniqueResult();
@@ -99,7 +99,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
                 
-                Query query = session.createQuery("from User u join fetch u.connection c where c.uid=:theuid");
+                Query query = session.createQuery("from User u join fetch u.connections c where c.uid=:theuid");
                 
                 query.setParameter("theuid", myuid);
                 

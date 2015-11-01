@@ -30,9 +30,9 @@ import org.junit.Test;
  *
  * @author superman90
  */
-public class HibernateConnTest extends SpringUtils {
+public class DaoConnTest extends SpringUtils {
     
-    public HibernateConnTest() {
+    public DaoConnTest() {
     }
 
     // TODO add test methods here.
@@ -143,19 +143,48 @@ public class HibernateConnTest extends SpringUtils {
 //        updateDao.test();        
 //        userDao.test();
         
-        User me = userDao.getUserbyId(1L);
+//        User me = userDao.getUserbyId(1L);
+//        
+//        List<Company> cps = companyDao.listCompanies();
+//        
+//        HashSet<Company> thecps = new HashSet();
+//        
+//        for (Company cp : cps){
+//            thecps.add(cp);
+//        }
+//        
+//        me.setCompanies(thecps);
+//        
+//        userDao.updateUser(me);
         
-        List<Company> cps = companyDao.listCompanies();
         
-        HashSet<Company> thecps = new HashSet();
         
-        for (Company cp : cps){
-            thecps.add(cp);
-        }
         
-        me.setCompanies(thecps);
+//        List<User> allusers= userDao.listUsers();
+//        HashSet<User> theusers = new HashSet();
+//        
+//        User me = userDao.getUserbyId(1L);
+//        
+//        for (User u : allusers){
+//            if (u.getUid()!= 1L){
+//                theusers.add(u);
+//            }
+//        }
+//        
+//        me.setConnections(theusers);
+//        
+//        
+//        userDao.updateUser(me);
         
-        userDao.updateUser(me);
+        
+//        User u= userDao.getUserbyEmail("u1@u.com");
+        
+        
+//        List<User> users = userDao.listConnections(1L);
+        
+        
+//        List<User> users = userDao.listUserconnectingMe(userDao.getUserbyId(2L));
+        
         
         
                 

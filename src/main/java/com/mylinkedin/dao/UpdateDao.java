@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  *
- * @author superman90w
+ * @author superman90
  */
 public interface UpdateDao {
     
