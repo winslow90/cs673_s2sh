@@ -20,7 +20,7 @@ public interface UserDao {
     public List<User> listUsers();
     
     public User getUserbyId(Serializable uid);
-    public User getUserbyEmail(String email);
+    public List<User> getUsersbyEmail(String email);
     
     public List<User> listConnections(Serializable uid);
     public List<User> listUserconnectingMe(User me);

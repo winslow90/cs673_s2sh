@@ -168,7 +168,7 @@ public class DaoConnTest extends SpringUtils {
         userDao.updateUser(me2);
         
         
-//        User u= userDao.getUserbyEmail("u1@u.com");
+//        User u= userDao.getUsersbyEmail("u1@u.com");
         
         
 //        List<User> users = userDao.listConnections(1L);

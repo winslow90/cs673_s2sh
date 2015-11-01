@@ -6,11 +6,32 @@
 package com.mylinkedin.service;
 
 import com.mylinkedin.domain.User;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  *
  * @author superman90
  */
 public interface UserService {
+    public Serializable createUser(
+            String email,
+            String pd,
+            String fname,
+            String lname,
+            String gender,
+            String photo_url,
+            String location
+            );
+    public void updateUser(User user);
+    public List<User> getUsersbyEmail(String email);
+    public User getUserbyId(Serializable uid);
+    public Boolean checkEmailExist(String email);
+    public List<User> getConnection(Serializable uid);
+    public void removeConnection(Serializable uid,Serializable touid);
+    public void addConnection(Serializable uid, Serializable touid);
+    public void updateUserIcon(Serializable myuid, String photo_url);
+    
+    public List<User> listTopNConnectedUsers();
     
 }

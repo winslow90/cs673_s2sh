@@ -47,17 +47,17 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
     }
     
     @Override
-    public User getUserbyEmail(String email) {
+    public List<User> getUsersbyEmail(String email) {
         
         final String myemail = email;
         
-        return (User) this.getHibernateTemplate().execute(new HibernateCallback(){
+        return (List<User>) this.getHibernateTemplate().execute(new HibernateCallback(){
 
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
                 Query query = session.createQuery("from User u where u.email=:theemail");
                 query.setParameter("theemail", myemail);
-                return query.uniqueResult();
+                return query.list();
             }
             
         });
