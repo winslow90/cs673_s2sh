@@ -71,7 +71,7 @@ public class DaoConnTest extends SpringUtils {
             
             nf.setNt_content("Notification_content"+i);
             nf.setNt_datetime(new Date());
-            nf.setNt_read("false");
+            nf.setNt_read(false);
             nf.setNt_type(1L);
             
             notificationDao.createNotification(nf);
@@ -104,6 +104,7 @@ public class DaoConnTest extends SpringUtils {
             
             up.setUp_content("Update"+i);
             up.setUp_datetime(new Date());
+            up.setUp_read(false);
             up.setUp_type(1L);
             
             updateDao.createUpdate(up);
@@ -122,6 +123,87 @@ public class DaoConnTest extends SpringUtils {
         
     }
     
+    private void userDaoTest(CompanyDao companyDao,
+                            LanguageDao languageDao,
+                            NotificationDao notificationDao,
+                            SkillDao skillDao,
+                            UniversityDao universityDao,
+                            UpdateDao updateDao,
+                            UserDao userDao){
+        this.dodatainit(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
+        
+
+        
+        User me = userDao.getUserbyId(1L);
+        
+        List<Company> cps = companyDao.listCompanies();
+        
+        HashSet<Company> thecps = new HashSet();
+        
+        for (Company cp : cps){
+            thecps.add(cp);
+        }
+        
+        me.setCompanies(thecps);
+        
+        userDao.updateUser(me);
+        
+        
+        
+        
+        List<User> allusers= userDao.listUsers();
+        HashSet<User> theusers = new HashSet();
+        
+        User me2 = userDao.getUserbyId(1L);
+        
+        for (User u : allusers){
+            if (u.getUid()!= 1L){
+                theusers.add(u);
+            }
+        }
+        
+        me2.setConnections(theusers);
+        
+        
+        userDao.updateUser(me2);
+        
+        
+//        User u= userDao.getUserbyEmail("u1@u.com");
+        
+        
+//        List<User> users = userDao.listConnections(1L);
+        
+        
+//        List<User> users = userDao.listUserconnectingMe(userDao.getUserbyId(2L));
+    }
+    
+        private void notificationDaoTest(CompanyDao companyDao,
+                            LanguageDao languageDao,
+                            NotificationDao notificationDao,
+                            SkillDao skillDao,
+                            UniversityDao universityDao,
+                            UpdateDao updateDao,
+                            UserDao userDao){
+            
+            List<Notification> ntfs=notificationDao.listNotifications();
+
+            User me = userDao.getUserbyId(1L);
+
+            me.setNotifications(new HashSet<>(ntfs));
+
+            userDao.updateUser(me);        
+
+
+            List<Notification> ntfs2=notificationDao.listNotifications();
+
+            for (int i = ntfs2.size()/2; i <ntfs2.size();i++){
+                notificationDao.invalidateNotification(ntfs2.get(i));
+            }
+
+            List<Notification> ntfs3=notificationDao.listNotificationsbyUid(1L);
+            List<Notification> ntfs4=notificationDao.listValidNotificationbyUid(1L);
+        }
+    
     @Test
     public void daotest(){
         
@@ -132,9 +214,7 @@ public class DaoConnTest extends SpringUtils {
         UniversityDao universityDao = (UniversityDao) context.getBean("universityDao");
         UpdateDao updateDao = (UpdateDao) context.getBean("updateDao");
         UserDao userDao = (UserDao) context.getBean("userDao");
-        
-//        this.dodatainit(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
-        
+
 //        companyDao.test();
 //        languageDao.test();
 //        notificationDao.test();
@@ -143,47 +223,10 @@ public class DaoConnTest extends SpringUtils {
 //        updateDao.test();        
 //        userDao.test();
         
-//        User me = userDao.getUserbyId(1L);
-//        
-//        List<Company> cps = companyDao.listCompanies();
-//        
-//        HashSet<Company> thecps = new HashSet();
-//        
-//        for (Company cp : cps){
-//            thecps.add(cp);
-//        }
-//        
-//        me.setCompanies(thecps);
-//        
-//        userDao.updateUser(me);
+        this.userDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
+        this.notificationDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
         
-        
-        
-        
-//        List<User> allusers= userDao.listUsers();
-//        HashSet<User> theusers = new HashSet();
-//        
-//        User me = userDao.getUserbyId(1L);
-//        
-//        for (User u : allusers){
-//            if (u.getUid()!= 1L){
-//                theusers.add(u);
-//            }
-//        }
-//        
-//        me.setConnections(theusers);
-//        
-//        
-//        userDao.updateUser(me);
-        
-        
-//        User u= userDao.getUserbyEmail("u1@u.com");
-        
-        
-//        List<User> users = userDao.listConnections(1L);
-        
-        
-//        List<User> users = userDao.listUserconnectingMe(userDao.getUserbyId(2L));
+
         
         
         

@@ -14,8 +14,8 @@
         
         <property name="nt_type" type="java.lang.Long" length="5"></property>
         <property name="nt_content" type="java.lang.String" length="512"></property>
-        <property name="nt_datetime" type="date" length="64"></property>
-        <property name="nt_read" type="java.lang.String" length="16"></property>
+        <property name="nt_datetime" type="date"></property>
+        <property name="nt_read" type="boolean" ></property>
         
         <many-to-one name="user" 
 		class="com.mylinkedin.domain.User"

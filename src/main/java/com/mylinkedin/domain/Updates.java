@@ -18,20 +18,21 @@ public class Updates implements Serializable {
     private Long up_type;
     private String up_content;
     private Date up_datetime;
-    private String up_read;
-    
-    private User user;
+    private Boolean up_read;
 
     
-    public String getUp_read() {
+    private User user;
+    
+    
+    
+    public Boolean getUp_read() {
         return up_read;
     }
 
-    public void setUp_read(String up_read) {
+    public void setUp_read(Boolean up_read) {
         this.up_read = up_read;
     }
     
-
     public Long getUpid() {
         return upid;
     }

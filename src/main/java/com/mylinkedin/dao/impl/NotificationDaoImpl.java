@@ -65,8 +65,8 @@ public class NotificationDaoImpl extends HibernateDaoSupport implements Notifica
 
     @Override
     public void invalidateNotification(Notification nf) {
-        nf.setNt_read("true");
-        this.getHibernateTemplate().save(nf);
+        nf.setNt_read(true);
+        this.getHibernateTemplate().update(nf);
     }
 
     @Override

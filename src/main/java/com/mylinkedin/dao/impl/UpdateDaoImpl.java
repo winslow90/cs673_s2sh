@@ -68,7 +68,7 @@ public class UpdateDaoImpl extends HibernateDaoSupport implements UpdateDao {
     @Override
     public void invalidateUpdate(Updates ntf) {
         
-        ntf.setUp_read("true");
+        ntf.setUp_read(true);
         
         this.getHibernateTemplate().update(ntf);
         

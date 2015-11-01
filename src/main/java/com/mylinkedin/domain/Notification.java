@@ -18,7 +18,15 @@ public class Notification implements Serializable {
     private Long nt_type;
     private String nt_content;
     private Date nt_datetime;
-    private String nt_read;
+    private Boolean nt_read;
+
+    public Boolean getNt_read() {
+        return nt_read;
+    }
+
+    public void setNt_read(Boolean nt_read) {
+        this.nt_read = nt_read;
+    }
     
     private User user;
 
@@ -52,14 +60,6 @@ public class Notification implements Serializable {
 
     public void setNt_datetime(Date nt_datetime) {
         this.nt_datetime = nt_datetime;
-    }
-
-    public String getNt_read() {
-        return nt_read;
-    }
-
-    public void setNt_read(String nt_read) {
-        this.nt_read = nt_read;
     }
 
     public User getUser() {
