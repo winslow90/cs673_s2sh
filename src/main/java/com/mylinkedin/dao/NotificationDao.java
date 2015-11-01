@@ -6,6 +6,7 @@
 package com.mylinkedin.dao;
 
 import com.mylinkedin.domain.Notification;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -17,6 +18,12 @@ public interface NotificationDao {
     public Long createNotification(Notification notification);
     public void updateNotification(Notification notification);
     public List<Notification> listNotifications();
+    
+    public List<Notification> listNotificationsbyUid(Serializable uid);
+    
+    public void invalidateNotification(Notification nf);
+    public List<Notification> listValidNotificationbyUid(Serializable uid);
+    
     
     public void test();
     

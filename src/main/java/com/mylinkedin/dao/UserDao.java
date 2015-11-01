@@ -14,11 +14,18 @@ import java.util.List;
  * @author superman90
  */
 public interface UserDao {
+    
     public Long createUser(User user);
     public void updateUser(User user);
     public List<User> listUsers();
     
     public User getUserbyId(Serializable uid);
+    public User getUserbyEmail(String email);
+    
+    public List<User> listConnections(Serializable uid);
+    public List<User> listUserconnectingMe(User me);
+    
+    public List<User> listTopNConnectedUser(int N);
     
     public void test();
     

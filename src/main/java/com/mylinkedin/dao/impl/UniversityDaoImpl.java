@@ -7,6 +7,7 @@ package com.mylinkedin.dao.impl;
 
 import com.mylinkedin.dao.UniversityDao;
 import com.mylinkedin.domain.University;
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -44,10 +45,51 @@ public class UniversityDaoImpl extends HibernateDaoSupport implements University
     }
 
     @Override
-    public void test() {
+    public List<University> listUniversitiesbyUid(Serializable uid) {
         
+        final Serializable myuid = uid;
+        
+        return (List<University>) this.getHibernateTemplate().execute(new HibernateCallback(){
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                Query query = session.createQuery("from University uni join fetch uni.users us where us.uid=:theuid");
+                query.setParameter("theuid", myuid);
+                return (List<University>) query.list();
+            }
+            
+        });
     }
 
+    @Override
+    public University getUniversitybyId(Serializable uniid) {
+        return this.getHibernateTemplate().get(University.class, uniid);
+    }
+
+    @Override
+    public University getUniversitybyName(String uniname) {
+        
+        final String myuniname = uniname;
+        
+        return (University) this.getHibernateTemplate().execute(new HibernateCallback(){
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                Query query = session.createQuery("from University uni where uni.uni_name=:theuniname");
+                query.setParameter("theuniname", myuniname);
+                
+                return (University) query.uniqueResult();
+                
+            }
+            
+        });
+        
+    }
     
+    
+    @Override
+    public void test() {
+        
+    }    
     
 }

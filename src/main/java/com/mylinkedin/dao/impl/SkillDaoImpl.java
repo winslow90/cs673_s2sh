@@ -7,6 +7,7 @@ package com.mylinkedin.dao.impl;
 
 import com.mylinkedin.dao.SkillDao;
 import com.mylinkedin.domain.Skill;
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -43,7 +44,46 @@ public class SkillDaoImpl extends HibernateDaoSupport implements SkillDao {
             
         });
     }
+    
+    @Override
+    public List<Skill> listSkillsbyUid(Serializable uid) {
+        final Serializable myuid = uid;
+        
+        return (List<Skill>) this.getHibernateTemplate().execute(new HibernateCallback(){
 
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                Query query = session.createQuery("from Skill sk join fetch sk.users us where us.uid=:theuid");
+                query.setParameter("theuid", myuid);
+                return (List<Skill>) query.list();
+            }
+            
+        });
+    }
+
+    @Override
+    public Skill getSkillbyId(Serializable skid) {
+        return this.getHibernateTemplate().get(Skill.class, skid);
+    }
+
+    @Override
+    public Skill getSkillbyName(String skname) {
+        final String myskname = skname;
+        
+        return (Skill) this.getHibernateTemplate().execute(new HibernateCallback(){
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                Query query = session.createQuery("from Skill sk where sk.sk_name=:theskname");
+                query.setParameter("theskname", myskname);
+                
+                return (Skill) query.uniqueResult();
+                
+            }
+            
+        });
+    }
+    
     @Override
     public void test() {
         List<Skill> ls = listSkills();

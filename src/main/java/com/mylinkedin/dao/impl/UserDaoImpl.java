@@ -9,6 +9,7 @@ import com.mylinkedin.dao.UserDao;
 import com.mylinkedin.domain.User;
 import java.io.Serializable;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -46,8 +47,73 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
     }
     
     @Override
+    public User getUserbyEmail(String email) {
+        
+        final String myemail = email;
+        
+        return (User) this.getHibernateTemplate().execute(new HibernateCallback(){
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                Query query = session.createQuery("from User u where u.email=:theemail");
+                query.setParameter("theeamil", myemail);
+                return query.uniqueResult();
+            }
+            
+        });
+    }
+    
+    @Override
     public User getUserbyId(Serializable uid) {
         return this.getHibernateTemplate().get(User.class, uid);
+    }
+
+    @Override
+    public List<User> listConnections(Serializable uid) {
+        
+        final Serializable myuid= uid;
+        
+        return (List<User>) this.getHibernateTemplate().execute(new HibernateCallback(){
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                Query query = session.createQuery("form User u join fetch u.connections where u.uid=:theuid");
+                query.setParameter("theuid", myuid);
+                
+                User me = (User) query.uniqueResult();
+                
+                return new ArrayList<>(me.getConnections());
+                
+            }
+            
+        });
+    }
+
+    @Override
+    public List<User> listUserconnectingMe(User me) {
+        
+        final Serializable myuid=me.getUid();
+        
+        return (List<User>) this.getHibernateTemplate().execute(new HibernateCallback(){
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                
+                Query query = session.createQuery("from User u join fetch u.connection c where c.uid=:theuid");
+                
+                query.setParameter("theuid", myuid);
+                
+                return (List<User>) query.list();
+                
+            }
+            
+        });
+    }
+
+    @Override
+    public List<User> listTopNConnectedUser(int N) {
+        
+        throw new UnsupportedOperationException("Not supported yet_from winslow leigh."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

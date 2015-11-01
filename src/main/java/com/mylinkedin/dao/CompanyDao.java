@@ -6,6 +6,7 @@
 package com.mylinkedin.dao;
 
 import com.mylinkedin.domain.Company;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -17,6 +18,10 @@ public interface CompanyDao {
     public Long createCompany(Company company);
     public void updateCompany(Company company);
     public List<Company> listCompanies();
+    
+    public List<Company> listCompaniesbyUid(Serializable uid);
+    public Company getCompanybyId(Serializable cpid);
+    public Company getCompanybyName(String cpname);
     
     public void test();
     

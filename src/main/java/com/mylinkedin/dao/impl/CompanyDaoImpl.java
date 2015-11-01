@@ -7,6 +7,7 @@ package com.mylinkedin.dao.impl;
 
 import com.mylinkedin.dao.CompanyDao;
 import com.mylinkedin.domain.Company;
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -46,9 +47,50 @@ public class CompanyDaoImpl extends HibernateDaoSupport implements CompanyDao {
     }
 
     @Override
+    public List<Company> listCompaniesbyUid(Serializable uid) {
+        final Serializable myuid = uid;
+        
+        return (List<Company>) this.getHibernateTemplate().execute(new HibernateCallback(){
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                Query query = session.createQuery("from Company cp join fetch cp.users us where us.uid=:theuid");
+                query.setParameter("theuid", myuid);
+                return (List<Company>) query.list();
+            }
+            
+        });
+    }
+
+    @Override
+    public Company getCompanybyId(Serializable cpid) {
+        return this.getHibernateTemplate().get(Company.class, cpid);
+    }
+
+    @Override
+    public Company getCompanybyName(String cpname) {
+        
+        final String mycpname = cpname;
+        
+        return (Company) this.getHibernateTemplate().execute(new HibernateCallback(){
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                Query query = session.createQuery("from Company cp where cp.cp_name=:thecpname");
+                query.setParameter("thecpname", mycpname);
+                
+                return (Company) query.uniqueResult();
+                
+            }
+            
+        });
+    }
+
+    @Override
     public void test() {
         
     }
+
     
     
     

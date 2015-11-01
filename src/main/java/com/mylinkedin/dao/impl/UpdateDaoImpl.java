@@ -7,6 +7,7 @@ package com.mylinkedin.dao.impl;
 
 import com.mylinkedin.dao.UpdateDao;
 import com.mylinkedin.domain.Updates;
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -37,7 +38,7 @@ public class UpdateDaoImpl extends HibernateDaoSupport implements UpdateDao {
 
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
-                Query query = session.createQuery("from Update");
+                Query query = session.createQuery("from Updates");
                 return query.list();
             }
             
@@ -47,9 +48,56 @@ public class UpdateDaoImpl extends HibernateDaoSupport implements UpdateDao {
     }
 
     @Override
-    public void test() {
+    public List<Updates> listUpdatebyUid(Serializable uid) {
+        
+        final Serializable myuid = uid;
+        return (List<Updates>) this.getHibernateTemplate().execute(new HibernateCallback(){
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                Query query= session.createQuery("from Updates up join fetch up.user u where u.uid =:theuid");
+                
+                query.setParameter("theuid", myuid);
+                
+                return (List<Updates>) query.list();
+            }
+            
+        });
+    }
+
+    @Override
+    public void invalidateUpdate(Updates ntf) {
+        
+        ntf.setUp_read("true");
+        
+        this.getHibernateTemplate().update(ntf);
+        
+    }
+
+    @Override
+    public List<Updates> listValidUpdatebyUid(Serializable uid) {
+        
+        final Serializable myuid = uid;
+        
+        return (List<Updates>) this.getHibernateTemplate().execute(new HibernateCallback(){
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                Query query= session.createQuery("from Updates up join fetch up.user u where u.uid =:theuid and up.up_read=false");
+                
+                query.setParameter("theuid", myuid);
+                
+                return (List<Updates>) query.list();
+            }
+            
+        });
         
     }
     
+    
+    @Override
+    public void test() {
+        
+    }
     
 }

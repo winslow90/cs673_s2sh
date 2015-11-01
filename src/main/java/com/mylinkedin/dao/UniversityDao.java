@@ -6,6 +6,7 @@
 package com.mylinkedin.dao;
 
 import com.mylinkedin.domain.University;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -17,6 +18,10 @@ public interface UniversityDao {
     public Long creatUniversity(University university);
     public void updateUniversity(University university);
     public List<University> listUniversities();
+    
+    public List<University> listUniversitiesbyUid(Serializable uid);
+    public University getUniversitybyId(Serializable uniid);
+    public University getUniversitybyName(String uniname);
     
     public void test();
     
