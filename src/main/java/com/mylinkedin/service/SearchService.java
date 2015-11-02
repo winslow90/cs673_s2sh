@@ -23,7 +23,8 @@ public interface SearchService {
             String unilike,
             String skilike,
             String comlike,
-            String lanlike
+            String lanlike,
+            boolean andcondition
             );
     public List<User> simpleSearch(String searchstr);
     

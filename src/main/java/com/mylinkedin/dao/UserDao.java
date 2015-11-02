@@ -8,6 +8,7 @@ package com.mylinkedin.dao;
 import com.mylinkedin.domain.User;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -27,6 +28,11 @@ public interface UserDao {
     public List<User> listUserconnectingMe(Serializable uid);
     
     public List<User> listTopNConnectedUser(int N);
+    
+    public List<User> searchUserLike(
+            Map<String, String[]> paras ,
+            boolean andcondition
+            );
     
     public void test();
     

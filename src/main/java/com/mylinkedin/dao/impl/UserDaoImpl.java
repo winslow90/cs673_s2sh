@@ -11,6 +11,8 @@ import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -132,10 +134,75 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
     }
 
     @Override
+    public List<User> searchUserLike(final Map<String, String[]> paras ,final boolean andcondition) {
+        
+        return (List<User>) this.getHibernateTemplate().execute(new HibernateCallback(){
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+
+//                  Query query = session.createQuery("from User u "
+//                                            + "join fetch u.universities uni"
+//                                            + "join fetch u.skills sk"
+//                                            + "join fetch u.companies cp"
+//                                            + "join fetch u.languages lang"
+//                        
+//                                            + "where 1=1 "
+//                                            
+//                                            + "or u.fname like '%:fn%'"
+//                                            + "or u.lname like '%:ln%'"
+//                                            + "or u.summary like '%sum%'"
+//                                            + "or u.location like '%loc%'"
+//                                            + "or uni.uni_name like '%unil%'"
+//                                            + "or sk.sk_name like %skl%"
+//                                            + "or cp.cp_name like '%cpl%'"
+//                                            + "or lang.lang_name like %langl%");
+                
+                StringBuilder querystr= new StringBuilder();
+                String andor;
+                
+                if (andcondition){
+                    andor=" and ";
+                }else{
+                    andor=" or ";
+                }
+                
+                
+                
+                querystr.append("from User u "
+                        + "join fetch u.universities uni"
+                        + "join fetch u.skills sk"
+                        + "join fetch u.companies cp"
+                        + "join fetch u.languages lang"
+
+                        + "where 1=1");
+                
+                for (Entry<String, String[]> entry: paras.entrySet()){
+                    querystr.append(andor)
+                            .append(entry.getValue()[0])
+                            .append(" like '%:")
+                            .append(entry.getKey())
+                            .append("%'");
+                }
+                
+                Query query = session.createQuery(querystr.toString());
+                
+                for (Entry<String, String[]> entry: paras.entrySet()){
+                    query.setParameter(entry.getKey(), entry.getValue()[1]);
+                }
+                
+                return query.list();
+            }
+            
+        });
+    }
+    
+        @Override
     public List<User> listTopNConnectedUser(int N) {
         
         throw new UnsupportedOperationException("Not supported yet_from winslow leigh."); //To change body of generated methods, choose Tools | Templates.
     }
+    
 
     
     @Override
@@ -237,5 +304,6 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
         
         
     }
+
 
 }
