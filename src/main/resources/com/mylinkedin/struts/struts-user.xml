@@ -6,7 +6,8 @@
 <struts>
 	<package name="user" namespace="/" extends="struts-default">
 		<action name="userAction_*" method="{1}" class="userAction">
-                    <result name="success">    /success.jsp    </result>
+                    <result name="success">    /home.jsp    </result>
+                    <result name="input">    /index.jsp    </result>
 		</action>
 	</package>
 </struts>

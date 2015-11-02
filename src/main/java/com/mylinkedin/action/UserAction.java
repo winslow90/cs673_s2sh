@@ -21,6 +21,9 @@ import org.apache.struts2.interceptor.validation.SkipValidation;
  */
 public class UserAction extends ActionSupport {
     
+    private final String DEFAULT_PHOTO_URL = "default_photo_url";
+    private final String DEFAULT_LOCATION="default_location";
+    
     private UserService userService;
     
     //form1
@@ -55,9 +58,9 @@ public class UserAction extends ActionSupport {
             }else{
                 m=p.matcher(email);
                 if (m.matches()){
-//                    if (this.userService.checkEmailExist(email)){
-//                        this.addFieldError("email", "The email you enter has already exsited");
-//                    }
+                    if (this.userService.checkEmailExist(email)){
+                        this.addFieldError("email", "The email you enter has already exsited");
+                    }
                 }else{
                     this.addFieldError("email", "Please enter a valid email");
                 }
@@ -95,40 +98,35 @@ public class UserAction extends ActionSupport {
 
     public String login(){
         
-//        List<User> userlist = this.userService.retrieveUserbyEmail(logemail);
-//        
-//        if (userlist.size()!=1){
-//            this.addActionError("Email or Password is incorrect");
-//            return INPUT;
-//        }else{
-//            if (!userlist.get(0).getPd().equals(logpd)){
-//                this.addActionError("Email or Password is incorrect");
-//                return INPUT;
-//            } 
-//        }
-//        
-//        getSession().put("myself", userlist.get(0));
+        List<User> userlist = this.userService.getUsersbyEmail(logemail);
+        
+        if (userlist.size()!=1){
+            this.addActionError("Email or Password is incorrect");
+            return INPUT;
+        }else{
+            if (!userlist.get(0).getPd().equals(logpd)){
+                this.addActionError("Email or Password is incorrect");
+                return INPUT;
+            } 
+        }
+        
+        getSession().put("myUid", userlist.get(0).getUid());
         
         return SUCCESS;
     }
     
     public String register(){
-        User user =new User();
         
-        user.setEmail(email);
-        user.setPd(pd[0]);
-        user.setFname(fname);
-        user.setLname(lname);
-        user.setGender(gender);
-        
-//        userService.savenewUser(user);
+        getSession().put("myUid", 
+                userService.createUser(email, pd[0], fname, lname, gender, 
+                        DEFAULT_PHOTO_URL, DEFAULT_LOCATION));
         
         return SUCCESS;
     }
     @SkipValidation()
     public String logout(){
         
-        getSession().remove("myself");
+        getSession().remove("myUid");
         
         return INPUT;
     }
