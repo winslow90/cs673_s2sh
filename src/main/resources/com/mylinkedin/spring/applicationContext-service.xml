@@ -14,5 +14,65 @@
     		<ref bean="userDao"/>
     	</property>
     </bean>
+    
+    <bean id="companyService" class="com.mylinkedin.service.impl.CompanyServiceImpl">
+        <property name="companyDao">
+            <ref bean="companyDao"/>
+        </property>
+    	<property name="userDao">
+    		<ref bean="userDao"/>
+    	</property>
+    </bean>
+    
+    <bean id="languageService" class="com.mylinkedin.service.impl.LanguageServiceImpl">
+        <property name="languageDao">
+            <ref bean="languageDao"/>
+        </property>
+    	<property name="userDao">
+    		<ref bean="userDao"/>
+    	</property>
+    </bean>
+    
+    <bean id="notificationService" class="com.mylinkedin.service.impl.NotificationServiceImpl">
+        <property name="notificationDao">
+            <ref bean="notificationDao"/>
+        </property>
+    	<property name="userDao">
+    		<ref bean="userDao"/>
+    	</property>
+    </bean>
+    
+    <bean id="searchService" class="com.mylinkedin.service.impl.SearchServiceImpl">
+        <property name="userDao">
+    		<ref bean="userDao"/>
+    	</property>
+    </bean>
+    
+    <bean id="skillService" class="com.mylinkedin.service.impl.SkillServiceImpl">
+        <property name="skillDao">
+            <ref bean="skillDao"/>
+        </property>
+    	<property name="userDao">
+    		<ref bean="userDao"/>
+    	</property>
+    </bean>
+    
+    <bean id="universityService" class="com.mylinkedin.service.impl.UniversityServiceImpl">
+        <property name="universityDao">
+            <ref bean="universityDao"/>
+        </property>
+    	<property name="userDao">
+    		<ref bean="userDao"/>
+    	</property>
+    </bean>
+    
+    <bean id="updateService" class="com.mylinkedin.service.impl.UpdateServiceImpl">
+        <property name="updateDao">
+            <ref bean="updateDao"/>
+        </property>
+    	<property name="userDao">
+    		<ref bean="userDao"/>
+    	</property>
+    </bean>
    
 </beans>

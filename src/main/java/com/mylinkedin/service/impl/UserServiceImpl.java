@@ -9,6 +9,7 @@ import com.mylinkedin.dao.UserDao;
 import com.mylinkedin.domain.User;
 import com.mylinkedin.service.UserService;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -25,47 +26,83 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Serializable createUser(String email, String pd, String fname, String lname, String gender, String photo_url, String location) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        User newuser = new User();
+        
+        newuser.setEmail(email);
+        newuser.setPd(pd);
+        newuser.setFname(fname);
+        newuser.setLname(lname);
+        newuser.setGender(gender);
+        newuser.setPhoto_url(photo_url);
+        newuser.setLocation(location);
+        
+        return userDao.createUser(newuser);
+        
     }
 
     @Override
     public void updateUser(User user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        userDao.updateUser(user);
     }
 
     @Override
     public List<User> getUsersbyEmail(String email) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return userDao.getUsersbyEmail(email);
     }
 
     @Override
     public User getUserbyId(Serializable uid) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return userDao.getUserbyId(uid);
     }
 
     @Override
     public Boolean checkEmailExist(String email) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return userDao.getUsersbyEmail(email).size()>0;
     }
 
     @Override
     public List<User> getConnection(Serializable uid) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return userDao.listConnections(uid);
     }
 
     @Override
     public void removeConnection(Serializable uid, Serializable touid) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        HashSet<User> conns= new HashSet(userDao.listConnections(uid));
+        User me=userDao.getUserbyId(uid);
+        User toremove = userDao.getUserbyId(touid);
+        
+        
+        if (conns.contains(toremove)){
+            conns.remove(toremove);            
+            me.setConnections(conns);
+            userDao.updateUser(me);
+        }
     }
 
     @Override
     public void addConnection(Serializable uid, Serializable touid) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        HashSet<User> conns= new HashSet(userDao.listConnections(uid));
+        User me=userDao.getUserbyId(uid);
+        User toappend = userDao.getUserbyId(touid);
+        
+        
+        if (!conns.contains(toappend)){
+            conns.add(toappend);
+            me.setConnections(conns);
+            userDao.updateUser(me);
+        }        
     }
 
     @Override
     public void updateUserIcon(Serializable myuid, String photo_url) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        User me = userDao.getUserbyId(myuid);
+        
+        me.setPhoto_url(photo_url);
+        
+        userDao.updateUser(me);
     }
 
     @Override
