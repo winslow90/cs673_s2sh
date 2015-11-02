@@ -10,6 +10,7 @@ import com.mylinkedin.domain.User;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -170,28 +171,28 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
                 
                 
                 querystr.append("from User u "
-                        + "join fetch u.universities uni"
-                        + "join fetch u.skills sk"
-                        + "join fetch u.companies cp"
-                        + "join fetch u.languages lang"
+                        + "join fetch u.universities uni "
+                        + "join fetch u.skills sk "
+                        + "join fetch u.companies cp "
+                        + "join fetch u.languages lang "
 
                         + "where 1=1");
                 
                 for (Entry<String, String[]> entry: paras.entrySet()){
                     querystr.append(andor)
                             .append(entry.getValue()[0])
-                            .append(" like '%:")
-                            .append(entry.getKey())
+                            .append(" like '%")
+                            .append(entry.getValue()[1])
                             .append("%'");
                 }
                 
                 Query query = session.createQuery(querystr.toString());
                 
-                for (Entry<String, String[]> entry: paras.entrySet()){
-                    query.setParameter(entry.getKey(), entry.getValue()[1]);
-                }
+//                for (Entry<String, String[]> entry: paras.entrySet()){
+//                    query.setParameter(entry.getKey(), entry.getValue()[1]);
+//                }
                 
-                return query.list();
+                return new ArrayList(new HashSet(query.list()));
             }
             
         });
@@ -301,6 +302,21 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 //        
 //        
 //        System.out.println(u);
+        
+//        this.getHibernateTemplate().execute(new HibernateCallback(){
+//
+//            @Override
+//            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+//                Query query= session.createQuery("from User u "
+//                        + "join fetch u.universities uni "
+//                        + "join fetch u.skills sk "
+//                        + "join fetch u.companies cp "
+//                        + "join fetch u.languages lang "
+//
+//                        + "where 1=1");
+//            }
+//            
+//        });
         
         
     }

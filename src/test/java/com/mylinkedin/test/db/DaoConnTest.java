@@ -308,14 +308,4 @@ public class DaoConnTest extends SpringUtils {
                 
     }
     
-    @Test
-    public void servicetest(){
-        
-//        UserDao userDao = (UserDao) context.getBean("userDao");
-//        
-//        userDao.test();
-        
-        
-    }
-    
 }

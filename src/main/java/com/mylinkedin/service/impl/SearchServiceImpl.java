@@ -34,35 +34,35 @@ public class SearchServiceImpl implements SearchService {
         
         if (fnlike!=null){
             String str[]= {"u.fname",fnlike};
-            paras.put("fname", str);
+            paras.put("myfname", str);
         }
         if (lnlike!=null){
             String str[]= {"u.lname",lnlike};
-            paras.put("lname", str);
+            paras.put("mylname", str);
         }
         if (sumlike!=null){
             String str[]= {"u.summary",sumlike};
-            paras.put("summary", str);
+            paras.put("mysummary", str);
         }
         if (loclike!=null){
             String str[]= {"u.location",loclike};
-            paras.put("location", str);
+            paras.put("mylocation", str);
         }
         if (unilike!=null){
             String str[]= {"uni.uni_name",unilike};
-            paras.put("uni_name", str);
+            paras.put("myuni_name", str);
         }
         if (skilike!=null){
             String str[]= {"sk.sk_name",skilike};
-            paras.put("sk_name", str);
+            paras.put("mysk_name", str);
         }
         if (comlike!=null){
             String str[]= {"cp.cp_name",comlike};
-            paras.put("cp_name", str);
+            paras.put("mycp_name", str);
         }
         if (lanlike!=null){
             String str[]= {"lang.lang_name",lanlike};
-            paras.put("lang_name", str);
+            paras.put("mylang_name", str);
         }
         
         
