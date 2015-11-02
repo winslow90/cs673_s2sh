@@ -7,7 +7,12 @@ package com.mylinkedin.service.impl;
 
 import com.mylinkedin.dao.SkillDao;
 import com.mylinkedin.dao.UserDao;
+import com.mylinkedin.domain.Skill;
+import com.mylinkedin.domain.User;
 import com.mylinkedin.service.SkillService;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.List;
 
 /**
  *
@@ -23,6 +28,32 @@ public class SkillServiceImpl implements SkillService {
 
     public void setSkillDao(SkillDao skillDao) {
         this.skillDao = skillDao;
+    }
+
+    @Override
+    public List<Skill> listSkills() {
+        return skillDao.listSkills();
+    }
+
+    @Override
+    public List<Skill> listSkillsbyUid(Serializable uid) {
+        return skillDao.listSkillsbyUid(uid);
+    }
+
+    @Override
+    public void updateSkillsbySkName(Serializable uid, String[] skNames) {
+        User me = userDao.getUserbyId(uid);
+        HashSet<Skill> sks= new HashSet();
+        
+        for (String skname : skNames){
+            Skill sk = skillDao.getSkillbyName(skname);
+            if ((sk!=null)&&(!sks.contains(sk))){
+                sks.add(sk);
+            }
+        }
+        
+        me.setSkills(sks);
+        userDao.updateUser(me);
     }
     
     

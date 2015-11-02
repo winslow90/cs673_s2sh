@@ -24,6 +24,7 @@ public interface UserDao {
     
     public List<User> listConnections(Serializable uid);
     public List<User> listUserconnectingMe(User me);
+    public List<User> listUserconnectingMe(Serializable uid);
     
     public List<User> listTopNConnectedUser(int N);
     

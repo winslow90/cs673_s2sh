@@ -8,8 +8,10 @@ package com.mylinkedin.service.impl;
 import com.mylinkedin.dao.CompanyDao;
 import com.mylinkedin.dao.UserDao;
 import com.mylinkedin.domain.Company;
+import com.mylinkedin.domain.User;
 import com.mylinkedin.service.CompanyService;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -30,17 +32,29 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public List<Company> listCompanies() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return companyDao.listCompanies();
     }
 
     @Override
     public List<Company> listCompaniesbyUid(Serializable uid) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return companyDao.listCompaniesbyUid(uid);
     }
 
     @Override
     public void updateCompaniesbyCpName(Serializable uid, String[] cpNames) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        User me = userDao.getUserbyId(uid);
+        HashSet<Company> cps = new HashSet();
+        
+        for (String cpname: cpNames){
+            Company cp = companyDao.getCompanybyName(cpname);
+            if ((cp!=null)&&(!cps.contains(cp))){
+                cps.add(cp);
+            }
+        }
+        
+        me.setCompanies(cps);
+        
+        userDao.updateUser(me);
     }
     
     

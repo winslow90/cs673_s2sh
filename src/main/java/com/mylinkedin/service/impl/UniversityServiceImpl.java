@@ -7,7 +7,12 @@ package com.mylinkedin.service.impl;
 
 import com.mylinkedin.dao.UniversityDao;
 import com.mylinkedin.dao.UserDao;
+import com.mylinkedin.domain.University;
+import com.mylinkedin.domain.User;
 import com.mylinkedin.service.UniversityService;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.List;
 
 /**
  *
@@ -24,6 +29,32 @@ public class UniversityServiceImpl implements UniversityService {
 
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
+    }
+
+    @Override
+    public List<University> listUniversities() {
+        return universityDao.listUniversities();
+    }
+
+    @Override
+    public List<University> listUniversitiesbyUid(Serializable uid) {
+        return universityDao.listUniversitiesbyUid(uid);
+    }
+
+    @Override
+    public void updateUniversitiesbyUniName(Serializable uid, String[] uniNames) {
+        User me = userDao.getUserbyId(uid);
+        
+        HashSet<University> unis = new HashSet();
+        
+        for (String unin: uniNames){
+            University uni = universityDao.getUniversitybyName(unin);
+            if ((uni!=null)&&(!unis.contains(uni))){
+                unis.add(uni);
+            }
+        }
+        me.setUniversities(unis);
+        userDao.updateUser(me);
     }
     
 }

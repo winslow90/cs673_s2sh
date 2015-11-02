@@ -19,6 +19,9 @@ public class Notification implements Serializable {
     private String nt_content;
     private Date nt_datetime;
     private Boolean nt_read;
+    
+    private User user;
+
 
     public Boolean getNt_read() {
         return nt_read;
@@ -28,8 +31,6 @@ public class Notification implements Serializable {
         this.nt_read = nt_read;
     }
     
-    private User user;
-
     public Long getNtid() {
         return ntid;
     }

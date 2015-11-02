@@ -109,6 +109,27 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
             
         });
     }
+    
+    @Override
+    public List<User> listUserconnectingMe(Serializable uid) {
+        
+        final Serializable myuid=uid;
+        
+        return (List<User>) this.getHibernateTemplate().execute(new HibernateCallback(){
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                
+                Query query = session.createQuery("from User u join fetch u.connections c where c.uid=:theuid");
+                
+                query.setParameter("theuid", myuid);
+                
+                return (List<User>) query.list();
+                
+            }
+            
+        });
+    }
 
     @Override
     public List<User> listTopNConnectedUser(int N) {
@@ -216,5 +237,5 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
         
         
     }
-    
+
 }
