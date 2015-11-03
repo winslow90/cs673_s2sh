@@ -18,5 +18,11 @@
                     <result name="success">    /connections.jsp    </result>
                     <result name="input">    /index.jsp    </result>
 		</action>
+                <action name="profileAction_*" method="{1}" class="profileAction">
+                    <result name="success">    /profile.jsp    </result>
+                    <result name="selectbasic">  /profilepages/basicinput.jsp    </result>
+                    <result name="selecticon"> /profilepages/iconinput.jsp    </result>
+                    <result name="viewprofile" type="chain">profileAction_viewprofile</result>
+		</action>
 	</package>
 </struts>

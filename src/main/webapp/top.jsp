@@ -36,6 +36,10 @@
         <strong><s:a href="%{home}">Home</s:a></strong>
         <br/>
         
+        <s:url value="profileAction_viewprofile" var="profile"/>
+        <strong><s:a href="%{profile}">Profile</s:a></strong>
+        <br/>
+        
         
         <br/>
         

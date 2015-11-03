@@ -52,6 +52,28 @@
     	</property>	
     </bean>
     
+    <bean id="profileAction" class="com.mylinkedin.action.ProfileAction"
+    	scope="prototype">
+    	<property name="userService">
+    		<ref bean="userService"/>
+    	</property>
+        <property name="notificationService">
+    		<ref bean="notificationService"/>
+    	</property>
+        <property name="universityService">
+    		<ref bean="universityService"/>
+    	</property>
+        <property name="skillService">
+    		<ref bean="skillService"/>
+    	</property>
+        <property name="companyService">
+    		<ref bean="companyService"/>
+    	</property>
+        <property name="languageService">
+    		<ref bean="languageService"/>
+    	</property>	
+    </bean>
+    
     <bean id="testAction" class="com.mylinkedin.action.TestAction"
     	scope="prototype">
     </bean>
