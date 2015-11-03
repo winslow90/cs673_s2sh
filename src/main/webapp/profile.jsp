@@ -66,7 +66,7 @@
         <div id="iconprofile">
             
             
-            <img src="${sephoto_url}" height="50" width="50" /> <br/>
+            <img src="${sephotoFileName}" height="50" width="50" /> <br/>
             
             <input type="button" id="editicon" value="Edit my icon"/>
             

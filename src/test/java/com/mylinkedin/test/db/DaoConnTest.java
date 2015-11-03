@@ -118,6 +118,7 @@ public class DaoConnTest extends SpringUtils {
             user.setEmail("u"+i+"@u.com");
             user.setPd("u"+i);
             user.setLocation("location"+i);
+            user.setPhoto_url("img/default_icon.jpg");
             userDao.createUser(user);            
         }
         

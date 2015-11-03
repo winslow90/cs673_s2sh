@@ -19,8 +19,12 @@ import com.mylinkedin.service.UniversityService;
 import com.mylinkedin.service.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import org.apache.commons.io.FileUtils;
+import org.apache.struts2.ServletActionContext;
 
 /**
  *
@@ -56,7 +60,12 @@ public class ProfileAction extends ActionSupport {
     String selname;
     String segender;
     String sesummary;
-    String sephoto_url;
+    
+    
+    
+    private File sephoto;
+    private String sephotoFileName;
+    private String photoContentType;
 
     
     
@@ -79,7 +88,7 @@ public class ProfileAction extends ActionSupport {
         selname= me.getLname();
         segender=me.getGender();
         sesummary=me.getSummary();
-        sephoto_url=me.getPhoto_url();
+        sephotoFileName=me.getPhoto_url();
         
         myunis=universityService.listUniversitiesbyUid(me.getUid());
         myskils=skillService.listSkillsbyUid(me.getUid());
@@ -94,10 +103,29 @@ public class ProfileAction extends ActionSupport {
     public String selecticon(){
         
         
+        
         return "selecticon";
     }
     
-    public String updateicon(){
+    public String updateicon() throws IOException{
+        
+        
+        
+        String storeDirectory = ServletActionContext.getServletContext().getRealPath("/img/profileicon");
+        
+        me = (User) this.getSession().get("me");
+        
+        Long meuid = me.getUid();
+        
+        
+        FileUtils.copyFile(sephoto, new File(storeDirectory,meuid+"_icon.jpg"));
+        
+        
+        me.setPhoto_url("img/profileicon/"+meuid+"_icon.jpg");
+        
+        userService.updateUserIcon(meuid, "img/profileicon/"+meuid+"_icon.jpg");
+        
+        this.getSession().put("me", me);
         
         return "viewprofile";
     }
@@ -114,7 +142,7 @@ public class ProfileAction extends ActionSupport {
         selname= me.getLname();
         segender=me.getGender();
         sesummary=me.getSummary();
-        sephoto_url=me.getPhoto_url();
+        sephotoFileName=me.getPhoto_url();
         
         return "selectbasic";
     }
@@ -247,12 +275,27 @@ public class ProfileAction extends ActionSupport {
         this.sesummary = sesummary;
     }
 
-    public String getSephoto_url() {
-        return sephoto_url;
+    public String getSephotoFileName() {
+        return sephotoFileName;
     }
 
-    public void setSephoto_url(String sephoto_url) {
-        this.sephoto_url = sephoto_url;
+    public void setSephotoFileName(String sephotoFileName) {
+        this.sephotoFileName = sephotoFileName;
+    }
+    public File getSephoto() {
+        return sephoto;
+    }
+
+    public void setSephoto(File sephoto) {
+        this.sephoto = sephoto;
+    }
+
+    public String getPhotoContentType() {
+        return photoContentType;
+    }
+
+    public void setPhotoContentType(String photoContentType) {
+        this.photoContentType = photoContentType;
     }
     
     
