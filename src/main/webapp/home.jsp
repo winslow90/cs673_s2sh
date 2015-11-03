@@ -5,13 +5,28 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Home Page</title>
+        <title> ${me.fname} ${me.lname}
+            Home Page</title>
     </head>
     <body>
+        
+        <%@ include file="top.jsp"%>
+        
+        <hr/>
+        
         <h1>this is the home page</h1>
+        
+        <s:iterator value="updates" var="up">
+            <s:property value="#up.up_content"/>
+            <s:property value="#up.up_datetime"/>
+            <br/>
+        </s:iterator>
+        
+        <s:debug></s:debug>
     </body>
 </html>

@@ -16,6 +16,42 @@
     	</property>	
     </bean>
     
+    <bean id="updateAction" class="com.mylinkedin.action.UpdateAction"
+    	scope="prototype">
+    	<property name="userService">
+    		<ref bean="userService"/>
+    	</property>	
+        <property name="updateService">
+    		<ref bean="updateService"/>
+    	</property>
+        <property name="notificationService">
+    		<ref bean="notificationService"/>
+    	</property>
+    </bean>
+    
+    <bean id="arcAction" class="com.mylinkedin.action.AddRemoveConAction"
+    	scope="prototype">
+    	<property name="userService">
+    		<ref bean="userService"/>
+    	</property>
+        <property name="updateService">
+    		<ref bean="updateService"/>
+    	</property>
+        <property name="notificationService">
+    		<ref bean="notificationService"/>
+    	</property>	
+    </bean>
+    
+    <bean id="connectionAction" class="com.mylinkedin.action.ConnectionAction"
+    	scope="prototype">
+    	<property name="userService">
+    		<ref bean="userService"/>
+    	</property>
+        <property name="notificationService">
+    		<ref bean="notificationService"/>
+    	</property>	
+    </bean>
+    
     <bean id="testAction" class="com.mylinkedin.action.TestAction"
     	scope="prototype">
     </bean>

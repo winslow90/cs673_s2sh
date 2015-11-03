@@ -6,10 +6,8 @@
 package com.mylinkedin.action;
 
 import com.mylinkedin.domain.Notification;
-import com.mylinkedin.domain.Updates;
 import com.mylinkedin.domain.User;
 import com.mylinkedin.service.NotificationService;
-import com.mylinkedin.service.UpdateService;
 import com.mylinkedin.service.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -20,36 +18,37 @@ import java.util.Map;
  *
  * @author superman90
  */
-public class UpdateAction extends ActionSupport {
+public class ConnectionAction extends ActionSupport {
     
     private UserService userService;
-    private UpdateService updateService;
     private NotificationService notificationService;
+
+
     
     User me;
-    List<Updates> updates;
+    List<User> connections;
     List<Notification> notification;
-    List<User> recommendation;   
     
     
     private Map<String, Object> getSession(){
         return ActionContext.getContext().getSession();
     }
     
-    public String viewhome(){
+    
+    public String viewconnection(){
         
         me = (User) this.getSession().get("me");
         
-        updates= updateService.listUpdates(me.getUid());
+        connections = userService.getConnection(me.getUid());
         
         notification = notificationService.listNotifications(me.getUid());
         
-//        recommendation = 
         
         return SUCCESS;
     }
     
-    public User getMe() {
+    
+     public User getMe() {
         return me;
     }
 
@@ -57,14 +56,13 @@ public class UpdateAction extends ActionSupport {
         this.me = me;
     }
 
-    public List<Updates> getUpdates() {
-        return updates;
+    public List<User> getConnections() {
+        return connections;
     }
 
-    public void setUpdates(List<Updates> updates) {
-        this.updates = updates;
+    public void setConnections(List<User> connections) {
+        this.connections = connections;
     }
-
     public List<Notification> getNotification() {
         return notification;
     }
@@ -72,26 +70,13 @@ public class UpdateAction extends ActionSupport {
     public void setNotification(List<Notification> notification) {
         this.notification = notification;
     }
-
-    public List<User> getRecommendation() {
-        return recommendation;
-    }
-
-    public void setRecommendation(List<User> recommendation) {
-        this.recommendation = recommendation;
-    }
     
     
     
-    
-    public void setUserService(UserService userService) {
+     public void setUserService(UserService userService) {
         this.userService = userService;
     }
-
-    public void setUpdateService(UpdateService updateService) {
-        this.updateService = updateService;
-    }
-
+    
     public void setNotificationService(NotificationService notificationService) {
         this.notificationService = notificationService;
     }

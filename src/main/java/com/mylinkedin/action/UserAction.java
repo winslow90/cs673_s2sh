@@ -110,23 +110,24 @@ public class UserAction extends ActionSupport {
             } 
         }
         
-        getSession().put("myUid", userlist.get(0).getUid());
+        getSession().put("me", userlist.get(0));
         
         return SUCCESS;
     }
     
     public String register(){
         
-        getSession().put("myUid", 
-                userService.createUser(email, pd[0], fname, lname, gender, 
-                        DEFAULT_PHOTO_URL, DEFAULT_LOCATION));
+        Long uid = (Long) userService.createUser(email, pd[0], fname, lname, gender, 
+                        DEFAULT_PHOTO_URL, DEFAULT_LOCATION);
+        
+        getSession().put("me", userService.getUserbyId(uid));
         
         return SUCCESS;
     }
     @SkipValidation()
     public String logout(){
         
-        getSession().remove("myUid");
+        getSession().remove("me");
         
         return INPUT;
     }

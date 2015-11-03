@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="other" namespace="/" extends="struts-default">
+                <action name="arcAction_*" method="{1}" class="arcAction">
+                    <result name="addsuccess">    /arcpages/addsuccess.jsp    </result>
+                    <result name="removesuccess">    /arcpages/removesuccess.jsp    </result>
+                    <result name="fail">    /arcpages/arcfail.jsp    </result>
+		</action>                
+		<action name="updateAction_*" method="{1}" class="updateAction">
+                    <result name="success">    /home.jsp    </result>
+                    <result name="input">    /index.jsp    </result>
+		</action>
+                <action name="connectionAction_*" method="{1}" class="connectionAction">
+                    <result name="success">    /connections.jsp    </result>
+                    <result name="input">    /index.jsp    </result>
+		</action>
+	</package>
+</struts>

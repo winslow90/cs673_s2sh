@@ -10,6 +10,7 @@
         <constant name="struts.devMode" value="true"/>
         
 	<include file="com/mylinkedin/struts/struts-user.xml"></include>
+        <include file="com/mylinkedin/struts/struts-other.xml"></include>
         
         <package name="test" namespace="/" extends="struts-default">
             <action name="test_*" method="{1}" class="testAction">
