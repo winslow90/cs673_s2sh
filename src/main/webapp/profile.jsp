@@ -65,9 +65,11 @@
             
         <div id="iconprofile">
             
-            ${sephoto_url}<br/>
+            
+            <img src="${sephoto_url}" height="50" width="50" /> <br/>
             
             <input type="button" id="editicon" value="Edit my icon"/>
+            
         
         </div>
         
@@ -80,7 +82,7 @@
                 <br/>
             </s:iterator>
             <input type="button" id="editmyunis" value="Edit my universities"/>
-        </div>>
+        </div>
         <hr/>
         <div id="myskills">
             <s:iterator value="myskils" var="sk">

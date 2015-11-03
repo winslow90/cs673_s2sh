@@ -21,7 +21,7 @@ import org.apache.struts2.interceptor.validation.SkipValidation;
  */
 public class UserAction extends ActionSupport {
     
-    private final String DEFAULT_PHOTO_URL = "default_photo_url";
+    private final String DEFAULT_PHOTO_URL = "img/default_icon.jpg";
     private final String DEFAULT_LOCATION="default_location";
     
     private UserService userService;

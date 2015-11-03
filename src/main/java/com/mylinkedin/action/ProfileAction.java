@@ -104,13 +104,45 @@ public class ProfileAction extends ActionSupport {
     
     public String selectbasic(){
         
+        me = (User) this.getSession().get("me");
+//        me = userService.getUserbyId(me.getUid());
         
+        seemail=me.getEmail();
+        sepd[0]=me.getPd();
+        sepd[1]=me.getPd();
+        sefname= me.getFname();
+        selname= me.getLname();
+        segender=me.getGender();
+        sesummary=me.getSummary();
+        sephoto_url=me.getPhoto_url();
         
         return "selectbasic";
     }
     
     public String updatebasic(){
         
+        me = (User) this.getSession().get("me");
+        me = userService.getUserbyId(me.getUid());
+        
+        if ((!sepd[0].isEmpty())&&(sepd[0].equals(sepd[1]))){
+            me.setPd(sepd[0]);
+        }
+        if (!sefname.isEmpty()){
+            me.setFname(sefname);
+        }
+        if (!selname.isEmpty()){
+            me.setLname(selname);
+        }
+        if (!segender.isEmpty()){
+            me.setGender(segender);
+        }
+        if (!sesummary.isEmpty()){
+            me.setSummary(sesummary);
+        }
+        
+        userService.updateUser(me);        
+        
+        this.getSession().put("me", me);
         
         return "viewprofile";
     }
