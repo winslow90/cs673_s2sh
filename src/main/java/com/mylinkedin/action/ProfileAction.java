@@ -9,13 +9,11 @@ import com.mylinkedin.domain.Company;
 import com.mylinkedin.domain.Languages;
 import com.mylinkedin.domain.Notification;
 import com.mylinkedin.domain.Skill;
-import com.mylinkedin.domain.University;
 import com.mylinkedin.domain.User;
 import com.mylinkedin.service.CompanyService;
 import com.mylinkedin.service.LanguageService;
 import com.mylinkedin.service.NotificationService;
 import com.mylinkedin.service.SkillService;
-import com.mylinkedin.service.UniversityService;
 import com.mylinkedin.service.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -35,7 +33,7 @@ public class ProfileAction extends ActionSupport {
     private UserService userService;
     private NotificationService notificationService;
     
-    private UniversityService universityService;
+    
     private SkillService skillService;
     private CompanyService companyService;
     private LanguageService languageService;
@@ -49,7 +47,7 @@ public class ProfileAction extends ActionSupport {
     
     List<Notification> notification;    
     
-    List<University> myunis;
+    
     List<Skill> myskils;
     List<Company> mycoms;
     List<Languages> mylangs;
@@ -90,7 +88,7 @@ public class ProfileAction extends ActionSupport {
         sesummary=me.getSummary();
         sephotoFileName=me.getPhoto_url();
         
-        myunis=universityService.listUniversitiesbyUid(me.getUid());
+//        myunis=universityService.listUniversitiesbyUid(me.getUid());
         myskils=skillService.listSkillsbyUid(me.getUid());
         mycoms=companyService.listCompaniesbyUid(me.getUid());
         mylangs=languageService.listLanguagesUid(me.getUid());
@@ -203,14 +201,6 @@ public class ProfileAction extends ActionSupport {
         this.notification = notification;
     }
 
-    public List<University> getMyunis() {
-        return myunis;
-    }
-
-    public void setMyunis(List<University> myunis) {
-        this.myunis = myunis;
-    }
-
     public List<Skill> getMyskils() {
         return myskils;
     }
@@ -301,9 +291,6 @@ public class ProfileAction extends ActionSupport {
     
     
     
-    public void setUniversityService(UniversityService universityService) {
-        this.universityService = universityService;
-    }
 
     public void setSkillService(SkillService skillService) {
         this.skillService = skillService;

@@ -43,7 +43,21 @@
 				}
 				xhr.open("GET","profileAction_selecticon?time="+new Date().getTime());
 				xhr.send(null);
-			};                        
+			};
+                        document.getElementById("editmyunis").onclick=function(){
+				var xhr = getXmlHttpRequest();
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState==4){
+						if(xhr.status==200){
+						    document.getElementById("myunis").innerHTML=
+                                                            xhr.responseText;
+                                                    delete xhr;
+						}
+					}
+				}
+				xhr.open("GET","universityAction_selectunis?time="+new Date().getTime());
+				xhr.send(null);
+			};
 		};               
 	</script>
          
@@ -76,11 +90,9 @@
         
         <hr/>
         <div id="myunis">
-            <s:iterator value="myunis" var="uni">
-                <s:property value="#uni.uni_name"/><br/>
-                <s:property value="#uni.icon_url"/><br/>
-                <br/>
-            </s:iterator>
+            
+            <s:action name="universityAction_listunis" executeResult="true"/>
+            
             <input type="button" id="editmyunis" value="Edit my universities"/>
         </div>
         <hr/>

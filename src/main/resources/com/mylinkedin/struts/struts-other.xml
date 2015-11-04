@@ -24,5 +24,10 @@
                     <result name="selecticon"> /profilepages/iconinput.jsp    </result>
                     <result name="viewprofile" type="chain">profileAction_viewprofile</result>
 		</action>
+                <action name="universityAction_*" method="{1}" class="universityAction">
+                    <result name="listunis">/profilepages/listunis.jsp </result>
+                    <result name="seunis">  /profilepages/seunis.jsp    </result>
+                    <result name="viewprofile" type="chain">profileAction_viewprofile</result>
+		</action>
 	</package>
 </struts>

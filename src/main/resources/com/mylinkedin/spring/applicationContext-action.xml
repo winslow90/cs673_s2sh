@@ -60,9 +60,6 @@
         <property name="notificationService">
     		<ref bean="notificationService"/>
     	</property>
-        <property name="universityService">
-    		<ref bean="universityService"/>
-    	</property>
         <property name="skillService">
     		<ref bean="skillService"/>
     	</property>
@@ -71,6 +68,13 @@
     	</property>
         <property name="languageService">
     		<ref bean="languageService"/>
+    	</property>	
+    </bean>
+    
+    <bean id="universityAction" class="com.mylinkedin.action.UniversityAction"
+    	scope="prototype">
+    	<property name="universityService">
+    		<ref bean="universityService"/>
     	</property>	
     </bean>
     
