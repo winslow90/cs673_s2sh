@@ -56,5 +56,23 @@ public class UniversityServiceImpl implements UniversityService {
         me.setUniversities(unis);
         userDao.updateUser(me);
     }
+
+    @Override
+    public void updateUniversitiesbyUniIds(Serializable uid, List<Long> ids) {
+        
+        User me = userDao.getUserbyId(uid);
+        
+        HashSet<University> unis = new HashSet();
+        
+        for (Long uiid: ids){
+            University uni = universityDao.getUniversitybyId(uiid);
+            if ((uni!=null)&&(!unis.contains(uni))){
+                unis.add(uni);
+            }
+        }
+        me.setUniversities(unis);
+        userDao.updateUser(me);
+        
+    }
     
 }

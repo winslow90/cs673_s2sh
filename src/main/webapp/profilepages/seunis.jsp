@@ -14,8 +14,9 @@
     </head>
     <body>
         this is the university selecting page
-        <s:form action="#">
-            <s:checkboxlist list="seunis" name="seunis"></s:checkboxlist>
+        <s:form action="universityAction_updateunis">
+            <s:checkboxlist label="Please select your university" list="allunismap" 
+	   name="myuniids" value="myuniids" />
             
             <s:submit value="Submit update of unies" class="buttoninput"/>
         </s:form>

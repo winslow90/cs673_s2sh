@@ -21,5 +21,7 @@ public interface UniversityService {
     
     public void updateUniversitiesbyUniName(Serializable uid,
             String[] uniNames);
+    public void updateUniversitiesbyUniIds(Serializable uid,
+            List<Long> ids);
     
 }

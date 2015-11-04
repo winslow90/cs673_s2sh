@@ -11,6 +11,7 @@ import com.mylinkedin.service.UniversityService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -30,7 +31,11 @@ public class UniversityAction extends ActionSupport {
     
     User me;
     List<University> myunis;
-    HashSet<String> seunis;
+    
+    HashMap<Long, String> allunismap;
+    ArrayList<Long> myuniids;
+
+    
     
     
     
@@ -45,19 +50,35 @@ public class UniversityAction extends ActionSupport {
     }
     public String selectunis(){
         
-        seunis= new HashSet();
+        allunismap= new HashMap();
+        
+        myuniids = new ArrayList();
+        
         
         List<University> allunis =  universityService.listUniversities();
         
+        me = (User) this.getSession().get("me");
+        
+        myunis= universityService.listUniversitiesbyUid(me.getUid());
+        
+        
         for (University uni : allunis){
-            seunis.add(uni.getUni_name());
+            allunismap.put(uni.getUniid(), uni.getUni_name());
+        }
+        
+        
+        for (University uni : myunis){
+            myuniids.add(uni.getUniid());
         }
         
         return "seunis";
     }
     public String updateunis(){
         
-        
+        me = (User) this.getSession().get("me");
+       
+        universityService.updateUniversitiesbyUniIds(me.getUid(),
+                myuniids);
         
         return "viewprofile";
     }
@@ -77,7 +98,21 @@ public class UniversityAction extends ActionSupport {
     public void setMyunis(List<University> myunis) {
         this.myunis = myunis;
     }
-    
+    public HashMap<Long, String> getAllunismap() {
+        return allunismap;
+    }
+
+    public void setAllunismap(HashMap<Long, String> allunismap) {
+        this.allunismap = allunismap;
+    }
+
+    public ArrayList<Long> getMyuniids() {
+        return myuniids;
+    }
+
+    public void setMyuniids(ArrayList<Long> myuniids) {
+        this.myuniids = myuniids;
+    }
     
     
     
