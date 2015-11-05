@@ -25,8 +25,8 @@
             </div>
         
         
-        <s:form action="#">
-            <s:textfield name="searchstr" label="Search"></s:textfield>                       
+        <s:form action="searchAction_dosimplesearch">
+            <s:textfield name="simplestr" label="Search"></s:textfield>                       
             <s:submit value="SimpleSearch" class="buttoninput"/>
         </s:form>
             
@@ -44,7 +44,7 @@
         <br/>
         
         <s:url value="connectionAction_viewconnection" var="viewconnection"/>
-        <s:url value="connectionAction_filladvsearch" var="advsearch"/>
+        <s:url value="searchAction_viewadvsearch" var="advsearch"/>
         <strong>Connections  </strong>
         <s:a href="%{viewconnection}">viewconnections</s:a>
         <s:a href="%{advsearch}">advancedsearch</s:a>

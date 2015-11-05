@@ -90,6 +90,16 @@
     	</property>	
     </bean>
     
+    <bean id="searchAction" class="com.mylinkedin.action.SearchAction"
+    	scope="prototype">
+    	<property name="searchService">
+    		<ref bean="searchService"/>
+    	</property>	
+        <property name="notificationService">
+    		<ref bean="notificationService"/>
+    	</property>	
+    </bean>
+    
     <bean id="testAction" class="com.mylinkedin.action.TestAction"
     	scope="prototype">
     </bean>

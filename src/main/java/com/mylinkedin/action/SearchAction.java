@@ -5,7 +5,9 @@
  */
 package com.mylinkedin.action;
 
+import com.mylinkedin.domain.Notification;
 import com.mylinkedin.domain.User;
+import com.mylinkedin.service.NotificationService;
 import com.mylinkedin.service.SearchService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -19,6 +21,8 @@ import java.util.Map;
 public class SearchAction extends ActionSupport {
     
     SearchService searchService;
+    NotificationService notificationService;
+
     
     
     String simplestr;
@@ -34,6 +38,8 @@ public class SearchAction extends ActionSupport {
         lanlike;
     
     List<User> resultUsers;
+    List<Notification> notification;
+
 
     
     
@@ -42,19 +48,37 @@ public class SearchAction extends ActionSupport {
     }
     
     
-    public String simplesearch(){
+    public String dosimplesearch(){
         
-        resultUsers= searchService.searchUsers(fnlike, lnlike, sumlike, 
-                loclike, unilike, skilike, comlike, lanlike, false);
+        resultUsers= searchService.simpleSearch(simplestr);
                
         
         return "listresult";
     }
     
-    public String advsearch(){
+    public String viewadvsearch(){
+        
+        User me;
+        
+        me=(User) this.getSession().get("me");
+        
+        notification = notificationService.listNotifications(me.getUid());
         
         
-        resultUsers= searchService.simpleSearch(simplestr);
+        return "viewadvsearch";
+    }
+    
+    public String doadvsearch(){
+        
+        User me;
+        
+        me=(User) this.getSession().get("me");
+        
+        notification = notificationService.listNotifications(me.getUid());
+        
+                
+        resultUsers= searchService.searchUsers(fnlike, lnlike, sumlike, 
+                loclike, unilike, skilike, comlike, lanlike, false);
         
         return "listresult";
     }
@@ -144,10 +168,21 @@ public class SearchAction extends ActionSupport {
         this.resultUsers = resultUsers;
     }
     
+    public List<Notification> getNotification() {
+        return notification;
+    }
+
+    public void setNotification(List<Notification> notification) {
+        this.notification = notification;
+    }
     
     
     
     
+
+    public void setNotificationService(NotificationService notificationService) {
+        this.notificationService = notificationService;
+    }    
     
     public void setSearchService(SearchService searchService) {
         this.searchService = searchService;

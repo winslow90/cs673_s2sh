@@ -192,7 +192,21 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 //                    query.setParameter(entry.getKey(), entry.getValue()[1]);
 //                }
                 
-                return new ArrayList(new HashSet(query.list()));
+                
+                List<User> rawresult= query.list();
+                HashSet<User> resultset= new HashSet();
+                List<User> result= new ArrayList();
+                
+                for (User u : rawresult){
+                    resultset.add(u);
+                }
+                
+                for (User u : resultset){
+                    result.add(u);
+                }
+                
+                
+                return result;
             }
             
         });

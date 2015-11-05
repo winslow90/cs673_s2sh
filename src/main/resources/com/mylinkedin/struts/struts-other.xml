@@ -44,5 +44,9 @@
                     <result name="sesks">  /profilepages/sesks.jsp    </result>
                     <result name="viewprofile" type="chain">profileAction_viewprofile</result>
 		</action>
+                <action name="searchAction_*" method="{1}" class="searchAction">
+                    <result name="viewadvsearch">/advsearch.jsp </result>
+                    <result name="listresult">  /searchresult.jsp    </result>
+		</action>
 	</package>
 </struts>
