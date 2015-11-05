@@ -11,6 +11,7 @@ import com.mylinkedin.domain.Skill;
 import com.mylinkedin.domain.User;
 import com.mylinkedin.service.SkillService;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
@@ -47,6 +48,22 @@ public class SkillServiceImpl implements SkillService {
         
         for (String skname : skNames){
             Skill sk = skillDao.getSkillbyName(skname);
+            if ((sk!=null)&&(!sks.contains(sk))){
+                sks.add(sk);
+            }
+        }
+        
+        me.setSkills(sks);
+        userDao.updateUser(me);
+    }
+
+    @Override
+    public void updateSkillsbySkIds(Long uid, ArrayList<Long> myskids) {
+        User me = userDao.getUserbyId(uid);
+        HashSet<Skill> sks= new HashSet();
+        
+        for (Long skid : myskids){
+            Skill sk = skillDao.getSkillbyId(skid);
             if ((sk!=null)&&(!sks.contains(sk))){
                 sks.add(sk);
             }

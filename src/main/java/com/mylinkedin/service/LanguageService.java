@@ -7,6 +7,7 @@ package com.mylinkedin.service;
 
 import com.mylinkedin.domain.Languages;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,5 +21,7 @@ public interface LanguageService {
     
     public void updateLanguagesbyLangName(Serializable uid,
             String[] langNames);
+
+    public void updateLanguagesbyLangIds(Long uid, List<Long> mylangids);
     
 }

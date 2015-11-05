@@ -7,6 +7,7 @@ package com.mylinkedin.service;
 
 import com.mylinkedin.domain.Skill;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,5 +21,7 @@ public interface SkillService {
     
     public void updateSkillsbySkName(Serializable uid,
             String[] skNames);
+
+    public void updateSkillsbySkIds(Long uid, ArrayList<Long> myskids);
     
 }

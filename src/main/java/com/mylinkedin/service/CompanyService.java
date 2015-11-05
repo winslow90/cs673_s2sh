@@ -7,6 +7,7 @@ package com.mylinkedin.service;
 
 import com.mylinkedin.domain.Company;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,5 +21,7 @@ public interface CompanyService {
     
     public void updateCompaniesbyCpName(Serializable uid,
             String[] cpNames);
+
+    public void updateCompaniesbyCpId(Long uid, ArrayList<Long> mycomids);
     
 }

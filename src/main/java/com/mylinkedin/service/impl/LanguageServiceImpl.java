@@ -57,5 +57,22 @@ public class LanguageServiceImpl implements LanguageService {
         userDao.updateUser(me);
         
     }
+
+    @Override
+    public void updateLanguagesbyLangIds(Long uid, List<Long> mylangids) {
+        User me = userDao.getUserbyId(uid);
+        HashSet<Languages> langs= new HashSet();
+        
+        for (Long langid : mylangids){
+            Languages lang= languageDao.getLanguagebyId(langid);
+            if ((lang!=null)&&(!langs.contains(lang))){
+                langs.add(lang);
+            }
+        }
+        
+        me.setLanguages(langs);
+        
+        userDao.updateUser(me);
+    }
     
 }

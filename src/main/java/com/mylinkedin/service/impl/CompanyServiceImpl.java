@@ -11,6 +11,7 @@ import com.mylinkedin.domain.Company;
 import com.mylinkedin.domain.User;
 import com.mylinkedin.service.CompanyService;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
@@ -47,6 +48,23 @@ public class CompanyServiceImpl implements CompanyService {
         
         for (String cpname: cpNames){
             Company cp = companyDao.getCompanybyName(cpname);
+            if ((cp!=null)&&(!cps.contains(cp))){
+                cps.add(cp);
+            }
+        }
+        
+        me.setCompanies(cps);
+        
+        userDao.updateUser(me);
+    }
+
+    @Override
+    public void updateCompaniesbyCpId(Long uid, ArrayList<Long> mycomids) {
+        User me = userDao.getUserbyId(uid);
+        HashSet<Company> cps = new HashSet();
+        
+        for (Long cpid: mycomids){
+            Company cp = companyDao.getCompanybyId(cpid);
             if ((cp!=null)&&(!cps.contains(cp))){
                 cps.add(cp);
             }
