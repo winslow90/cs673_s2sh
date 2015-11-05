@@ -60,21 +60,33 @@
         <property name="notificationService">
     		<ref bean="notificationService"/>
     	</property>
-        <property name="skillService">
-    		<ref bean="skillService"/>
-    	</property>
-        <property name="companyService">
-    		<ref bean="companyService"/>
-    	</property>
-        <property name="languageService">
-    		<ref bean="languageService"/>
-    	</property>	
     </bean>
     
     <bean id="universityAction" class="com.mylinkedin.action.UniversityAction"
     	scope="prototype">
     	<property name="universityService">
     		<ref bean="universityService"/>
+    	</property>	
+    </bean>
+    
+    <bean id="companyAction" class="com.mylinkedin.action.CompanyAction"
+    	scope="prototype">
+    	<property name="companyService">
+    		<ref bean="companyService"/>
+    	</property>	
+    </bean>
+    
+    <bean id="languageAction" class="com.mylinkedin.action.LanguageAction"
+    	scope="prototype">
+    	<property name="languageService">
+    		<ref bean="languageService"/>
+    	</property>	
+    </bean>
+    
+    <bean id="skillAction" class="com.mylinkedin.action.SkillAction"
+    	scope="prototype">
+    	<property name="skillService">
+    		<ref bean="skillService"/>
     	</property>	
     </bean>
     

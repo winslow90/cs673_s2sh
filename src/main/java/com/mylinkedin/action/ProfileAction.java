@@ -34,9 +34,9 @@ public class ProfileAction extends ActionSupport {
     private NotificationService notificationService;
     
     
-    private SkillService skillService;
-    private CompanyService companyService;
-    private LanguageService languageService;
+//    private SkillService skillService;
+//    private CompanyService companyService;
+//    private LanguageService languageService;
 
     
 
@@ -89,9 +89,9 @@ public class ProfileAction extends ActionSupport {
         sephotoFileName=me.getPhoto_url();
         
 //        myunis=universityService.listUniversitiesbyUid(me.getUid());
-        myskils=skillService.listSkillsbyUid(me.getUid());
-        mycoms=companyService.listCompaniesbyUid(me.getUid());
-        mylangs=languageService.listLanguagesUid(me.getUid());
+//        myskils=skillService.listSkillsbyUid(me.getUid());
+//        mycoms=companyService.listCompaniesbyUid(me.getUid());
+//        mylangs=languageService.listLanguagesUid(me.getUid());
         
         
         return SUCCESS;
@@ -292,17 +292,17 @@ public class ProfileAction extends ActionSupport {
     
     
 
-    public void setSkillService(SkillService skillService) {
-        this.skillService = skillService;
-    }
-
-    public void setCompanyService(CompanyService companyService) {
-        this.companyService = companyService;
-    }
-
-    public void setLanguageService(LanguageService languageService) {
-        this.languageService = languageService;
-    }
+//    public void setSkillService(SkillService skillService) {
+//        this.skillService = skillService;
+//    }
+//
+//    public void setCompanyService(CompanyService companyService) {
+//        this.companyService = companyService;
+//    }
+//
+//    public void setLanguageService(LanguageService languageService) {
+//        this.languageService = languageService;
+//    }
     
     public void setUserService(UserService userService) {
         this.userService = userService;

@@ -21,7 +21,7 @@ import java.util.Map;
  */
 public class LanguageAction extends ActionSupport {
     
-    LanguageService languageservice;
+    LanguageService languageService;
 
     
     
@@ -41,7 +41,7 @@ public class LanguageAction extends ActionSupport {
         
         me = (User) this.getSession().get("me");
         
-        mylangs = languageservice.listLanguagesUid(me.getUid());
+        mylangs = languageService.listLanguagesUid(me.getUid());
         
         return "listlangs";
     }
@@ -50,11 +50,11 @@ public class LanguageAction extends ActionSupport {
         
         mylangids = new ArrayList();
         
-        List<Languages> alllangs= languageservice.listLanguages();
+        List<Languages> alllangs= languageService.listLanguages();
         
         me = (User) this.getSession().get("me");
         
-        mylangs=languageservice.listLanguagesUid(me.getUid());
+        mylangs=languageService.listLanguagesUid(me.getUid());
         
         for (Languages lang: alllangs){
             alllangsmap.put(lang.getLang_id(), lang.getLang_name());
@@ -72,7 +72,7 @@ public class LanguageAction extends ActionSupport {
         
         me = (User) this.getSession().get("me");
         
-        languageservice.updateLanguagesbyLangIds(me.getUid(), mylangids);
+        languageService.updateLanguagesbyLangIds(me.getUid(), mylangids);
         
         return "viewprofile";        
     }
@@ -111,7 +111,7 @@ public class LanguageAction extends ActionSupport {
     
     
     
-    public void setLanguageservice(LanguageService languageservice) {
-        this.languageservice = languageservice;
+    public void setLanguageService(LanguageService languageservice) {
+        this.languageService = languageservice;
     }
 }

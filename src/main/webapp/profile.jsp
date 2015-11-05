@@ -58,6 +58,48 @@
 				xhr.open("GET","universityAction_selectunis?time="+new Date().getTime());
 				xhr.send(null);
 			};
+                        document.getElementById("editmysks").onclick=function(){
+				var xhr = getXmlHttpRequest();
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState==4){
+						if(xhr.status==200){
+						    document.getElementById("myskills").innerHTML=
+                                                            xhr.responseText;
+                                                    delete xhr;
+						}
+					}
+				}
+				xhr.open("GET","skillAction_selectsks?time="+new Date().getTime());
+				xhr.send(null);
+			};
+                        document.getElementById("editmycoms").onclick=function(){
+				var xhr = getXmlHttpRequest();
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState==4){
+						if(xhr.status==200){
+						    document.getElementById("mycoms").innerHTML=
+                                                            xhr.responseText;
+                                                    delete xhr;
+						}
+					}
+				}
+				xhr.open("GET","companyAction_selectcoms?time="+new Date().getTime());
+				xhr.send(null);
+			};
+                        document.getElementById("editmylangs").onclick=function(){
+				var xhr = getXmlHttpRequest();
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState==4){
+						if(xhr.status==200){
+						    document.getElementById("mylangs").innerHTML=
+                                                            xhr.responseText;
+                                                    delete xhr;
+						}
+					}
+				}
+				xhr.open("GET","languageAction_selectlangs?time="+new Date().getTime());
+				xhr.send(null);
+			};
 		};               
 	</script>
          
@@ -97,23 +139,21 @@
         </div>
         <hr/>
         <div id="myskills">
-            <s:iterator value="myskils" var="sk">
-                <s:property value="#sk.sk_name"/>
-                <br/>
-            </s:iterator>
+            <s:action name="skillAction_listsks" executeResult="true"/>
+            
+            <input type="button" id="editmysks" value="Edit my skills"/>
         </div>
         <hr/>
         <div id="mycoms">
-            <s:iterator value="mycoms" var="cp">
-                <s:property value="#cp.cp_name"/><br/>
-                <s:property value="#cp.icon_url"/><br/>
-            </s:iterator>
+            <s:action name="companyAction_listcoms" executeResult="true"/>
+            
+            <input type="button" id="editmycoms" value="Edit my companies"/>
         </div>
         <hr/>
         <div id="mylangs">
-            <s:iterator value="mylangs" var="lang">
-                <s:property value="#lang.lang_name"/><br/>
-            </s:iterator>
+            <s:action name="languageAction_listlangs" executeResult="true"/>
+            
+            <input type="button" id="editmylangs" value="Edit my languages"/>
         </div>
         <hr/>
     </body>
