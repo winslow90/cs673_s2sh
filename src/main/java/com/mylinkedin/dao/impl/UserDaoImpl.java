@@ -172,19 +172,29 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
                 
                 
                 querystr.append("from User u "
-                        + "join fetch u.universities uni "
-                        + "join fetch u.skills sk "
-                        + "join fetch u.companies cp "
-                        + "join fetch u.languages lang "
+                        + "left join fetch u.universities uni "
+                        + "left join fetch u.skills sk "
+                        + "left join fetch u.companies cp "
+                        + "left join fetch u.languages lang "
 
-                        + "where 1=1");
+                        + "where ");
                 
+                boolean first=true;
                 for (Entry<String, String[]> entry: paras.entrySet()){
-                    querystr.append(andor)
-                            .append(entry.getValue()[0])
-                            .append(" like '%")
-                            .append(entry.getValue()[1])
-                            .append("%'");
+                    
+                    if (first) {
+                        querystr.append(entry.getValue()[0])
+                                .append(" like '%")
+                                .append(entry.getValue()[1])
+                                .append("%'");
+                        first= false;
+                    }else{
+                        querystr.append(andor)
+                                .append(entry.getValue()[0])
+                                .append(" like '%")
+                                .append(entry.getValue()[1])
+                                .append("%'");
+                    }
                 }
                 
                 Query query = session.createQuery(querystr.toString());
@@ -195,17 +205,16 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
                 
                 
                 List<User> rawresult= query.list();
-                HashSet<User> resultset= new HashSet();
-                List<User> result= new ArrayList();
+                List<User> result =new ArrayList();
                 
-                for (User u : rawresult){
-                    resultset.add(u);
+                HashMap<Long,User> resultmap = new HashMap();
+                
+                for(User u : rawresult){
+                    if (!resultmap.containsKey(u.getUid())){
+                        resultmap.put(u.getUid(), u);
+                        result.add(u);
+                    }
                 }
-                
-                for (User u : resultset){
-                    result.add(u);
-                }
-                
                 
                 return result;
             }
@@ -317,38 +326,38 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 //        
 //        
 //        System.out.println(u);
-        
-        this.getHibernateTemplate().execute(new HibernateCallback(){
-
-            @Override
-            public Object doInHibernate(Session session) throws HibernateException, SQLException {
-                Query query= session.createQuery("from User u "
-                        + "left join fetch u.universities uni "
-                        + "left join fetch u.skills sk "
-                        + "left join fetch u.companies cp "
-                        + "left join fetch u.languages lang "
-
-                        + "where "
-                        + " u.fname like '%3%'"
-                        + "or sk.sk_name like '%3%'"
-                        
-                );
-                
-                List<User> rawresult= query.list();
-                
-                HashMap<Long,User> resultmap = new HashMap();
-                
-                for(User u : rawresult){
-                    if (!resultmap.containsKey(u.getUid())){
-                        resultmap.put(u.getUid(), u);
-                    }
-                }
-                
-                return null;
-            }
-            
-        });
-        
+//        
+//        this.getHibernateTemplate().execute(new HibernateCallback(){
+//
+//            @Override
+//            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+//                Query query= session.createQuery("from User u "
+//                        + "left join fetch u.universities uni "
+//                        + "left join fetch u.skills sk "
+//                        + "left join fetch u.companies cp "
+//                        + "left join fetch u.languages lang "
+//
+//                        + "where "
+//                        + " u.fname like '%3%'"
+//                        + "or sk.sk_name like '%3%'"
+//                        
+//                );
+//                
+//                List<User> rawresult= query.list();
+//                
+//                HashMap<Long,User> resultmap = new HashMap();
+//                
+//                for(User u : rawresult){
+//                    if (!resultmap.containsKey(u.getUid())){
+//                        resultmap.put(u.getUid(), u);
+//                    }
+//                }
+//                
+//                return null;
+//            }
+//            
+//        });
+//        
         
     }
 
