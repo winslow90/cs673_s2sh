@@ -37,7 +37,9 @@ public class UpdateServiceImpl implements UpdateService {
 
     @Override
     public void broadcastMyaddingConnection(Serializable uid, Serializable tobeaddeduid) {
+        
         List<User> receivers = userDao.listUserconnectingMe(uid);
+        
         User me = userDao.getUserbyId(uid);
         User added =userDao.getUserbyId(tobeaddeduid);
         
@@ -50,7 +52,7 @@ public class UpdateServiceImpl implements UpdateService {
                 );
             up.setUp_datetime(new Date());
             up.setUp_read(Boolean.FALSE);
-            up.setUser(me);
+            up.setUser(receiver);
             updateDao.createUpdate(up);
         }
         

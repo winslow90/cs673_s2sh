@@ -55,7 +55,7 @@ public class UpdateDaoImpl extends HibernateDaoSupport implements UpdateDao {
 
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
-                Query query= session.createQuery("from Updates up join fetch up.user u where u.uid =:theuid");
+                Query query= session.createQuery("from Updates up join fetch up.user u where u.uid =:theuid and up.up_read=false");
                 
                 query.setParameter("theuid", myuid);
                 

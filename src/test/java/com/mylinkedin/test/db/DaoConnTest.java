@@ -302,6 +302,17 @@ public class DaoConnTest extends SpringUtils {
 //        this.updateDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
 //        this.otherTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
         
+        
+        
+//        String str = " ";
+//        
+//        
+//        
+//        System.out.println(str.trim().isEmpty());
+        
+                
+                
+        
      
               
         

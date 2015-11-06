@@ -32,35 +32,35 @@ public class SearchServiceImpl implements SearchService {
         HashMap<String, String[]> paras= new HashMap();
         List<User> result;
         
-        if (fnlike!=null){
+        if (!fnlike.trim().isEmpty()){
             String str[]= {"u.fname",fnlike};
             paras.put("myfname", str);
         }
-        if (lnlike!=null){
+        if (!lnlike.trim().isEmpty()){
             String str[]= {"u.lname",lnlike};
             paras.put("mylname", str);
         }
-        if (sumlike!=null){
+        if (!sumlike.trim().isEmpty()){
             String str[]= {"u.summary",sumlike};
             paras.put("mysummary", str);
         }
-        if (loclike!=null){
+        if (!loclike.trim().isEmpty()){
             String str[]= {"u.location",loclike};
             paras.put("mylocation", str);
         }
-        if (unilike!=null){
+        if (!unilike.trim().isEmpty()){
             String str[]= {"uni.uni_name",unilike};
             paras.put("myuni_name", str);
         }
-        if (skilike!=null){
+        if (!skilike.trim().isEmpty()){
             String str[]= {"sk.sk_name",skilike};
             paras.put("mysk_name", str);
         }
-        if (comlike!=null){
+        if (!comlike.trim().isEmpty()){
             String str[]= {"cp.cp_name",comlike};
             paras.put("mycp_name", str);
         }
-        if (lanlike!=null){
+        if (!lanlike.trim().isEmpty()){
             String str[]= {"lang.lang_name",lanlike};
             paras.put("mylang_name", str);
         }

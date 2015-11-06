@@ -16,6 +16,7 @@ import java.util.List;
 public interface UpdateService {
     
     public List<Updates> listUpdates(Serializable uid);
+    
     public void broadcastMyaddingConnection(
                 Serializable uid, Serializable tobeaddeduid);   
     

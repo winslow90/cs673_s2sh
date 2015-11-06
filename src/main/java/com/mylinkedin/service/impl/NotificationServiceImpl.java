@@ -33,14 +33,14 @@ public class NotificationServiceImpl implements NotificationService {
 
     @Override
     public List<Notification> listNotifications(Serializable uid) {
-        return notificationDao.listNotifications();
+        return notificationDao.listNotificationsbyUid(uid);
     }
 
     @Override
     public void notifyConnected(Serializable touid, Serializable fromuid) {
         
-        User me = userDao.getUserbyId(fromuid);
-        User other= userDao.getUserbyId(touid);
+        User other = userDao.getUserbyId(fromuid);
+        User me= userDao.getUserbyId(touid);
         
         Notification ntf = new Notification();
         
@@ -51,7 +51,7 @@ public class NotificationServiceImpl implements NotificationService {
         ntf.setNt_datetime(new Date());
         ntf.setNt_read(Boolean.FALSE);
         
-        ntf.setUser(other);
+        ntf.setUser(me);
         
         notificationDao.createNotification(ntf);
         

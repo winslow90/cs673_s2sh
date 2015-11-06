@@ -16,6 +16,7 @@ import java.util.List;
 public interface NotificationService {
     
     public List<Notification> listNotifications(Serializable uid);
+    
     public void notifyConnected(Serializable touid, 
                         Serializable fromuid);
     
