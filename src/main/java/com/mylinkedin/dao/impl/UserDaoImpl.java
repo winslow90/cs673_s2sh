@@ -93,7 +93,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
                 }
                 else{
                     
-                    result= null;
+                    result= new ArrayList();
                 }
                     
                     
