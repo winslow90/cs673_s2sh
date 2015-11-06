@@ -10,6 +10,7 @@ import com.mylinkedin.domain.User;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -317,20 +318,36 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 //        
 //        System.out.println(u);
         
-//        this.getHibernateTemplate().execute(new HibernateCallback(){
-//
-//            @Override
-//            public Object doInHibernate(Session session) throws HibernateException, SQLException {
-//                Query query= session.createQuery("from User u "
-//                        + "join fetch u.universities uni "
-//                        + "join fetch u.skills sk "
-//                        + "join fetch u.companies cp "
-//                        + "join fetch u.languages lang "
-//
-//                        + "where 1=1");
-//            }
-//            
-//        });
+        this.getHibernateTemplate().execute(new HibernateCallback(){
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                Query query= session.createQuery("from User u "
+                        + "left join fetch u.universities uni "
+                        + "left join fetch u.skills sk "
+                        + "left join fetch u.companies cp "
+                        + "left join fetch u.languages lang "
+
+                        + "where "
+                        + " u.fname like '%3%'"
+                        + "or sk.sk_name like '%3%'"
+                        
+                );
+                
+                List<User> rawresult= query.list();
+                
+                HashMap<Long,User> resultmap = new HashMap();
+                
+                for(User u : rawresult){
+                    if (!resultmap.containsKey(u.getUid())){
+                        resultmap.put(u.getUid(), u);
+                    }
+                }
+                
+                return null;
+            }
+            
+        });
         
         
     }

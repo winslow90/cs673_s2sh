@@ -295,7 +295,7 @@ public class DaoConnTest extends SpringUtils {
 //        skillDao.test();
 //        universityDao.test();
 //        updateDao.test();        
-//        userDao.test();
+        userDao.test();
         
 //        this.userDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
 //        this.notificationDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
