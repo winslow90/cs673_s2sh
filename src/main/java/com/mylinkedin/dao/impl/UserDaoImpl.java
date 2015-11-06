@@ -86,8 +86,18 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
                 
                 User me = (User) query.uniqueResult();
                 
-                return new ArrayList<>(me.getConnections());
+                List<User> result;
                 
+                if (me!= null){
+                    result = new ArrayList<>(me.getConnections());
+                }
+                else{
+                    
+                    result= null;
+                }
+                    
+                    
+                return result;
             }
             
         });

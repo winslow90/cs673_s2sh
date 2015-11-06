@@ -29,7 +29,7 @@
     	</property>
     </bean>
     
-    <bean id="arcAction" class="com.mylinkedin.action.AddRemoveConAction"
+    <bean id="addRemoveConAction" class="com.mylinkedin.action.AddRemoveConAction"
     	scope="prototype">
     	<property name="userService">
     		<ref bean="userService"/>

@@ -29,9 +29,17 @@ public class AddRemoveConAction extends ActionSupport {
     
     private User usertoremove;
     private User usertoadd;
+    
+    private Map<String, Object> getSession(){
+        return ActionContext.getContext().getSession();
+    }
+    
+    public String test(){
+        return SUCCESS;
+    }
 
     
-    public String asynremoveconnection(){
+    public String erasecon(){
         
         User me = (User) this.getSession().get("me");
         
@@ -39,13 +47,15 @@ public class AddRemoveConAction extends ActionSupport {
         
         if (usertoremove!=null){
             userService.removeConnection(me.getUid(), usertoremove.getUid());
-            return "removesuccess";
+            return "ercons";
         }else {
-            return "fail";
+            return "confail";
         }
         
+//        return "ercons";
+        
     }
-    public String asynaddconnection(){
+    public String appendcon(){
         
         User me = (User) this.getSession().get("me");
         
@@ -55,9 +65,9 @@ public class AddRemoveConAction extends ActionSupport {
             userService.addConnection(me.getUid(), usertoadd.getUid());
             updateService.broadcastMyaddingConnection(me.getUid(), usertoadd.getUid());
             notificationService.notifyConnected(usertoadd.getUid(), me.getUid());
-            return "addsuccess";
+            return "apcons";
         }else {
-            return "fail";
+            return "confail";
         }
     }
     
@@ -95,9 +105,11 @@ public class AddRemoveConAction extends ActionSupport {
         this.uidtoaddstr = uidtoaddstr;
     }
     
-    private Map<String, Object> getSession(){
-        return ActionContext.getContext().getSession();
-    }
+    
+    
+    
+    
+    
 
     public void setUserService(UserService userService) {
         this.userService = userService;

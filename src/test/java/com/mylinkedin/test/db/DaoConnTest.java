@@ -281,13 +281,13 @@ public class DaoConnTest extends SpringUtils {
     @Test
     public void daotest(){
         
-        CompanyDao companyDao = (CompanyDao) context.getBean("companyDao");
-        LanguageDao languageDao = (LanguageDao) context.getBean("languageDao");
-        NotificationDao notificationDao = (NotificationDao) context.getBean("notificationDao");
-        SkillDao skillDao = (SkillDao) context.getBean("skillDao");        
-        UniversityDao universityDao = (UniversityDao) context.getBean("universityDao");
-        UpdateDao updateDao = (UpdateDao) context.getBean("updateDao");
-        UserDao userDao = (UserDao) context.getBean("userDao");
+//        CompanyDao companyDao = (CompanyDao) context.getBean("companyDao");
+//        LanguageDao languageDao = (LanguageDao) context.getBean("languageDao");
+//        NotificationDao notificationDao = (NotificationDao) context.getBean("notificationDao");
+//        SkillDao skillDao = (SkillDao) context.getBean("skillDao");        
+//        UniversityDao universityDao = (UniversityDao) context.getBean("universityDao");
+//        UpdateDao updateDao = (UpdateDao) context.getBean("updateDao");
+//        UserDao userDao = (UserDao) context.getBean("userDao");
 
 //        companyDao.test();
 //        languageDao.test();

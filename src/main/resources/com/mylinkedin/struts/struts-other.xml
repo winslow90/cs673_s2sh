@@ -5,10 +5,11 @@
 
 <struts>
 	<package name="other" namespace="/" extends="struts-default">
-                <action name="arcAction_*" method="{1}" class="arcAction">
-                    <result name="addsuccess">    /arcpages/addsuccess.jsp    </result>
-                    <result name="removesuccess">    /arcpages/removesuccess.jsp    </result>
-                    <result name="fail">    /arcpages/arcfail.jsp    </result>
+                <action name="addRemoveConAction_*" method="{1}" class="addRemoveConAction">
+                    <result name="success">    /test.jsp    </result>
+                    <result name="apcons">/arcpages/addsuccess.jsp</result>
+                    <result name="ercons">/arcpages/removesuccess.jsp</result>
+                    <result name="confail">/arcpages/arcfail.jsp</result>
 		</action>                
 		<action name="updateAction_*" method="{1}" class="updateAction">
                     <result name="success">    /home.jsp    </result>
