@@ -73,6 +73,7 @@ public class DaoConnTest extends SpringUtils {
             nf.setNt_datetime(new Date());
             nf.setNt_read(false);
             nf.setNt_type(1L);
+            nf.setRelating_uid(3L);
             
             notificationDao.createNotification(nf);
             
@@ -106,6 +107,7 @@ public class DaoConnTest extends SpringUtils {
             up.setUp_datetime(new Date());
             up.setUp_read(false);
             up.setUp_type(1L);
+            up.setRelating_uid(2L);
             
             updateDao.createUpdate(up);
             

@@ -20,7 +20,13 @@
             <div style="float:right">   
                 <s:iterator value="notification" var="ntf">
                     <s:property value="#ntf.nt_content"/>&nbsp&nbsp&nbsp&nbsp
-                    <s:property value="#ntf.nt_datetime"/><br/>
+                    <s:property value="#ntf.nt_datetime"/>
+                    <s:form action="otherprofileAction_viewotherprofile">
+                        <s:hidden name="hisuid" value="%{#ntf.relating_uid}"></s:hidden>
+                        <s:submit value="view me" class="buttoninput"/>
+                    </s:form>
+                    <br/>
+            <br/>
                 </s:iterator>
             </div>
         

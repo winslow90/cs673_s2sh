@@ -24,6 +24,11 @@
         <s:iterator value="updates" var="up">
             <s:property value="#up.up_content"/>
             <s:property value="#up.up_datetime"/>
+            
+            <s:form action="otherprofileAction_viewotherprofile">
+                <s:hidden name="hisuid" value="%{#up.relating_uid}"></s:hidden>
+                <s:submit value="view me" class="buttoninput"/>
+            </s:form>
             <br/>
         </s:iterator>
         

@@ -49,6 +49,7 @@ public class NotificationServiceImpl implements NotificationService {
                 other.getFname()+other.getLname()+"has just connected you."
                 );
         ntf.setNt_datetime(new Date());
+        ntf.setRelating_uid(other.getUid());
         ntf.setNt_read(Boolean.FALSE);
         
         ntf.setUser(me);
