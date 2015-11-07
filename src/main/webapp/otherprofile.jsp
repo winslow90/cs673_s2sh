@@ -18,6 +18,8 @@
         
         <hr/>
         
+        <input type="button" onclick="javascript:history.back(-1);" value="Go to previous page">
+        
         <div id="iconprofile">
             
             

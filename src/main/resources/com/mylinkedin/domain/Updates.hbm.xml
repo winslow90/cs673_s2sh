@@ -16,6 +16,7 @@
         <property name="up_content" type="java.lang.String" length="512"></property>
         <property name="up_datetime" type="date"></property>
         <property name="up_read" type="boolean" ></property>
+        <property name="relating_uid" type="java.lang.Long" length="5"></property>
         
         <many-to-one name="user" 
 		class="com.mylinkedin.domain.User"

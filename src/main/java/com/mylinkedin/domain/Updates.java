@@ -19,11 +19,22 @@ public class Updates implements Serializable {
     private String up_content;
     private Date up_datetime;
     private Boolean up_read;
+    
+    private Long relating_uid;
+
+    
 
     
     private User user;
     
     
+    public Long getRelating_uid() {
+        return relating_uid;
+    }
+
+    public void setRelating_uid(Long relating_uid) {
+        this.relating_uid = relating_uid;
+    }
     
     public Boolean getUp_read() {
         return up_read;

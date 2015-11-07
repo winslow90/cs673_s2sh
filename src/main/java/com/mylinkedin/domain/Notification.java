@@ -20,9 +20,21 @@ public class Notification implements Serializable {
     private Date nt_datetime;
     private Boolean nt_read;
     
+    private Long relating_uid;
+
+    
+    
     private User user;
 
 
+    public Long getRelating_uid() {
+        return relating_uid;
+    }
+
+    public void setRelating_uid(Long relating_uid) {
+        this.relating_uid = relating_uid;
+    }
+    
     public Boolean getNt_read() {
         return nt_read;
     }
