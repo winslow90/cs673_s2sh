@@ -15,6 +15,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -231,6 +232,38 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
             
         });
     }
+    
+    
+    @Override
+    public Boolean checkConHas(Long myuid, Long otheruid) {
+        
+        final Long themyuid= myuid;
+        
+        
+        User me = (User) this.getHibernateTemplate().execute(new HibernateCallback(){
+        
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                Query query = session.createQuery("from User u join fetch u.connections c where u.uid=:theuid");
+                query.setParameter("theuid", themyuid);
+                return query.uniqueResult();
+                
+            }
+            
+        });
+        
+        Set<User> myconnections = me.getConnections();
+        
+        for (User u : myconnections){
+            if (otheruid.equals(u.getUid())){
+                return Boolean.TRUE;
+            }
+        }
+        
+        return Boolean.FALSE;
+                
+    }
+
     
         @Override
     public List<User> listTopNConnectedUser(int N) {

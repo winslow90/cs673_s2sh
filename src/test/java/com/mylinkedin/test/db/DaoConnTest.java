@@ -302,13 +302,10 @@ public class DaoConnTest extends SpringUtils {
 //        this.updateDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
 //        this.otherTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
         
-        
-        
-//        String str = " ";
 //        
+//        Boolean result = userDao.checkConHas(3L, 1L);
 //        
-//        
-//        System.out.println(str.trim().isEmpty());
+//        System.out.println(result);
         
                 
                 

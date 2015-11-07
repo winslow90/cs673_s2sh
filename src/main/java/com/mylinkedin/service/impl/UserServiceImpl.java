@@ -104,11 +104,22 @@ public class UserServiceImpl implements UserService {
         
         userDao.updateUser(me);
     }
+    
+    @Override
+    public Boolean checkConHas(Long myuid, Long otheruid) {
+        if (!myuid.equals(otheruid)){
+            return userDao.checkConHas(myuid,otheruid);
+        }else{
+            return null;
+        }
+    }
 
     @Override
     public List<User> listTopNConnectedUsers() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
 
     
 }

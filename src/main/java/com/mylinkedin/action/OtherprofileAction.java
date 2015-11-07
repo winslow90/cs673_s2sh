@@ -42,7 +42,9 @@ public class OtherprofileAction extends ActionSupport {
     List<Notification> notification;
     
     
-    String hisuid;
+    Long hisuid;
+
+   
     User he;
     String hisemail;
     String hisfname;
@@ -55,6 +57,9 @@ public class OtherprofileAction extends ActionSupport {
     List<Skill> hisskils;
     List<Company> hiscoms;
     List<Languages> hislangs;
+    
+    Boolean thediff;
+    Boolean theremove;
     
     
     private Map<String, Object> getSession(){
@@ -69,9 +74,10 @@ public class OtherprofileAction extends ActionSupport {
         me = (User) this.getSession().get("me");
         notification = notificationService.listNotifications(me.getUid()); 
         
-        if (hisuid.trim().isEmpty()){
+        if (hisuid==null){
             return "viewhome";
         }else{
+            
             he= userService.getUserbyId(hisuid);
             
             hisemail=he.getEmail();
@@ -89,22 +95,56 @@ public class OtherprofileAction extends ActionSupport {
             
         }
         
+        Long myuidlong= me.getUid();
+        
+        
+        if (myuidlong.equals(hisuid)){
+            thediff=Boolean.FALSE;
+        }else{
+            thediff=Boolean.TRUE;
+            theremove=userService.checkConHas(myuidlong, hisuid);
+        }
         
         return SUCCESS;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public Long getHisuid() {
+        return hisuid;
+    }
+
+    public void setHisuid(Long hisuid) {
+        this.hisuid = hisuid;
+    }
+    
+    public Boolean getThediff() {
+        return thediff;
+    }
+
+    public void setThediff(Boolean thediff) {
+        this.thediff = thediff;
+    }
+
+    public Boolean getTheremove() {
+        return theremove;
+    }
+
+    public void setTheremove(Boolean theremove) {
+        this.theremove = theremove;
+    }
+    
     public User getMe() {
         return me;
     }

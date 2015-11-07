@@ -50,7 +50,7 @@
                     <result name="listresult">  /searchresult.jsp    </result>
 		</action>
                 <action name="otherprofileAction_*" method="{1}" class="otherprofileAction">
-                    <result name="success">/advsearch.jsp </result>
+                    <result name="success">/otherprofile.jsp </result>
                     <result name="viewhome" type="chain">updateAction_viewhome</result>
 		</action>
 	</package>

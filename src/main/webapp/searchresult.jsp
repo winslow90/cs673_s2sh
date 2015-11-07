@@ -31,6 +31,11 @@
                 <br/>
                 <br/>
                 
+                <s:form action="otherprofileAction_viewotherprofile">
+                    <s:hidden name="hisuid" value="%{#con.uid}"></s:hidden>
+                    <s:submit value="view me" class="buttoninput"/>
+                </s:form>
+                
                 <div id="userdiv${con.uid}addbtnbx">
                     <input type="button" id="userdiv${con.uid}addbtn" 
                            value="Append connection to ${con.lname}"/>

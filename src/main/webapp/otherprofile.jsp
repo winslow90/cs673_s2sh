@@ -11,6 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <script type="text/javascript" src="js/util.js"></script>
     </head>
     <body>
         <%@ include file="top.jsp"%>
@@ -55,6 +56,61 @@
          <s:iterator value="hislangs" var="lang">
                 <s:property value="#lang.lang_name"/>&nbsp&nbsp&nbsp&nbsp
         </s:iterator>
+                
+                
+        <s:if test="%{thediff}">
+            <s:if test="%{theremove}">
+                <div id="userdiv${he.uid}removebtnbx">
+                    <input type="button" id="userdiv${he.uid}removebtn" 
+                           value="Remove connection to ${he.lname}"/>
+                </div>
+                
+                <script type="text/javascript">
+                    document.getElementById("userdiv${he.uid}removebtn").onclick=function(){
+                                    var xhr = getXmlHttpRequest();
+                                    xhr.onreadystatechange=function(){
+                                            if(xhr.readyState==4){
+                                                    if(xhr.status==200){
+                                                        document.getElementById("userdiv${he.uid}removebtnbx").innerHTML=
+                                                                xhr.responseText;
+                                                        delete xhr;
+                                                    }
+                                            }
+                                    }
+                                    xhr.open("GET","addRemoveConAction_erasecon?time="+new Date().getTime()+"&&uidtoremovestr="+${he.uid});
+                                    xhr.send(null);
+                                };
+                </script>
+                
+            </s:if>
+            <s:else>
+                <div id="userdiv${he.uid}addbtnbx">
+                    <input type="button" id="userdiv${he.uid}addbtn" 
+                           value="Append connection to ${he.lname}"/>
+                </div>
+                
+                
+                <script type="text/javascript">
+
+                            document.getElementById("userdiv${he.uid}addbtn").onclick=function(){
+                                        var xhr = getXmlHttpRequest();
+                                        xhr.onreadystatechange=function(){
+                                                if(xhr.readyState==4){
+                                                        if(xhr.status==200){
+                                                            document.getElementById("userdiv${he.uid}addbtnbx").innerHTML=
+                                                                    xhr.responseText;
+                                                            delete xhr;
+                                                        }
+                                                }
+                                        }
+                                        xhr.open("GET","addRemoveConAction_appendcon?time="+new Date().getTime()+"&&uidtoaddstr="+${he.uid});
+                                        xhr.send(null);
+                                    };
+                </script>
+                
+                
+            </s:else>
+        </s:if>
                 
         
     </body>

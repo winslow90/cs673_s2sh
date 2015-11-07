@@ -35,5 +35,7 @@ public interface UserDao {
             );
     
     public void test();
+
+    public Boolean checkConHas(Long myuid, Long otheruid);
     
 }

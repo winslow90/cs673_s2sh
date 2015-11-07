@@ -39,6 +39,11 @@
                 <br/>
                 <br/>
                 
+                <s:form action="otherprofileAction_viewotherprofile">
+                    <s:hidden name="hisuid" value="%{#con.uid}"></s:hidden>
+                    <s:submit value="view me" class="buttoninput"/>
+                </s:form>
+                
                 <div id="userdiv${con.uid}removebtnbx">
                     <input type="button" id="userdiv${con.uid}removebtn" 
                            value="Remove connection to ${con.lname}"/>

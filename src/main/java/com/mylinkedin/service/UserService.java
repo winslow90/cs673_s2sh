@@ -31,6 +31,7 @@ public interface UserService {
     public void removeConnection(Serializable uid,Serializable touid);
     public void addConnection(Serializable uid, Serializable touid);
     public void updateUserIcon(Serializable myuid, String photo_url);
+    public Boolean checkConHas(Long myuid, Long otheruid);
     
     public List<User> listTopNConnectedUsers();
     

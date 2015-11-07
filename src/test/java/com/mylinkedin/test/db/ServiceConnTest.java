@@ -13,6 +13,7 @@ import com.mylinkedin.service.SearchService;
 import com.mylinkedin.service.SkillService;
 import com.mylinkedin.service.UniversityService;
 import com.mylinkedin.service.UpdateService;
+import com.mylinkedin.service.UserService;
 import com.mylinkedin.test.utils.SpringUtils;
 import java.util.List;
 import org.junit.Test;
@@ -36,18 +37,23 @@ public class ServiceConnTest extends SpringUtils {
     @Test
     public void servicetest(){
         
-        CompanyService companyService= (CompanyService) context.getBean("companyService");
-        LanguageService languageService = (LanguageService) context.getBean("languageService");
-        NotificationService notificationService = (NotificationService) context.getBean("notificationService");
-        SearchService searchService = (SearchService) context.getBean("searchService");
-        SkillService skillService = (SkillService) context.getBean("skillService");
-        UniversityService universityService = (UniversityService) context.getBean("universityService");
-        UpdateService updateService = (UpdateService) context.getBean("updateService");
+//        CompanyService companyService= (CompanyService) context.getBean("companyService");
+//        LanguageService languageService = (LanguageService) context.getBean("languageService");
+//        NotificationService notificationService = (NotificationService) context.getBean("notificationService");
+//        SearchService searchService = (SearchService) context.getBean("searchService");
+//        SkillService skillService = (SkillService) context.getBean("skillService");
+//        UniversityService universityService = (UniversityService) context.getBean("universityService");
+//        UpdateService updateService = (UpdateService) context.getBean("updateService");
+//        UserService userService = (UserService) context.getBean("userService");
         
         
-        List<User> result = searchService.simpleSearch("3");
+//        List<User> result = searchService.simpleSearch("3");
+//        
+//        System.out.println();
         
-        System.out.println();
+//        Boolean result = userService.checkConHas(3L, 2L);
+//        
+//        System.out.println(result);
         
     }
 }
