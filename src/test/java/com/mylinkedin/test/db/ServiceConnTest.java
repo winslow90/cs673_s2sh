@@ -15,7 +15,9 @@ import com.mylinkedin.service.UniversityService;
 import com.mylinkedin.service.UpdateService;
 import com.mylinkedin.service.UserService;
 import com.mylinkedin.test.utils.SpringUtils;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -54,6 +56,16 @@ public class ServiceConnTest extends SpringUtils {
 //        Boolean result = userService.checkConHas(3L, 2L);
 //        
 //        System.out.println(result);
+        
+//        userService.listrecommendation(1L, 5L);
+        
+//        Random rand= new Random(new Date().getTime());
+//        int result;
+//        for (int i =0; i<20; i++){
+//            result = Math.abs(rand.nextInt())%10;
+//        }
+        
+        
         
     }
 }

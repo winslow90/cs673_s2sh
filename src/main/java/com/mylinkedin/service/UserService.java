@@ -33,6 +33,8 @@ public interface UserService {
     public void updateUserIcon(Serializable myuid, String photo_url);
     public Boolean checkConHas(Long myuid, Long otheruid);
     
+    public List<User> listrecommendation(Long myuid, Long n);
+    
     public List<User> listTopNConnectedUsers();
     
 }

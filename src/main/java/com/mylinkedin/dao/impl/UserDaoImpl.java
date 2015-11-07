@@ -263,6 +263,110 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
         return Boolean.FALSE;
                 
     }
+    
+
+    @Override
+    public List<User> listuserwithUni(Serializable uniid) {
+        
+        final Long theuniid = (Long) uniid;
+        
+        return (List<User>) this.getHibernateTemplate().execute(new HibernateCallback(){
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                
+                Query query = session.createQuery("from User u join fetch u.universities uni where uni.uniid=:theuniid");
+                
+                query.setParameter("theuniid", theuniid);
+                
+                return query.list();
+            }
+            
+        });
+    }
+
+    @Override
+    public List<User> listuserwithSk(Serializable skid) {
+        final Long theskid = (Long) skid;
+        
+        return (List<User>) this.getHibernateTemplate().execute(new HibernateCallback(){
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                
+                Query query = session.createQuery("from User u join fetch u.skills sk where sk.skid=:theskid");
+                
+                query.setParameter("theskid", theskid);
+                
+                return query.list();
+            }
+            
+        });
+    }
+
+    @Override
+    public List<User> listuserwithCp(Serializable cpid) {
+        
+        final Long thecpid = (Long) cpid;
+        
+        return (List<User>) this.getHibernateTemplate().execute(new HibernateCallback(){
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                
+                Query query = session.createQuery("from User u join fetch u.companies cp where cp.cpid=:thecpid");
+                
+                query.setParameter("thecpid", thecpid);
+                
+                return query.list();
+            }
+            
+        });
+    }
+
+    @Override
+    public List<User> listuserwithLang(Serializable lang_id) {
+        final Long thelangid = (Long) lang_id;
+        
+        return (List<User>) this.getHibernateTemplate().execute(new HibernateCallback(){
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                
+                Query query = session.createQuery("from User u join fetch u.languages lang where lang.lang_id=:thelang_id");
+                
+                query.setParameter("thelang_id", thelangid);
+                
+                return query.list();
+            }
+            
+        });
+    }
+
+
+    @Override
+    public User fetchallbyUid(Serializable uid) {
+        
+        final Long themyuid = (Long) uid;
+        
+        return (User) this.getHibernateTemplate().execute( new HibernateCallback(){
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                Query query = session.createQuery("from User u "
+                                                + "join fetch u.universities uni "
+                                                + "join fetch u.skills sk "
+                                                + "join fetch u.companies cp "
+                                                + "join fetch u.languages lang "
+
+                                                + "where u.uid=:theuid");
+                query.setParameter("theuid", themyuid);
+                
+                return query.uniqueResult();
+            }
+            
+        });
+    }
 
     
         @Override

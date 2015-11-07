@@ -34,6 +34,15 @@ public interface UserDao {
             boolean andcondition
             );
     
+    public User fetchallbyUid(Serializable uid);
+    
+    public List<User> listuserwithUni(Serializable uniid);
+    public List<User> listuserwithSk(Serializable skid);
+    public List<User> listuserwithCp(Serializable cpid);
+    public List<User> listuserwithLang(Serializable lang_id);
+    
+    
+    
     public void test();
 
     public Boolean checkConHas(Long myuid, Long otheruid);
