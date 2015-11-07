@@ -185,16 +185,23 @@ public class UserServiceImpl implements UserService {
         Random rand= new Random(new Date().getTime());
         int nextindex;
         result=new ArrayList();
-        while (count<n){
-            nextindex = Math.abs(rand.nextInt())%rawresultls.size();
+        
+        if (rawresultls.size()<=n){
+            return rawresultls;
             
-            if (rawresultls.get(nextindex)!=null){
-                result.add(rawresultls.get(nextindex));
-                rawresultls.set(nextindex, null);
+        }else{
+            while (count<n){
+                nextindex = Math.abs(rand.nextInt())%rawresultls.size();
+
+                if (rawresultls.get(nextindex)!=null){
+                    result.add(rawresultls.get(nextindex));
+                    rawresultls.set(nextindex, null);
+                    count++;
+                }
             }
+            return result;
         }
         
-        return result;
     }
     
     @Override

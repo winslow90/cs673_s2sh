@@ -46,7 +46,7 @@ public class ServiceConnTest extends SpringUtils {
 //        SkillService skillService = (SkillService) context.getBean("skillService");
 //        UniversityService universityService = (UniversityService) context.getBean("universityService");
 //        UpdateService updateService = (UpdateService) context.getBean("updateService");
-//        UserService userService = (UserService) context.getBean("userService");
+        UserService userService = (UserService) context.getBean("userService");
         
         
 //        List<User> result = searchService.simpleSearch("3");
@@ -57,7 +57,7 @@ public class ServiceConnTest extends SpringUtils {
 //        
 //        System.out.println(result);
         
-//        userService.listrecommendation(1L, 5L);
+        userService.listrecommendation(1L, 2L);
         
 //        Random rand= new Random(new Date().getTime());
 //        int result;
