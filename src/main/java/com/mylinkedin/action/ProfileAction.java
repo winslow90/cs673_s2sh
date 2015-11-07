@@ -5,15 +5,9 @@
  */
 package com.mylinkedin.action;
 
-import com.mylinkedin.domain.Company;
-import com.mylinkedin.domain.Languages;
 import com.mylinkedin.domain.Notification;
-import com.mylinkedin.domain.Skill;
 import com.mylinkedin.domain.User;
-import com.mylinkedin.service.CompanyService;
-import com.mylinkedin.service.LanguageService;
 import com.mylinkedin.service.NotificationService;
-import com.mylinkedin.service.SkillService;
 import com.mylinkedin.service.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -33,12 +27,6 @@ public class ProfileAction extends ActionSupport {
     private UserService userService;
     private NotificationService notificationService;
     
-    
-//    private SkillService skillService;
-//    private CompanyService companyService;
-//    private LanguageService languageService;
-
-    
 
     
     
@@ -47,10 +35,6 @@ public class ProfileAction extends ActionSupport {
     
     List<Notification> notification;    
     
-    
-    List<Skill> myskils;
-    List<Company> mycoms;
-    List<Languages> mylangs;
     
     String seemail;
     String sepd[]={"",""};
@@ -200,31 +184,7 @@ public class ProfileAction extends ActionSupport {
     public void setNotification(List<Notification> notification) {
         this.notification = notification;
     }
-
-    public List<Skill> getMyskils() {
-        return myskils;
-    }
-
-    public void setMyskils(List<Skill> myskils) {
-        this.myskils = myskils;
-    }
-
-    public List<Company> getMycoms() {
-        return mycoms;
-    }
-
-    public void setMycoms(List<Company> mycoms) {
-        this.mycoms = mycoms;
-    }
-
-    public List<Languages> getMylangs() {
-        return mylangs;
-    }
-
-    public void setMylangs(List<Languages> mylangs) {
-        this.mylangs = mylangs;
-    }
-
+    
     public String getSeemail() {
         return seemail;
     }
