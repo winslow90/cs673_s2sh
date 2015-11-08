@@ -123,7 +123,10 @@ public class SearchServiceImpl implements SearchService {
         if (paras.size()>0){
             result=userDao.searchUserLike_p(paras, andcondition, pageNum);
         }else{
-            result= null;
+            Page<User> resultpage = new Page(1,0);
+            resultpage.setRecords(new ArrayList());
+            
+            result= resultpage;
         }
                 
         return result;

@@ -16,7 +16,7 @@
     <body>
         <%@ include file="top.jsp"%>
         
-        <s:iterator value="resultUsers" var="con">            
+        <s:iterator value="resultUsersPage.records" var="con">            
             <div id="userdiv${con.uid}">
                 <img src="${con.photo_url}" height="50" width="50"/>
                 <s:property value="#con.fname"/>&nbsp
@@ -46,7 +46,7 @@
         
         <script type="text/javascript">
             
-            <s:iterator value="resultUsers" var="con">
+            <s:iterator value="resultUsersPage.records" var="con">
                 
                     document.getElementById("userdiv${con.uid}addbtn").onclick=function(){
                                 var xhr = getXmlHttpRequest();
@@ -67,6 +67,98 @@
         </script>
         
         
+        <br/><br/><br/><br/>
+        
+        <div id="pagedirectors">
+            
+        
+            <div style="float:left">
+                <s:form action="searchAction_doadvsearch">
+                    <s:hidden name="fnlike" ></s:hidden>
+                    <s:hidden name="lnlike" ></s:hidden>
+                    <s:hidden name="sumlike"></s:hidden>
+                    <s:hidden name="loclike"></s:hidden>
+                    <s:hidden name="unilike"></s:hidden>
+                    <s:hidden name="skilike"></s:hidden>
+                    <s:hidden name="comlike"></s:hidden>
+                    <s:hidden name="lanlike"></s:hidden>
+                    <s:hidden name="currentpage" value="1"></s:hidden>
+                    <s:submit value="FirstPage" class="buttoninput"/>
+                </s:form>
+            </div>
+            
+             <div style="float:left">
+                <s:form action="searchAction_doadvsearch">
+                    <s:hidden name="fnlike" ></s:hidden>
+                    <s:hidden name="lnlike" ></s:hidden>
+                    <s:hidden name="sumlike"></s:hidden>
+                    <s:hidden name="loclike"></s:hidden>
+                    <s:hidden name="unilike"></s:hidden>
+                    <s:hidden name="skilike"></s:hidden>
+                    <s:hidden name="comlike"></s:hidden>
+                    <s:hidden name="lanlike"></s:hidden>
+                    <s:hidden name="currentpage" value="%{resultUsersPage.getPrePageNum()}"></s:hidden>
+                    <s:submit value="PreviousPage" class="buttoninput"/>
+                </s:form>
+            </div>
+            
+            
+            <s:iterator var="counter" begin="%{resultUsersPage.getStartPage()}" 
+                        end="%{resultUsersPage.getEndPage()}" >
+                <div style="float:left">
+                    <s:form action="searchAction_doadvsearch">
+                        <s:hidden name="fnlike" ></s:hidden>
+                        <s:hidden name="lnlike" ></s:hidden>
+                        <s:hidden name="sumlike"></s:hidden>
+                        <s:hidden name="loclike"></s:hidden>
+                        <s:hidden name="unilike"></s:hidden>
+                        <s:hidden name="skilike"></s:hidden>
+                        <s:hidden name="comlike"></s:hidden>
+                        <s:hidden name="lanlike"></s:hidden>
+                        <s:hidden name="currentpage" value="%{#counter}"></s:hidden>
+                        <s:submit value="Page%{#counter}" class="buttoninput"/>
+                    </s:form>
+                </div>
+            </s:iterator>
+            
+            
+            <div style="float:left">
+                <s:form action="searchAction_doadvsearch">
+                    <s:hidden name="fnlike" ></s:hidden>
+                    <s:hidden name="lnlike" ></s:hidden>
+                    <s:hidden name="sumlike"></s:hidden>
+                    <s:hidden name="loclike"></s:hidden>
+                    <s:hidden name="unilike"></s:hidden>
+                    <s:hidden name="skilike"></s:hidden>
+                    <s:hidden name="comlike"></s:hidden>
+                    <s:hidden name="lanlike"></s:hidden>
+                    <s:hidden name="currentpage" value="%{resultUsersPage.getNextPageNum()}"></s:hidden>
+                    <s:submit value="NextPage" class="buttoninput"/>
+                </s:form>
+            </div>
+            
+            
+            <div style="float:left">
+        
+                <s:form action="searchAction_doadvsearch">
+                    <s:hidden name="fnlike" ></s:hidden>
+                    <s:hidden name="lnlike" ></s:hidden>
+                    <s:hidden name="sumlike"></s:hidden>
+                    <s:hidden name="loclike"></s:hidden>
+                    <s:hidden name="unilike"></s:hidden>
+                    <s:hidden name="skilike"></s:hidden>
+                    <s:hidden name="comlike"></s:hidden>
+                    <s:hidden name="lanlike"></s:hidden>
+                    <s:hidden name="currentpage" value="%{resultUsersPage.getTotalPageNum()}"></s:hidden>
+                    <s:submit value="LastPage" class="buttoninput"/>
+                </s:form>
+            </div>
+            
+            
+        </div>
+        
+        
+        <br/>
         
         <s:debug></s:debug>
     </body>

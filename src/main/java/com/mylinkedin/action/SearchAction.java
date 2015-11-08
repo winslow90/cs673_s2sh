@@ -5,6 +5,7 @@
  */
 package com.mylinkedin.action;
 
+import com.mylinkedin.action.bean.Page;
 import com.mylinkedin.domain.Notification;
 import com.mylinkedin.domain.User;
 import com.mylinkedin.service.NotificationService;
@@ -37,8 +38,15 @@ public class SearchAction extends ActionSupport {
             comlike,
         lanlike;
     
-    List<User> resultUsers;
+//    List<User> resultUsers;
     List<Notification> notification;
+    
+    Page<User> resultUsersPage;
+    
+    Integer currentpage;
+
+
+    
 
 
     
@@ -50,7 +58,27 @@ public class SearchAction extends ActionSupport {
     
     public String dosimplesearch(){
         
-        resultUsers= searchService.simpleSearch(simplestr);
+        User me;
+        
+        me=(User) this.getSession().get("me");
+        
+        notification = notificationService.listNotifications(me.getUid());
+        
+        
+        if (currentpage==null){
+            currentpage = 1;
+        }
+        
+        fnlike=simplestr;
+        lnlike=simplestr;
+        sumlike=simplestr;
+        loclike=simplestr;
+        unilike=simplestr;
+        skilike=simplestr;
+        comlike=simplestr;
+        lanlike=simplestr;
+        
+        resultUsersPage= searchService.simpleSearch_p(simplestr,currentpage);
                
         
         return "listresult";
@@ -76,17 +104,36 @@ public class SearchAction extends ActionSupport {
         
         notification = notificationService.listNotifications(me.getUid());
         
+        if (currentpage==null){
+            currentpage = 1;
+        }
+        
                 
-        resultUsers= searchService.searchUsers(fnlike, lnlike, sumlike, 
-                loclike, unilike, skilike, comlike, lanlike, false);
+        resultUsersPage= searchService.searchUsers_p(fnlike, lnlike, sumlike, 
+                loclike, unilike, skilike, comlike, lanlike, false,currentpage);
         
         return "listresult";
     }
-     
     
     
     
     
+    
+    public Page<User> getResultUsersPage() {
+        return resultUsersPage;
+    }
+
+    public void setResultUsersPage(Page<User> resultUsersPage) {
+        this.resultUsersPage = resultUsersPage;
+    }
+
+    public Integer getCurrentpage() {
+        return currentpage;
+    }
+
+    public void setCurrentpage(Integer currentpage) {
+        this.currentpage = currentpage;
+    }
     
     public String getSimplestr() {
         return simplestr;
@@ -160,13 +207,13 @@ public class SearchAction extends ActionSupport {
         this.lanlike = lanlike;
     }
 
-    public List<User> getResultUsers() {
-        return resultUsers;
-    }
-
-    public void setResultUsers(List<User> resultUsers) {
-        this.resultUsers = resultUsers;
-    }
+//    public List<User> getResultUsers() {
+//        return resultUsers;
+//    }
+//
+//    public void setResultUsers(List<User> resultUsers) {
+//        this.resultUsers = resultUsers;
+//    }
     
     public List<Notification> getNotification() {
         return notification;
