@@ -21,6 +21,34 @@
         
         <h1>this is the home page</h1>
         
+        
+        <hr/>
+        <h3>this is recommendation</h3>
+        <s:iterator value="recommendation" var="con">
+             <div id="userdiv${con.uid}">
+                <img src="${con.photo_url}" height="50" width="50"/>
+                <s:property value="#con.fname"/>&nbsp
+                <s:property value="#con.lname"/>&nbsp&nbsp&nbsp
+                <s:property value="#con.gender"/>&nbsp
+                <br/>
+                <s:property value="#con.summary"/>&nbsp
+                <br/>
+                <s:property value="#con.location"/>&nbsp
+                <br/>
+                <s:property value="#con.photo_url"/>&nbsp
+                <br/>
+                <br/>
+                
+                <s:form action="otherprofileAction_viewotherprofile">
+                    <s:hidden name="hisuid" value="%{#con.uid}"></s:hidden>
+                    <s:submit value="view me" class="buttoninput"/>
+                </s:form>
+                
+            </div>
+        </s:iterator>
+        
+        <hr/>
+        
         <s:iterator value="updates" var="up">
             <s:property value="#up.up_content"/>
             <s:property value="#up.up_datetime"/>
