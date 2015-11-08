@@ -5,6 +5,7 @@
  */
 package com.mylinkedin.dao;
 
+import com.mylinkedin.action.bean.Page;
 import com.mylinkedin.domain.User;
 import java.io.Serializable;
 import java.util.List;
@@ -32,6 +33,11 @@ public interface UserDao {
     public List<User> searchUserLike(
             Map<String, String[]> paras ,
             boolean andcondition
+            );
+    public Page<User> searchUserLike_p(
+            Map<String, String[]> paras ,
+            boolean andcondition,
+            int pageNum
             );
     
     public User fetchallbyUid(Serializable uid);

@@ -16,12 +16,17 @@ public class Page<T> {
     private List<T> records;
     private int currentPageNum;
     private static final int PAGESIZE =10;
+
+    
     private int totalPageNum;
     
     private int prePageNum;
     private int nextPageNum;
     
     private int startIndex;
+    private int endIndex;
+
+    
     private int totalRecords;
     
     private int startPage;
@@ -57,6 +62,22 @@ public class Page<T> {
             startPage=1;
             endPage= totalPageNum;
         }
+    }
+    
+    public int getEndIndex() {
+        endIndex= startIndex+PAGESIZE;
+        if (endIndex>totalRecords){
+            endIndex=totalRecords;
+        }
+        return endIndex;
+    }
+
+    public void setEndIndex(int endIndex) {
+        this.endIndex = endIndex;
+    }
+    
+    public static int getPAGESIZE() {
+        return PAGESIZE;
     }
 
     public List<T> getRecords() {

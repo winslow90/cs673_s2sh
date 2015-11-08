@@ -5,6 +5,7 @@
  */
 package com.mylinkedin.dao.impl;
 
+import com.mylinkedin.action.bean.Page;
 import com.mylinkedin.dao.UserDao;
 import com.mylinkedin.domain.User;
 import java.io.Serializable;
@@ -228,6 +229,80 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
                 }
                 
                 return result;
+            }
+            
+        });
+    }
+
+    @Override
+    public Page<User> searchUserLike_p(final Map<String, String[]> paras, final boolean andcondition, final int pageNum) {
+
+        return (Page<User>) this.getHibernateTemplate().execute(new HibernateCallback(){
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                
+                StringBuilder querystr= new StringBuilder();
+                String andor;
+                
+                if (andcondition){
+                    andor=" and ";
+                }else{
+                    andor=" or ";
+                }
+                
+                
+                
+                querystr.append("from User u "
+                        + "left join fetch u.universities uni "
+                        + "left join fetch u.skills sk "
+                        + "left join fetch u.companies cp "
+                        + "left join fetch u.languages lang "
+
+                        + "where ");
+                
+                boolean first=true;
+                for (Entry<String, String[]> entry: paras.entrySet()){
+                    
+                    if (first) {
+                        querystr.append(entry.getValue()[0])
+                                .append(" like '%")
+                                .append(entry.getValue()[1])
+                                .append("%'");
+                        first= false;
+                    }else{
+                        querystr.append(andor)
+                                .append(entry.getValue()[0])
+                                .append(" like '%")
+                                .append(entry.getValue()[1])
+                                .append("%'");
+                    }
+                }
+                
+                Query query = session.createQuery(querystr.toString());
+                
+//                for (Entry<String, String[]> entry: paras.entrySet()){
+//                    query.setParameter(entry.getKey(), entry.getValue()[1]);
+//                }
+                
+                
+                List<User> rawresult= query.list();
+                List<User> result =new ArrayList();
+                
+                HashMap<Long,User> resultmap = new HashMap();
+                
+                for(User u : rawresult){
+                    if (!resultmap.containsKey(u.getUid())){
+                        resultmap.put(u.getUid(), u);
+                        result.add(u);
+                    }
+                }
+                
+                Page<User> resultpage = new Page<>(pageNum,result.size());
+                
+                resultpage.setRecords(result.subList(resultpage.getStartIndex(), resultpage.getEndIndex()));
+                
+                return resultpage;
             }
             
         });
@@ -507,6 +582,8 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 //        
         
     }
+
+
 
 
 }
