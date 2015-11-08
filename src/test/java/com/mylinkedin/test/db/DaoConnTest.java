@@ -113,7 +113,7 @@ public class DaoConnTest extends SpringUtils {
             
         }        
         
-        for (int i=1; i<n; i++){
+        for (int i=1; i<205; i++){
             User user = new User();
             user.setFname("fname_"+i);
             user.setLname("lname_"+i);

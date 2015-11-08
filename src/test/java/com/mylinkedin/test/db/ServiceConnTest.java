@@ -5,6 +5,7 @@
  */
 package com.mylinkedin.test.db;
 
+import com.mylinkedin.action.bean.Page;
 import com.mylinkedin.domain.User;
 import com.mylinkedin.service.CompanyService;
 import com.mylinkedin.service.LanguageService;
@@ -65,7 +66,13 @@ public class ServiceConnTest extends SpringUtils {
 //            result = Math.abs(rand.nextInt())%10;
 //        }
         
-        
+//        Page<User> resultpage = searchService.simpleSearch_p("fname", 1);
+//        
+//        resultpage.getPrePageNum();
+//        resultpage.getNextPageNum();
+//        
+//        
+//        System.out.println(resultpage);
         
     }
 }
