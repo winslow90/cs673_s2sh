@@ -61,6 +61,7 @@ public class ProfileAction extends ActionSupport {
     public String viewprofile(){
         
         me = (User) this.getSession().get("me");
+        
         notification = notificationService.listNotifications(me.getUid());        
         
         seemail=me.getEmail();
