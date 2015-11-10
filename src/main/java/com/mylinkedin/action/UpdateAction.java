@@ -44,7 +44,7 @@ public class UpdateAction extends ActionSupport {
         
         notification = notificationService.listNotifications(me.getUid());
         
-//        recommendation = userService.listrecommendation(me.getUid(), 5L);
+        recommendation = userService.listrecommendation(me.getUid(), 5L);
         
         return SUCCESS;
     }

@@ -13,6 +13,18 @@
     	<property name="userDao">
     		<ref bean="userDao"/>
     	</property>
+        <property name="universityDao">
+    		<ref bean="universityDao"/>
+    	</property>
+        <property name="skillDao">
+    		<ref bean="skillDao"/>
+    	</property>
+        <property name="languageDao">
+    		<ref bean="languageDao"/>
+    	</property>
+        <property name="companyDao">
+    		<ref bean="companyDao"/>
+    	</property>
     </bean>
     
     <bean id="companyService" class="com.mylinkedin.service.impl.CompanyServiceImpl">

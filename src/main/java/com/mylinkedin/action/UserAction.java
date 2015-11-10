@@ -27,15 +27,15 @@ public class UserAction extends ActionSupport {
     private UserService userService;
     
     //form1
-    private String logemail;
-    private String logpd;
+    private String logemail=new String();
+    private String logpd=new String();
     
     //form2
-    private String email;
-    private String pd[];
-    private String fname;
-    private String lname;
-    private String gender;
+    private String email=new String();
+    private String pd[]={"",""};
+    private String fname=new String();
+    private String lname=new String();
+    private String gender=new String();
     
     
     private Map<String, Object> getSession(){
@@ -51,9 +51,9 @@ public class UserAction extends ActionSupport {
         Pattern p = Pattern.compile("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*");
         Matcher m;
         
-       if (logemail==null){
+       if (logemail.trim().isEmpty()){
             //register validation
-            if (email==null){
+            if (email.trim().isEmpty()){
                 this.addFieldError("email", "You need to enter an email address");
             }else{
                 m=p.matcher(email);
@@ -74,11 +74,11 @@ public class UserAction extends ActionSupport {
                 } 
             }
             
-            if (fname==null){
+            if (fname.trim().isEmpty()){
                 this.addFieldError("fname", "You need enter your first name");
             }
             
-            if (lname==null){
+            if (lname.trim().isEmpty()){
                 this.addFieldError("lname", "You need enter your last name");
             }
             

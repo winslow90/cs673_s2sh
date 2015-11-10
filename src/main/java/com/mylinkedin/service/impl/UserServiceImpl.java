@@ -5,6 +5,10 @@
  */
 package com.mylinkedin.service.impl;
 
+import com.mylinkedin.dao.CompanyDao;
+import com.mylinkedin.dao.LanguageDao;
+import com.mylinkedin.dao.SkillDao;
+import com.mylinkedin.dao.UniversityDao;
 import com.mylinkedin.dao.UserDao;
 import com.mylinkedin.domain.Company;
 import com.mylinkedin.domain.Languages;
@@ -29,10 +33,10 @@ import java.util.Set;
 public class UserServiceImpl implements UserService {
     
     private UserDao userDao;
-
-    public void setUserDao(UserDao userDao) {
-        this.userDao = userDao;
-    }
+    private UniversityDao universityDao;
+    private SkillDao skillDao;
+    private CompanyDao companyDao;
+    private LanguageDao languageDao;
 
     @Override
     public Serializable createUser(String email, String pd, String fname, String lname, String gender, String photo_url, String location) {
@@ -128,10 +132,10 @@ public class UserServiceImpl implements UserService {
     public List<User> listrecommendation(Long myuid, Long n) {
         
         User me = userDao.fetchallbyUid(myuid);
-        Set<University> myunis=me.getUniversities();
-        Set<Skill> mysks=me.getSkills();
-        Set<Company> mycps=me.getCompanies();
-        Set<Languages> mylangs=me.getLanguages();
+        List<University> myunis=universityDao.listUniversitiesbyUid(myuid);
+        List<Skill> mysks=skillDao.listSkillsbyUid(myuid);
+        List<Company> mycps=companyDao.listCompaniesbyUid(myuid);
+        List<Languages> mylangs=languageDao.listLanguagesbyUid(myuid);
         
         HashMap<Long , User> rawresultmap= new HashMap();
         ArrayList<User> rawresultls;
@@ -213,6 +217,24 @@ public class UserServiceImpl implements UserService {
 
 
     
-
     
+    public void setUniversityDao(UniversityDao universityDao) {
+        this.universityDao = universityDao;
+    }
+
+    public void setSkillDao(SkillDao skillDao) {
+        this.skillDao = skillDao;
+    }
+
+    public void setCompanyDao(CompanyDao companyDao) {
+        this.companyDao = companyDao;
+    }
+
+    public void setLanguageDao(LanguageDao languageDao) {
+        this.languageDao = languageDao;
+    }
+
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }
 }
