@@ -36,14 +36,17 @@
                     <s:submit value="view me" class="buttoninput"/>
                 </s:form>
                 
+                <%--
                 <div id="userdiv${con.uid}addbtnbx">
                     <input type="button" id="userdiv${con.uid}addbtn" 
                            value="Append connection to ${con.lname}"/>
                 </div>
+                --%>
                 
             </div>
         </s:iterator>
         
+        <%--
         <script type="text/javascript">
             
             <s:iterator value="resultUsersPage.records" var="con">
@@ -65,6 +68,7 @@
             </s:iterator>
             
         </script>
+        --%>
         
         
         <br/><br/><br/><br/>
