@@ -154,22 +154,36 @@ public class DaoConnTest extends SpringUtils {
         
         
         
+//        List<User> allusers= userDao.listUsers();
+//        HashSet<User> theusers = new HashSet();
+//        
+//        User me2 = userDao.getUserbyId(1L);
+//        
+//        for (User u : allusers){
+//            if (u.getUid()!= 1L){
+//                theusers.add(u);
+//            }
+//        }
+//        
+//        me2.setConnections(theusers);
+//        
+//        
+//        userDao.updateUser(me2);
+
         List<User> allusers= userDao.listUsers();
         HashSet<User> theusers = new HashSet();
         
         User me2 = userDao.getUserbyId(1L);
         
-        for (User u : allusers){
-            if (u.getUid()!= 1L){
-                theusers.add(u);
-            }
+        for (Long i=2L; i<8; i++){
+            User theu = userDao.getUserbyId(i);
+            theusers.add(theu);
         }
         
         me2.setConnections(theusers);
         
         
         userDao.updateUser(me2);
-        
         
 //        User u= userDao.getUsersbyEmail("u1@u.com");
         
