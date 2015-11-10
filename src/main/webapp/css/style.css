@@ -1,0 +1,38 @@
+.container a img{
+    width: 44px;
+    height: 36px;
+    float: left;
+   
+}
+
+.navbar-inverse input[type="text"]{
+  width: 340px;
+}
+
+.navbar-inverse button[type="submit"]{
+    margin-left: 5px;
+}
+.navbar-inverse button[type="button"]{
+    border: none;
+}
+.navbar-inverse a{
+    font-size: 12px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.navbar-inverse a:hover{
+    color: rgb(35,100,155);
+}
+.navbar-inverse ul{
+    background-color:black;
+}
+.navbar-inverse ul a{
+    color: #fff;
+}
+.navbar-inverse ul a:hover{
+    background-color: rgb(60,60,60);
+}
+.navbar-inverse li{
+    color: #fff;
+}

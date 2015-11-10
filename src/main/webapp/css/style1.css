@@ -1,0 +1,21 @@
+.jumbotron .container{
+    width:400px;
+    background-color: rgba(238, 238, 238, 0.29);
+}
+.jumbotron h3,h4{
+    text-align: center;
+}
+
+li img{
+    background-color: red;
+    
+}
+
+.profile ul{
+	margin-top:30px;
+}
+
+.profile li{
+	list-style: none;
+	line-height: 1.9em;
+}
