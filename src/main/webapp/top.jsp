@@ -60,19 +60,7 @@
                  
 
 
-<div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:rgb(124,124,124)">
-   <span class="glyphicon  glyphicon-align-justify" aria-hidden="true"style="color:rgb(153,153,153);"></span> <span class="caret" style="color:rgb(153,153,153);"></span>
-  </button>
-    <ul class="dropdown-menu">
-        <li><a href="#" style="color:#fff">&nbsp;<span class="glyphicon glyphicon-search">&nbsp;All</span></a></li>
-        <li><a href="#" style="color:#fff">&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;People</a></li>
-        <li><a href="#" style="color:#fff">&nbsp;<span class="glyphicon glyphicon-briefcase"></span>&nbsp;Jobs</a></li>
-        
-     </ul>
-   
-</div>
-			
+		
                  
 
            
@@ -139,24 +127,24 @@
    
 </div>
              <div class="btn-group" style="margin-left:20px;">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:black">
+<!--  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:black"> -->
       
 <!--      <a href="#">Profile</a>-->
       <s:url value="profileAction_viewprofile" var="profile"/>
       <s:a href="%{profile}">Profile</s:a>
       
       
-  </button>
-    <ul class="dropdown-menu">
+  <!--</button>-->
+   <!-- <ul class="dropdown-menu">
         <li><a href="edit.html" style="color:#fff">&nbsp;<span class="glyphicon glyphicon-pencil">&nbsp;Edit</span></a></li>
         <li><a href="viewprofile.html" style="color:#fff">&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;View</a></li>
         <li><a href="create.html" style="color:#fff">&nbsp;<span class="glyphicon glyphicon-plus"></span>&nbsp;Create</a></li>
         
-     </ul>
+     </ul> -->
    
 </div>
             <div class="btn-group" style="margin-left:20px;">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:black">
+ <!-- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:black">-->
       
       
       <!--<a href="#">Connection</a>-->
@@ -164,13 +152,13 @@
       <s:a href="%{viewconnection}">Connection</s:a>
       
       
-  </button>
-    <ul class="dropdown-menu">
+  <!--</button>-->
+   <!-- <ul class="dropdown-menu">
         <li><a href="contacts.html" style="color:#fff">&nbsp;<span class="glyphicon glyphicon-user">&nbsp;Contacts</span></a></li>
         <li><a href="addConnection.html" style="color:#fff">&nbsp;<span class="glyphicon glyphicon-glyphicon glyphicon-search"></span>&nbsp;Add</a></li>
         
         
-     </ul>
+     </ul> -->
    
 </div>
             <div class="btn-group" style="margin-left:20px;">
