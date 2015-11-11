@@ -53,10 +53,9 @@
                  <a href="#"><img src="img/logo1.png"></a>
                </div>
                 <div class="col-md-6">
+               
                 
-                   
-                
-             <form action="#" method="post" class="navbar-form">
+             <form action="${pageContext.request.contextPath}/searchAction_dosimplesearch.action" method="post" class="navbar-form">
                  
 
 
@@ -67,12 +66,17 @@
                  
 
                 <div class="form-group">
-                  <input type="text" placeholder="Search for people, jobs, companies, and more..." class="form-control">
+                 
+                    <input name="simplestr" type="text" placeholder="Search for people, jobs, companies, and more..." class="form-control">
                  </div>     
                 <button type="submit" class="btn btn-primary">
                     <span class="glyphicon glyphicon-search" aria-hidden="true" ></span>
                 </button>
-                 <a href="#" >Advanced</a>
+                 
+                <s:url value="searchAction_viewadvsearch" var="advsearch"/>
+                 <!--<a href="#" >Advanced</a>-->
+                <s:a href="%{advsearch}">advancedsearch</s:a>
+                 
              </form>
                     
                 </div>
@@ -208,9 +212,9 @@
         
         
         
-        
+      <%--        
         <!--------------------------------------------------------------------------------------------------------------->
-        <!--<h1>This is <%--${me.fname} ${me.lname}--%>
+        <h1>This is <%--${me.fname} ${me.lname}
             's home page from top page</h1>-->
             
             <div style="float:right">   
@@ -264,3 +268,4 @@
         
     </body>
 </html>
+--%>
