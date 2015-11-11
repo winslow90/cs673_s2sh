@@ -13,7 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        removed
+        <button type="button" class="btn btn-primary" disabled="disabled">${usertoremove.lname} removed</button>
         <%--${usertoremove.fname}&nbsp&nbsp${usertoremove.fname}&nbsp&nbsp has been removed--%>
     </body>
 </html>
