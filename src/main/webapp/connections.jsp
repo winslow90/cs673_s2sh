@@ -6,6 +6,99 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<section style="margin-top:90px;">
+    <div class="container">
+        <div class="row">
+             <div class="col-md-8">
+           <!-- <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Add Friend</h3>
+              </div>
+              <div class="panel-body">
+                <form action="#" method="post" data-toggle="validator" role="form">
+            <div class="form-group">
+                <label class="row-md-4 control-label" for="textinput">your friend's mail</label>       
+  <div class="row-md-4">
+  <input id="textinput" name="mail" type="email" placeholder="Email" class="form-control input-md" required autofocus> 
+  </div>
+</div>
+                
+                  <button type="submit" class="btn btn-default">Add</button>
+                  
+                </form>        
+              </div>
+            </div> -->
+                 
+            <div class="panel panel-default friends">
+              <div class="panel-heading">
+                <h3 class="panel-title">Friends</h3>
+              </div>
+              <div class="panel-body">
+               <div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="img/thumbnail.png" alt="..." style="width:100px;height:100px;border-radius:50%;">
+      <div class="caption">
+        <h4>Mike</h4>
+        <p>New jersey institute of technology</p>
+       
+         <button type="button" class="btn btn-primary">remove</button>
+         <button type="submit" class="btn btn-success">view</button>
+        
+      </div>
+    </div>
+  </div>
+                   
+                  
+</div>
+              </div>
+            </div>     
+        </div>
+    </div>
+        
+        
+    
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,6 +108,19 @@
         
         
     </head>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <body>
         <%@ include file="top.jsp"%>
         
