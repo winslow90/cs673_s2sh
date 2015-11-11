@@ -75,7 +75,7 @@
                  
                 <s:url value="searchAction_viewadvsearch" var="advsearch"/>
                  <!--<a href="#" >Advanced</a>-->
-                <s:a href="%{advsearch}">advancedsearch</s:a>
+                <s:a href="%{advsearch}">Advanced</s:a>
                  
              </form>
                     
@@ -88,9 +88,23 @@
    <span class="glyphicon glyphicon-flag" aria-hidden="true"style="color:rgb(153,153,153);"></span> 
   </button>
                         <ul class="dropdown-menu"><div style="background-color:black"><font style="color:#fff">Notification</font></div>
-        <li><button class="btn btn-primary btn-sm" type="submit"style="font-size: 10px; border-radius: 24px;">jack send friend request</button><!--<a href="#" style="color:#fff">jack send friend request</a>--></li>
-        <li><button class="btn btn-primary btn-sm" type="submit"style="font-size: 10px; border-radius: 24px;">jack send friend request</button><!--<a href="#" style="color:#fff">jack send friend request</a>--></li>
-        <li><button class="btn btn-primary btn-sm" type="submit"style="font-size: 10px; border-radius: 24px;">jack send friend request</button><!--<a href="#" style="color:#fff">jack send friend request</a>--></li>
+                            
+            <s:iterator value="notification" var="ntf">
+                
+                    <s:form action="otherprofileAction_viewotherprofile">
+                        <s:hidden name="hisuid" value="%{#ntf.relating_uid}"></s:hidden>
+                
+                    <li><button class="btn btn-primary btn-sm" type="submit"style="font-size: 10px;">
+                        <s:property value="#ntf.nt_datetime"/>:<s:property value="#ntf.nt_content"/>
+                    </button></li>
+                    
+                    </s:form>
+            
+            </s:iterator>                    
+                            
+<!--        <li><button class="btn btn-primary btn-sm" type="submit"style="font-size: 10px;">jack send friend request</button><a href="#" style="color:#fff">jack send friend request</a></li>
+        <li><button class="btn btn-primary btn-sm" type="submit"style="font-size: 10px; border-radius: 24px;">jack send friend request</button><a href="#" style="color:#fff">jack send friend request</a></li>
+        <li><button class="btn btn-primary btn-sm" type="submit"style="font-size: 10px; border-radius: 24px;">jack send friend request</button><a href="#" style="color:#fff">jack send friend request</a></li>-->
         <!--<li><a href="#" style="color:#fff"> <img class="media-object" src="img/user.png" style="width:20px; height:20px">&nbsp;jack send friend request</a></li>-->
         <!--<li><a href="#" style="color:#fff"> <img class="media-object" src="img/user.png" style="width:20px; height:20px">&nbsp;jack send friend request</a>></li>-->
         
@@ -104,8 +118,12 @@
    <span class="glyphicon glyphicon-user" aria-hidden="true"style="color:rgb(153,153,153);"></span> 
   </button>
     <ul class="dropdown-menu"><div style="background-color:black"><font style="color:#fff">Account & setting</font></div>
-        <li><a href="#" style="color:#fff">&nbsp;<span class="glyphicon glyphicon glyphicon-cog">&nbsp;Account</span></a></li>
-        <li><a href="#" style="color:#fff">&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;People</a></li>
+        
+        <s:url value="profileAction_viewprofile" var="profile"/>
+        <li><s:a href="%{profile}" style="color:#fff">&nbsp;<span class="glyphicon glyphicon glyphicon-cog">&nbsp;Account</span></s:a></li>
+        
+        
+        <!--<li><a href="#" style="color:#fff">&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;People</a></li>-->
         <s:url value="userAction_logout" var="logout"/>
         <li><s:a href="%{logout}" style="color:#fff">&nbsp;<span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;&nbsp;logout</s:a></li>
         
@@ -136,7 +154,7 @@
 <!--  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:black"> -->
       
 <!--      <a href="#">Profile</a>-->
-      <s:url value="profileAction_viewprofile" var="profile"/>
+      
       <s:a href="%{profile}">Profile</s:a>
       
       
