@@ -16,19 +16,19 @@
     </head>
    
     
-     <head>
-     <title>Welcome!|Linkedin</title>
-     <link href="stylefriend.css" rel="stylesheet">
-         <link href="css/font-awesome.css" rel="stylesheet">
+    <head>
+    <title>Welcome!|Linkedin</title>
+    <link href="stylefriend.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
     <link href="css/style2.css" rel="stylesheet">
-     <link rel="icon" href="img/logo1.png">
-     <link href="css/bootstrap.css" rel="stylesheet">
-     <link href="css/bootstrap.min.css" rel="stylesheet">
-     <link href="css/style.css" rel="stylesheet">
-     <script src="js/ie-emulation-modes-warning.js"></script>
-     <script src="js/bootstrap.js"></script>
-     <script src="lib/jquery-2.1.4.min.js"></script>
-     <link rel="stylesheet" href="css/drop-down.css" />
+    <link rel="icon" href="img/logo1.png">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/ie-emulation-modes-warning.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="lib/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" href="css/drop-down.css" />
     <script src="js/jquery-ui.min.js"></script>     
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <link href="css/style1.css" rel="stylesheet">
@@ -112,7 +112,10 @@
     <ul class="dropdown-menu"><div style="background-color:black"><font style="color:#fff">Account & setting</font></div>
         <li><a href="#" style="color:#fff">&nbsp;<span class="glyphicon glyphicon glyphicon-cog">&nbsp;Account</span></a></li>
         <li><a href="#" style="color:#fff">&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;People</a></li>
-        <li><a href="#" style="color:#fff">&nbsp;<span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;&nbsp;logout</a></li>
+        <s:url value="userAction_logout" var="logout"/>
+        <li><s:a href="%{logout}" style="color:#fff">&nbsp;<span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;&nbsp;logout</s:a></li>
+        
+        
         
      </ul>
    
@@ -128,14 +131,21 @@
         <div class="row" style="background-color:black;">
             <div class="btn-group" style="margin-left:20px;">
   
-      <a href="main.html" >Home</a>
+      <!--<a href="main.html" >Home</a>-->
+      <s:url value="updateAction_viewhome" var="home"/>
+      <s:a href="%{home}">Home</s:a>
   
     
    
 </div>
              <div class="btn-group" style="margin-left:20px;">
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:black">
-      <a href="#">Profile</a>
+      
+<!--      <a href="#">Profile</a>-->
+      <s:url value="profileAction_viewprofile" var="profile"/>
+      <s:a href="%{profile}">Profile</s:a>
+      
+      
   </button>
     <ul class="dropdown-menu">
         <li><a href="edit.html" style="color:#fff">&nbsp;<span class="glyphicon glyphicon-pencil">&nbsp;Edit</span></a></li>
@@ -147,7 +157,13 @@
 </div>
             <div class="btn-group" style="margin-left:20px;">
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:black">
-      <a href="#">Connection</a>
+      
+      
+      <!--<a href="#">Connection</a>-->
+      <s:url value="connectionAction_viewconnection" var="viewconnection"/>
+      <s:a href="%{viewconnection}">Connection</s:a>
+      
+      
   </button>
     <ul class="dropdown-menu">
         <li><a href="contacts.html" style="color:#fff">&nbsp;<span class="glyphicon glyphicon-user">&nbsp;Contacts</span></a></li>
