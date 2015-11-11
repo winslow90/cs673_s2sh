@@ -6,6 +6,19 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Connection Page</title>
+        <script type="text/javascript" src="js/util.js"></script>
+        
+        
+        
+    </head>
+    
+    <body>
+        <%@ include file="top.jsp"%>
+        
 <section style="margin-top:90px;">
     <div class="container">
         <div class="row">
@@ -35,19 +48,35 @@
               </div>
               <div class="panel-body">
                <div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="img/thumbnail.png" alt="..." style="width:100px;height:100px;border-radius:50%;">
-      <div class="caption">
-        <h4>Mike</h4>
-        <p>New jersey institute of technology</p>
-       
-         <button type="button" class="btn btn-primary">remove</button>
-         <button type="submit" class="btn btn-success">view</button>
-        
-      </div>
-    </div>
-  </div>
+                   
+                   
+        <s:iterator value="connections" var="con">
+            
+            <div id="userdiv${con.uid}" class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                  <img src="${con.photo_url}" alt="..." style="width:100px;height:100px;border-radius:50%;">
+                  <div class="caption">
+                    <h4><s:property value="#con.fname"/>&nbsp&nbsp<s:property value="#con.lname"/></h4>
+                    <p><s:property value="#con.gender"/></p>
+                    
+                    <s:form action="otherprofileAction_viewotherprofile">
+                        <s:hidden name="hisuid" value="%{#con.uid}"></s:hidden>
+                        <button type="submit" class="btn btn-success">view</button>
+                    </s:form>
+                        
+                        
+                    <div id="userdiv${con.uid}removebtnbx">
+                        <button id="userdiv${con.uid}removebtn" type="button" class="btn btn-primary">Remove ${con.lname}</button>
+                    </div>
+
+                  </div>
+                </div>
+            </div>
+        </s:iterator>
+                   
+                   
+                   
+  
                    
                   
 </div>
@@ -60,6 +89,29 @@
     
 </section>
 
+        <script type="text/javascript">
+            
+            <s:iterator value="connections" var="con">
+                
+                    document.getElementById("userdiv${con.uid}removebtn").onclick=function(){
+                                var xhr = getXmlHttpRequest();
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState==4){
+						if(xhr.status==200){
+						    document.getElementById("userdiv${con.uid}removebtnbx").innerHTML=
+                                                            xhr.responseText;
+                                                    delete xhr;
+						}
+					}
+				}
+				xhr.open("GET","addRemoveConAction_erasecon?time="+new Date().getTime()+"&&uidtoremovestr="+${con.uid});
+				xhr.send(null);
+                            };
+            </s:iterator>
+            
+        </script>
+    </body>
+</html>
 
 
 
@@ -98,16 +150,6 @@
 
 
 
-
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Connection Page</title>
-        <script type="text/javascript" src="js/util.js"></script>
-        
-        
-        
-    </head>
     
     
     
@@ -120,7 +162,7 @@
     
     
     
-    
+        <%--
     <body>
         <%@ include file="top.jsp"%>
         
@@ -185,3 +227,4 @@
         <s:debug></s:debug>
     </body>
 </html>
+--%>

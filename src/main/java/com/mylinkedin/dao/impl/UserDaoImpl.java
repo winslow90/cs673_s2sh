@@ -312,22 +312,8 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
     @Override
     public Boolean checkConHas(Long myuid, Long otheruid) {
         
-        final Long themyuid= myuid;
         
-        
-        User me = (User) this.getHibernateTemplate().execute(new HibernateCallback(){
-        
-            @Override
-            public Object doInHibernate(Session session) throws HibernateException, SQLException {
-                Query query = session.createQuery("from User u join fetch u.connections c where u.uid=:theuid");
-                query.setParameter("theuid", themyuid);
-                return query.uniqueResult();
-                
-            }
-            
-        });
-        
-        Set<User> myconnections = me.getConnections();
+        List<User> myconnections = this.listConnections(myuid);
         
         for (User u : myconnections){
             if (otheruid.equals(u.getUid())){

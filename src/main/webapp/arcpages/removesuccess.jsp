@@ -13,8 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        ${usertoremove.fname}&nbsp&nbsp${usertoremove.fname}&nbsp&nbsp has been removed
-        
-        <s:debug></s:debug>
+        removed
+        <%--${usertoremove.fname}&nbsp&nbsp${usertoremove.fname}&nbsp&nbsp has been removed--%>
     </body>
 </html>
