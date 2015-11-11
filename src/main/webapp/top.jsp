@@ -88,9 +88,11 @@
    <span class="glyphicon glyphicon-flag" aria-hidden="true"style="color:rgb(153,153,153);"></span> 
   </button>
                         <ul class="dropdown-menu"><div style="background-color:black"><font style="color:#fff">Notification</font></div>
-        <li><a href="#" style="color:#fff"> <img class="media-object" src="img/user.png" style="width:20px; height:20px">&nbsp;jack send friend request</a></li>
-        <li><a href="#" style="color:#fff"> <img class="media-object" src="img/user.png" style="width:20px; height:20px">&nbsp;jack send friend request</a></li>
-        <li><a href="#" style="color:#fff"> <img class="media-object" src="img/user.png" style="width:20px; height:20px">&nbsp;jack send friend request</a>></li>
+        <li><button class="btn btn-primary btn-sm" type="submit"style="font-size: 10px; border-radius: 24px;">jack send friend request</button><!--<a href="#" style="color:#fff">jack send friend request</a>--></li>
+        <li><button class="btn btn-primary btn-sm" type="submit"style="font-size: 10px; border-radius: 24px;">jack send friend request</button><!--<a href="#" style="color:#fff">jack send friend request</a>--></li>
+        <li><button class="btn btn-primary btn-sm" type="submit"style="font-size: 10px; border-radius: 24px;">jack send friend request</button><!--<a href="#" style="color:#fff">jack send friend request</a>--></li>
+        <!--<li><a href="#" style="color:#fff"> <img class="media-object" src="img/user.png" style="width:20px; height:20px">&nbsp;jack send friend request</a></li>-->
+        <!--<li><a href="#" style="color:#fff"> <img class="media-object" src="img/user.png" style="width:20px; height:20px">&nbsp;jack send friend request</a>></li>-->
         
      </ul>
    
