@@ -304,15 +304,15 @@ public class DaoConnTest extends SpringUtils {
 //        UniversityDao universityDao = (UniversityDao) context.getBean("universityDao");
 //        UpdateDao updateDao = (UpdateDao) context.getBean("updateDao");
 //        UserDao userDao = (UserDao) context.getBean("userDao");
-//
-////        companyDao.test();
-////        languageDao.test();
-////        notificationDao.test();
-////        skillDao.test();
-////        universityDao.test();
-////        updateDao.test();        
-////        userDao.test();
-////        
+
+//        companyDao.test();
+//        languageDao.test();
+//        notificationDao.test();
+//        skillDao.test();
+//        universityDao.test();
+//        updateDao.test();        
+//        userDao.test();
+//        
 //        this.userDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
 //        this.notificationDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
 //        this.updateDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
@@ -321,14 +321,11 @@ public class DaoConnTest extends SpringUtils {
 //        
 //        Boolean result = userDao.checkConHas(3L, 1L);
 //        
-//        System.out.println(result);
         
-                
-                
         
-     
-              
-        
+//        Long count = userDao.getUserCount();
+//        
+//        System.out.println(count);
         
                 
     }

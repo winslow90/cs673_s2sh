@@ -184,9 +184,23 @@ public class UserServiceImpl implements UserService {
             rawresultls.add(entry.getValue());
         }     
         
+        Long totalUserCount = userDao.getUserCount();
+        Random rand= new Random(new Date().getTime());
+        Long nextuid;
+        
+        while ((rawresultls.size()<n)&&(rawresultls.size()<totalUserCount)){
+            
+            nextuid=rand.nextLong()%totalUserCount;
+            
+            User theuser = userDao.getUserbyId(nextuid);
+            
+            if (theuser!=null){
+                rawresultls.add(theuser);
+            }
+        }
+        
         
         count=0L;
-        Random rand= new Random(new Date().getTime());
         int nextindex;
         result=new ArrayList();
         

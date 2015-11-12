@@ -48,10 +48,11 @@ public interface UserDao {
     public List<User> listuserwithCp(Serializable cpid);
     public List<User> listuserwithLang(Serializable lang_id);
     
+    public Boolean checkConHas(Long myuid, Long otheruid);
     
+    public Long getUserCount();
     
     public void test();
 
-    public Boolean checkConHas(Long myuid, Long otheruid);
     
 }

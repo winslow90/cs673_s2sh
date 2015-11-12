@@ -437,6 +437,20 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
         throw new UnsupportedOperationException("Not supported yet_from winslow leigh."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    
+    @Override
+    public Long getUserCount() {
+        return (Long) this.getHibernateTemplate().execute(new HibernateCallback(){
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                Query query = session.createQuery("select count(*) from User");
+                return query.uniqueResult();
+            }
+            
+            
+        });
+    }
 
     
     @Override
@@ -568,7 +582,13 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 //        });
 //        
         
+//        User me = this.getHibernateTemplate().get(User.class, 206L);
+//        
+//        System.out.println();
+        
     }
+
+    
 
 
 
