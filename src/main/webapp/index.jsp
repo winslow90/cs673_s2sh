@@ -32,7 +32,7 @@
    
   </head>
 
-  <body>
+  <body onload="myFunction()">
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -46,6 +46,8 @@
             </div>
             <div class="form-group">
                 <input name="logpd" type="password" placeholder="Password" class="form-control" required>
+                 <input type="hidden" id="lat" name="lantitudestr"><br/>
+                 <input type="hidden" id="lon" name="longitudestr">
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>
@@ -96,6 +98,8 @@
             <div class="form-group">
                 <label class="row-md-4 control-label" for="textinput">gender</label>       
   <div class="row-md-4">
+      <input type="hidden" id="latRe" name="lantitudestr"><br/>
+      <input type="hidden" id="lonRe" name="longitudestr">
   <s:select list="{'Male','Female'}" headerKey="Unknown" headerValue="-" name="gender"></s:select>
   </div>
 </div>
@@ -135,6 +139,29 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
       <script src="js/validator.js"></script>
+      <script>
+   var x = document.getElementById("lat");
+   var y = document.getElementById("lon");
+    var x1 = document.getElementById("latRe");
+    var y1 = document.getElementById("lonRe");
+  function showPosition(position)
+  {
+    x.value=position.coords.latitude;  
+    y.value=position.coords.longitude; 
+    x1.value = position.coords.latitude;
+    y1.value = position.coords.longitude;
+  }
+    function myFunction()
+    {
+       if (navigator.geolocation) 
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+     else{x.innerHTML="Geolocation is not supported by this browser.";} 
+    }
+    
+</script>
+      
   </body>
 </html>
 
