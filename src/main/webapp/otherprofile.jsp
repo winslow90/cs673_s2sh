@@ -16,6 +16,164 @@
     <body>
         <%@ include file="top.jsp"%>
         
+           <section style="margin-top:90px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="profile">
+              <h1 class="page-header">John Doe</h1>
+              <div class="row">
+                <div class="col-md-4">
+                  <img src="img/user.png" class="img-thumbnail">
+                </div>
+                <div class="col-md-8">
+                  <ul>
+                    
+                    <li style="font-size:18px;"><strong>Gender: </strong>Male</li>
+                    <li style="font-size:18px;"><strong>Email Address: </strong>johndoe@gmail.com</li>
+                    <li ><strong style="font-size:18px;">Summary: </strong><p>Graphic video shows the minutes leading up to the death of a Virginia man while in police custody.
+
+Officers can be seen tasing Linwood Lambert, 46, multiple times while he is handcuffed, outside of a hospital where the officers had initially taken him for medical help.
+
+The incident happened in May 2013 in South Boston, a town of 8,000 in southern Virginia, but it is receiving renewed attention after a report aired Wednesday on MSNBC.
+
+According to a medical examiner's report, Lambert died after going into cardiac arrest. </p>
+
+
+
+.</li>
+                  </ul>
+
+                </div>
+              </div>
+            </div>
+          <div class="education">
+               <h1 class="page-header">Education</h1>
+              <div class="col-md-4">
+                  <img src="img/njit.png" class="img-thumbnail">
+                </div>
+              <div class="col-md-6">
+                  <ul>
+
+                      <li style="font-size:18px;"> <span class="glyphicon glyphicon-pushpin" ></span>&nbsp;&nbsp;<strong ><!--university name-->New Jersey Institute of Technology</strong></li>
+
+                  </ul>
+
+                </div>
+             
+              
+              
+          </div>
+          
+          
+        
+          </div><!-- col-md-8 end -->
+      
+          
+        </div>
+          
+        <div class="row">
+            <div class="col-md-8">
+                <div class="experience">
+                   <h1 class="page-header">Experience</h1> 
+                    <div class="col-md-4">
+                  <img src="img/linkedin.jpeg" class="img-thumbnail">
+                </div>
+              <div class="col-md-6">
+                  <ul>
+                    <li style="font-size:18px;"><span class="glyphicon glyphicon-briefcase" ></span>&nbsp;&nbsp;<strong><!--university name-->Company: </strong>Linkedin</li>
+                   
+                  </ul>
+
+                </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+          
+
+          
+           <div class="row">
+            <div class="col-md-8">
+                <div class="Skills">
+                    <h1 class="page-header">Skills</h1>
+                     <div class="col-md-4">
+                         <label style="font-size:18px;">
+   <span class="glyphicon glyphicon-wrench" ></span>
+   
+  </label>
+                </div>
+              <div class="col-md-6">
+                  <ul>
+                    <li style="font-size:18px;">skill1</li>
+                   
+                  </ul>
+
+                </div>
+                
+
+
+ 
+                     
+                    
+                </div>
+            </div>
+        </div>
+                    <div class="row">
+            <div class="col-md-8">
+                <div class="Skills">
+                    <h1 class="page-header">Language</h1>
+                     <div class="col-md-4">
+                         <label style="font-size:18px;">
+   <span class="glyphicon glyphicon-leaf" ></span>
+   
+  </label>
+                </div>
+              <div class="col-md-6">
+                  <ul>
+                    <li style="font-size:18px;">language1</li>
+                   
+                  </ul>
+
+                </div>
+                
+
+
+ 
+                     
+                    
+                </div>
+            </div>
+        </div> 
+          
+      </div>
+
+    </section>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <!---------------------------------------------------------------------------------------------------->
+        
+        
+        
+        
         <hr/>
         
         <input type="button" onclick="javascript:history.back(-1);" value="Go to previous page">
