@@ -21,8 +21,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8">
-            
-
+              
+            <s:iterator value="updates" var="up">
             <div class="panel panel-default post">
                 <div class="panel-heading">
                 <h3 class="panel-title">Moments</h3>
@@ -30,13 +30,16 @@
               <div class="panel-body">
                 <div class="row">
                   <div class="col-sm-2">
-                    <a class="post-avatar thumbnail" href="profile.html" style="height:80px;width:80px"><img src="img/thumbnail.png" style="height:60px;width:60px;border-radius:50%"><div class="text-center">Mike</div></a>
+                    <a class="post-avatar thumbnail" href="profile.html" style="height:80px;width:80px"><img src="<s:property value="#up.relating_photo_url"/>" style="height:60px;width:60px;border-radius:50%"><div class="text-center"></div></a>
                     
                   </div><!-- col-sm-2 end -->
                   <div class="col-sm-10">
                     <div class="bubble">
                       <div class="pointer">
-                        <p>I am a software engineer from Amazon and I have experience of programming about three years in java ee field. I have a lot of achievement in the passed three year <button type="submit" class="btn btn-primary btn-xs"style="border-radius: 24px;">Fname-Lname</button> </p>
+                        <s:form action="otherprofileAction_viewotherprofile">
+                            <s:hidden name="hisuid" value="%{#up.relating_uid}"></s:hidden>
+                        <p><s:property value="#up.up_datetime"/> I am a software engineer from Amazon and I have experience of programming about three years in java ee field. I have a lot of achievement in the passed three year <button type="submit" class="btn btn-primary btn-xs"style="border-radius: 24px;"><s:property value="#up.up_content"/></button> </p>
+                        </s:form>
                       </div>
                       <div class="pointer-border"></div>
                     </div><!-- bubble end -->
@@ -59,7 +62,7 @@
                 </div>
               </div>
             </div>
-
+        </s:iterator>
 
 
 
@@ -71,10 +74,14 @@
               </div>
               <div class="panel-body">
                 <ul>
-                   
-                  <li> <button type="button" class="btn btn-primary btn-xs" style="background-color:#fff;border-style:none;"><img src="img/thumbnail.png" style="border-radius:50%"></button></li>
-                 
-                
+                    
+                 <s:iterator value="recommendation" var="con">
+                                
+                    <s:form action="otherprofileAction_viewotherprofile">
+                        <s:hidden name="hisuid" value="%{#con.uid}"></s:hidden>
+                      <li id="userdiv${con.uid}"> <button type="submit" class="btn btn-primary btn-xs" style="background-color:#fff;border-style:none;"><img src="${con.photo_url}" style="border-radius:50%"></button></li>
+                    </s:form> 
+                </s:iterator>        
                 </ul>
                   
                 <div class="clearfix"></div>
@@ -90,7 +97,9 @@
 
     </section>
         
-        
+    </body>
+</html>
+    
         
         
         
@@ -120,6 +129,7 @@
         
         
         <!--------------------------------------------------------------------------------------------- -->
+        <%--
         <hr/>
         
         <h1>this is the home page</h1>
@@ -164,6 +174,4 @@
             <br/>
         </s:iterator>
         
-        <s:debug></s:debug>
-    </body>
-</html>
+        <s:debug></s:debug>--%>
