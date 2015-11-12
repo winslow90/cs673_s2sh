@@ -36,12 +36,13 @@ public class UserAction extends ActionSupport {
     private String fname=new String();
     private String lname=new String();
     private String gender=new String();
-    
+    private String longitudestr= new String();
+    private String lantitudestr= new String();
+
     
     private Map<String, Object> getSession(){
         return ActionContext.getContext().getSession();
     }
-    
     
     @Override
     public void validate() {
@@ -136,7 +137,23 @@ public class UserAction extends ActionSupport {
     
     
     
+    public String getLongitudestr() {
+        return longitudestr;
+    }
 
+    public void setLongitudestr(String longitudestr) {
+        this.longitudestr = longitudestr;
+    }
+
+    public String getLantitudestr() {
+        return lantitudestr;
+    }
+
+    public void setLantitudestr(String lantitudestr) {
+        this.lantitudestr = lantitudestr;
+    }
+    
+    
     public String getLogemail() {
         return logemail;
     }

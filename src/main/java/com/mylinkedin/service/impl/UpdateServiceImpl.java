@@ -53,6 +53,7 @@ public class UpdateServiceImpl implements UpdateService {
             up.setUp_datetime(new Date());
             up.setUp_read(Boolean.FALSE);
             up.setRelating_uid(added.getUid());
+            up.setRelating_photo_url(me.getPhoto_url());
             up.setUser(receiver);
             updateDao.createUpdate(up);
         }

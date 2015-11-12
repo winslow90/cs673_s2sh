@@ -53,6 +53,23 @@ public class UserServiceImpl implements UserService {
         return userDao.createUser(newuser);
         
     }
+    
+    @Override
+    public Serializable createUser2(String email, String pd, String fname, String lname, String gender, String photo_url, String location, String longitudestr, String lantitudestr) {
+        User newuser = new User();
+        
+        newuser.setEmail(email);
+        newuser.setPd(pd);
+        newuser.setFname(fname);
+        newuser.setLname(lname);
+        newuser.setGender(gender);
+        newuser.setPhoto_url(photo_url);
+        newuser.setLocation(location);
+        newuser.setLongitudestr(longitudestr);
+        newuser.setLantitudestr(lantitudestr);
+        
+        return userDao.createUser(newuser);
+    }
 
     @Override
     public void updateUser(User user) {
@@ -251,4 +268,6 @@ public class UserServiceImpl implements UserService {
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
     }
+
+    
 }

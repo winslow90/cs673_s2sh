@@ -23,6 +23,17 @@ public interface UserService {
             String photo_url,
             String location
             );
+    public Serializable createUser2(
+            String email,
+            String pd,
+            String fname,
+            String lname,
+            String gender,
+            String photo_url,
+            String location,
+            String longitudestr,
+            String lantitudestr
+            );
     public void updateUser(User user);
     public List<User> getUsersbyEmail(String email);
     public User getUserbyId(Serializable uid);
@@ -34,6 +45,7 @@ public interface UserService {
     public Boolean checkConHas(Long myuid, Long otheruid);
     
     public List<User> listrecommendation(Long myuid, Long n);
+    
     
     public List<User> listTopNConnectedUsers();
     
