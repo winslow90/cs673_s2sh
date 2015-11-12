@@ -24,6 +24,10 @@ public class User implements Serializable {
     private String summary;
     private String photo_url;
     private String location;
+    private String longitudestr;
+    private String lantitudestr;
+
+    
 
     //many-to-many fields
     private Set<University> universities;
@@ -39,7 +43,21 @@ public class User implements Serializable {
     private Set<Updates> updates;
 
     
-    
+    public String getLongitudestr() {
+        return longitudestr;
+    }
+
+    public void setLongitudestr(String longitudestr) {
+        this.longitudestr = longitudestr;
+    }
+
+    public String getLantitudestr() {
+        return lantitudestr;
+    }
+
+    public void setLantitudestr(String lantitudestr) {
+        this.lantitudestr = lantitudestr;
+    }
     
     public Set<Updates> getUpdates() {
         return updates;

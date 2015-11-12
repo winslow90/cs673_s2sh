@@ -21,12 +21,22 @@ public class Updates implements Serializable {
     private Boolean up_read;
     
     private Long relating_uid;
+    private String relating_photo_url;
 
+    
     
 
     
     private User user;
     
+    
+    public String getRelating_photo_url() {
+        return relating_photo_url;
+    }
+
+    public void setRelating_photo_url(String relating_photo_url) {
+        this.relating_photo_url = relating_photo_url;
+    }
     
     public Long getRelating_uid() {
         return relating_uid;

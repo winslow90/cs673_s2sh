@@ -297,14 +297,19 @@ public class DaoConnTest extends SpringUtils {
     @Test
     public void daotest(){
         
-//        CompanyDao companyDao = (CompanyDao) context.getBean("companyDao");
-//        LanguageDao languageDao = (LanguageDao) context.getBean("languageDao");
-//        NotificationDao notificationDao = (NotificationDao) context.getBean("notificationDao");
-//        SkillDao skillDao = (SkillDao) context.getBean("skillDao");        
-//        UniversityDao universityDao = (UniversityDao) context.getBean("universityDao");
-//        UpdateDao updateDao = (UpdateDao) context.getBean("updateDao");
-//        UserDao userDao = (UserDao) context.getBean("userDao");
-
+        CompanyDao companyDao = (CompanyDao) context.getBean("companyDao");
+        LanguageDao languageDao = (LanguageDao) context.getBean("languageDao");
+        NotificationDao notificationDao = (NotificationDao) context.getBean("notificationDao");
+        SkillDao skillDao = (SkillDao) context.getBean("skillDao");        
+        UniversityDao universityDao = (UniversityDao) context.getBean("universityDao");
+        UpdateDao updateDao = (UpdateDao) context.getBean("updateDao");
+        UserDao userDao = (UserDao) context.getBean("userDao");
+        
+        this.userDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
+        this.notificationDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
+        this.updateDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
+        this.otherTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
+        
 //        companyDao.test();
 //        languageDao.test();
 //        notificationDao.test();
@@ -313,10 +318,7 @@ public class DaoConnTest extends SpringUtils {
 //        updateDao.test();        
 //        userDao.test();
 //        
-//        this.userDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
-//        this.notificationDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
-//        this.updateDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
-//        this.otherTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
+
         
 //        
 //        Boolean result = userDao.checkConHas(3L, 1L);

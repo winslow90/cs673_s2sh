@@ -13,6 +13,8 @@
     <property length="512" name="summary" type="java.lang.String"/>
     <property length="256" name="photo_url" type="java.lang.String"/>
     <property length="256" name="location" type="java.lang.String"/>
+    <property length="256" name="longitudestr" type="java.lang.String"/>
+    <property length="256" name="lantitudestr" type="java.lang.String"/>
     <set cascade="save-update" name="universities" table="user_university">
       <key>
         <column name="uid"/>
