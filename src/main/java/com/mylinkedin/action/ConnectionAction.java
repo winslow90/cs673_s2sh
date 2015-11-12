@@ -47,6 +47,18 @@ public class ConnectionAction extends ActionSupport {
         return SUCCESS;
     }
     
+    public String viewconnectiononmap(){
+        
+        me = (User) this.getSession().get("me");
+        
+        connections = userService.getConnection(me.getUid());
+        
+        notification = notificationService.listNotifications(me.getUid());
+        
+        
+        return "viewcononmap";
+    }
+    
     
      public User getMe() {
         return me;

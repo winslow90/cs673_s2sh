@@ -39,6 +39,7 @@
 		</action>
                 <action name="connectionAction_*" method="{1}" class="connectionAction">
                     <result name="success">    /connections.jsp    </result>
+                    <result name="viewcononmap">/connectiononmap.jsp</result>
                     <result name="input" type="chain">updateAction_viewhome</result>
                     <result name="login">/index.jsp</result>
 		</action>

@@ -190,7 +190,8 @@
       <a href="Location.html">Location</a>
   </button>
     <ul class="dropdown-menu">
-       <li><a href="Location.html" style="color:#fff">&nbsp;<span class="glyphicon glyphicon-globe">&nbsp;Where</span></a></li> 
+        <s:url value="connectionAction_viewconnectiononmap" var="viewconnectiononmap"/>
+       <li><s:a href="%{viewconnectiononmap}" style="color:#fff">&nbsp;<span class="glyphicon glyphicon-globe">&nbsp;Show connections on map</span></s:a></li> 
     </ul>
 </div>
             
