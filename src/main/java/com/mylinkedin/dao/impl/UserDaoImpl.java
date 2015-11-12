@@ -406,6 +406,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 
 
     @Override
+    @Deprecated
     public User fetchallbyUid(Serializable uid) {
         
         final Long themyuid = (Long) uid;

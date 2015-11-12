@@ -40,6 +40,7 @@ public interface UserDao {
             int pageNum
             );
     
+    @Deprecated
     public User fetchallbyUid(Serializable uid);
     
     public List<User> listuserwithUni(Serializable uniid);

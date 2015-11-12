@@ -131,7 +131,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> listrecommendation(Long myuid, Long n) {
         
-        User me = userDao.fetchallbyUid(myuid);
+//        User me = userDao.fetchallbyUid(myuid);
         List<University> myunis=universityDao.listUniversitiesbyUid(myuid);
         List<Skill> mysks=skillDao.listSkillsbyUid(myuid);
         List<Company> mycps=companyDao.listCompaniesbyUid(myuid);
