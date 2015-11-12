@@ -15,8 +15,9 @@
     </head>
     <body>
         <%@ include file="top.jsp"%>
-        
+        <button type="button" class="btn btn-success" style="margin-top:80px;">previous</button>
            <section style="margin-top:90px;">
+               
       <div class="container">
         <div class="row">
           <div class="col-md-8">
@@ -25,6 +26,8 @@
               <div class="row">
                 <div class="col-md-4">
                   <img src="img/user.png" class="img-thumbnail">
+                  <div class="clearfix"style="height:10px;"></div>
+                  <button type="button" class="btn btn-primary" style="margin-left:68px;">Append connection to</button>
                 </div>
                 <div class="col-md-8">
                   <ul>
