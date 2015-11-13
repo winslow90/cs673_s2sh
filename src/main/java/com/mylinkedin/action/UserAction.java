@@ -111,15 +111,25 @@ public class UserAction extends ActionSupport {
             } 
         }
         
-        getSession().put("me", userlist.get(0));
+        User me = userlist.get(0);
+        
+        me.setLongitudestr(longitudestr);
+        me.setLantitudestr(lantitudestr);
+        
+        userService.updateUser(me);
+        
+        getSession().put("me", me);
         
         return SUCCESS;
     }
     
     public String register(){
         
-        Long uid = (Long) userService.createUser(email, pd[0], fname, lname, gender, 
-                        DEFAULT_PHOTO_URL, DEFAULT_LOCATION);
+//        Long uid = (Long) userService.createUser(email, pd[0], fname, lname, gender, 
+//                        DEFAULT_PHOTO_URL, DEFAULT_LOCATION);
+        
+        Long uid = (Long) userService.createUser2(email, pd[0], fname, lname, gender, 
+                        DEFAULT_PHOTO_URL, DEFAULT_LOCATION,longitudestr,lantitudestr);
         
         getSession().put("me", userService.getUserbyId(uid));
         

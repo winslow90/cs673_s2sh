@@ -14,6 +14,7 @@ import java.util.List;
  * @author superman90
  */
 public interface UserService {
+    @Deprecated
     public Serializable createUser(
             String email,
             String pd,

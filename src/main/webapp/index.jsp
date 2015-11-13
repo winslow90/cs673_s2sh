@@ -46,7 +46,7 @@
             </div>
             <div class="form-group">
                 <input name="logpd" type="password" placeholder="Password" class="form-control" required>
-                 <input type="hidden" id="lat" name="lantitudestr"><br/>
+                 <input type="hidden" id="lat" name="lantitudestr">
                  <input type="hidden" id="lon" name="longitudestr">
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
@@ -98,7 +98,7 @@
             <div class="form-group">
                 <label class="row-md-4 control-label" for="textinput">gender</label>       
   <div class="row-md-4">
-      <input type="hidden" id="latRe" name="lantitudestr"><br/>
+      <input type="hidden" id="latRe" name="lantitudestr">
       <input type="hidden" id="lonRe" name="longitudestr">
   <s:select list="{'Male','Female'}" headerKey="Unknown" headerValue="-" name="gender"></s:select>
   </div>
