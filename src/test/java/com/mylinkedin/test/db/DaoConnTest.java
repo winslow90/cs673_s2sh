@@ -24,6 +24,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import org.junit.Test;
 
 /**
@@ -114,6 +115,10 @@ public class DaoConnTest extends SpringUtils {
             
         }        
         
+        Random rand = new Random(new Date().getTime());
+        Double longitude=  -74.0565;
+        Double lantitude=  40.7895;
+        
         for (int i=1; i<205; i++){
             User user = new User();
             user.setFname("fname_"+i);
@@ -122,6 +127,13 @@ public class DaoConnTest extends SpringUtils {
             user.setPd("u"+i);
             user.setLocation("location"+i);
             user.setPhoto_url("img/default_icon.jpg");
+            
+            Double thelong = longitude + rand.nextLong()%10000/10000;
+            Double thelant = lantitude + rand.nextLong()%10000/10000;
+            
+            user.setLongitudestr(thelong.toString());
+            user.setLantitudestr(thelant.toString());
+            
             userDao.createUser(user);            
         }
         

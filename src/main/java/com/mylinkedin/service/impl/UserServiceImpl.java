@@ -39,6 +39,7 @@ public class UserServiceImpl implements UserService {
     private LanguageDao languageDao;
 
     @Override
+    @Deprecated
     public Serializable createUser(String email, String pd, String fname, String lname, String gender, String photo_url, String location) {
         User newuser = new User();
         
