@@ -59,7 +59,12 @@ for (i = 0; i < locations.length; i++)
  var lat = locations[i][1]
  var long = locations[i][2]
  var add =  locations[i][3]
-var icon =  locations[i][4];
+var icon = {
+     url:locations[i][4],
+      scaledSize: new google.maps.Size(50, 50), // scaled size
+    origin: new google.maps.Point(0,0), // origin
+    anchor: new google.maps.Point(0, 0) // anchor
+    };
 var ps = locations[i][5];
  latlngset = new google.maps.LatLng(lat, long);
 
@@ -78,6 +83,11 @@ google.maps.event.addListener(marker,'click', (function(marker,content,infowindo
         return function() {
            infowindow.setContent(content);
            infowindow.open(map,marker);
+           if (marker.getAnimation() !== null) {
+    marker.setAnimation(null);
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  }
         };
     })(marker,content,infowindow)); 
 
