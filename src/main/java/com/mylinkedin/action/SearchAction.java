@@ -26,17 +26,17 @@ public class SearchAction extends ActionSupport {
 
     
     
-    String simplestr;
+    String simplestr = new String();
     
-    String fnlike,
-            lnlike,
-            sumlike,
-            loclike,
+    String fnlike= new String(),
+            lnlike= new String(),
+            sumlike= new String(),
+            loclike= new String(),
             
-            unilike,
-            skilike,
-            comlike,
-        lanlike;
+            unilike= new String(),
+            skilike= new String(),
+            comlike= new String(),
+        lanlike= new String();
     
 //    List<User> resultUsers;
     List<Notification> notification;
