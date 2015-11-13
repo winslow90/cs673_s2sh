@@ -10,6 +10,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="css/formoid-solid-blue.css" type="text/css" />
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>AdvSearch Page</title>
     </head>
@@ -21,14 +22,14 @@
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <form action="${pageContext.request.contextPath}/searchAction_doadvsearch.action" class="formoid-solid-blue" style="background-color:#1A2223;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:480px;min-width:150px" method="post"><div class="title"><h2>Adance Search</h2></div>
-	<div class="element-input"><div class="item-cont"><input class="large" type="text" name="fnlike"  placeholder="Search First Name like"/><span class="icon-place"></span></div></div>
-	<div class="element-input"><div class="item-cont"><input class="large" type="text" name="lnlike" placeholder="Search Last Name like"/><span class="icon-place"></span></div></div>
-	<div class="element-input"><div class="item-cont"><input class="large" type="text" name="sumlike" placeholder="Summary contains like"/><span class="icon-place"></span></div></div>
-	<div class="element-input"><div class="item-cont"><input class="large" type="text" name="loclike" placeholder="Location like"/><span class="icon-place"></span></div></div>
-	<div class="element-input"><div class="item-cont"><input class="large" type="text" name="unilike"  placeholder="University like"/><span class="icon-place"></span></div></div>
-	<div class="element-input"><div class="item-cont"><input class="large" type="text" name="skilike" placeholder="Skill like"/><span class="icon-place"></span></div></div>
-	<div class="element-input"><div class="item-cont"><input class="large" type="text" name="comlike"  placeholder="Company like"/><span class="icon-place"></span></div></div>
-	<div class="element-input"><div class="item-cont"><input class="large" type="text" name="lanlike" placeholder="language like"/><span class="icon-place"></span></div></div>
+	<div class="element-input"><div class="item-cont"><i class="fa fa-search" style="position: absolute;top:15px;left:0.9em;"></i><input class="large" type="text" name="fnlike"  placeholder="Search First Name like"/><!--<span class="icon-place">--></span></div></div>
+	<div class="element-input"><div class="item-cont"><i class="fa fa-search" style="position: absolute;top:15px;left:0.9em;"></i><input class="large" type="text" name="lnlike" placeholder="Search Last Name like"/></div></div>
+	<div class="element-input"><div class="item-cont"><i class="fa fa-search" style="position: absolute;top:15px;left:0.9em;"></i><input class="large" type="text" name="sumlike" placeholder="Summary contains like"/></div></div>
+	<div class="element-input"><div class="item-cont"><i class="fa fa-search" style="position: absolute;top:15px;left:0.9em;"></i><input class="large" type="text" name="loclike" placeholder="Location like"/></div></div>
+	<div class="element-input"><div class="item-cont"><i class="fa fa-search" style="position: absolute;top:15px;left:0.9em;"></i><input class="large" type="text" name="unilike"  placeholder="University like"/></div></div>
+	<div class="element-input"><div class="item-cont"><i class="fa fa-search" style="position: absolute;top:15px;left:0.9em;"></i><input class="large" type="text" name="skilike" placeholder="Skill like"/></div></div>
+	<div class="element-input"><div class="item-cont"><i class="fa fa-search" style="position: absolute;top:15px;left:0.9em;"></i><input class="large" type="text" name="comlike"  placeholder="Company like"/></div></div>
+	<div class="element-input"><div class="item-cont"><i class="fa fa-search" style="position: absolute;top:15px;left:0.9em;"></i><input class="large" type="text" name="lanlike" placeholder="language like"/></div></div>
 <div class="submit"><input type="submit" value="Search"/></div></form><p class="frmd"><a href="http://formoid.com/v29.php">bootstrap form</a> Formoid.com 2.9</p><script type="text/javascript" src="js/formoid-solid-blue.js"></script>
 
 <%--                 
