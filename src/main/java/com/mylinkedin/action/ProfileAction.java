@@ -135,19 +135,19 @@ public class ProfileAction extends ActionSupport {
         me = (User) this.getSession().get("me");
         me = userService.getUserbyId(me.getUid());
         
-        if ((!sepd[0].isEmpty())&&(sepd[0].equals(sepd[1]))){
-            me.setPd(sepd[0]);
+        if ((!sepd[0].trim().isEmpty())&&(sepd[0].equals(sepd[1]))){
+            me.setPd(sepd[0].trim());
         }
-        if (!sefname.isEmpty()){
+        if (!sefname.trim().isEmpty()){
             me.setFname(sefname);
         }
-        if (!selname.isEmpty()){
+        if (!selname.trim().isEmpty()){
             me.setLname(selname);
         }
-        if (!segender.isEmpty()){
+        if (!segender.trim().isEmpty()){
             me.setGender(segender);
         }
-        if (!sesummary.isEmpty()){
+        if (!sesummary.trim().isEmpty()){
             me.setSummary(sesummary);
         }
         
