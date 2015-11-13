@@ -94,6 +94,10 @@ google.maps.event.addListener(marker,'click', (function(marker,content,infowindo
     marker.setAnimation(google.maps.Animation.BOUNCE);
   }
         };
+        
+        
+        
+        
     })(marker,content,infowindow)); 
 
   }
