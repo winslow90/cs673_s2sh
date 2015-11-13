@@ -16,6 +16,7 @@
     <body>
         <%@ include file="top.jsp"%>
         <section style="margin-top:90px;">
+            <div class="row">
             <div class="container">
                 <div class="col-md-8">
                      <div class="panel panel-default friends">
@@ -23,7 +24,7 @@
                             <h3 class="panel-title">Result</h3>
                          </div>
                          <div class="panel-body">
-                              <div class="row">
+                             <!-- <div class="row">-->
                                   
                                 <s:iterator value="resultUsersPage.records" var="con">            
                                   
@@ -35,7 +36,7 @@
                                                 <p><s:property value="#con.gender"/></p>
                                                 <s:form action="otherprofileAction_viewotherprofile">
                                                     <s:hidden name="hisuid" value="%{#con.uid}"></s:hidden>
-                                                <button type="submit" class="btn btn-success" style="width:211px;position:relative;left:-13px;">more detail</button>
+                                                <button type="submit" class="btn btn-success" style="width:200px;position:relative;left:-13px;">more detail</button>
                                                 </s:form>
                                              </div>
                                      </div>
@@ -43,10 +44,13 @@
                                                 
                                 </s:iterator>  
                                   
-                              </div>
+                             <!-- </div>-->
+                              
+
+
+                             
                          </div>
-                         <nav >
-  <ul class="pagination">
+                           <ul class="pagination" style="width:800px;">
     <li>
         <s:form action="searchAction_doadvsearch">
             <s:hidden name="fnlike" ></s:hidden>
@@ -129,9 +133,13 @@
         
     </li>
   </ul>
-</nav>
+                         
+                       
                      </div>
+                    
                 </div>
+            </div>
+          
                 
                 
             </div>
