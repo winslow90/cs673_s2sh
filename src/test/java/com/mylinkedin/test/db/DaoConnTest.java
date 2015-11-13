@@ -52,20 +52,112 @@ public class DaoConnTest extends SpringUtils {
         
         int n=6;
         
-        for (int i=1; i<n; i++){
-            Company cp = new Company();
-            cp.setCp_name("Company"+i);
-            
-            companyDao.createCompany(cp);
-        }
+//        for (int i=1; i<n; i++){
+//            Company cp = new Company();
+//            cp.setCp_name("Company"+i);
+//            
+//            companyDao.createCompany(cp);
+//        }
         
-        for (int i=1; i<n; i++){
-            Languages lg = new Languages();
-            
-            lg.setLang_name("Language"+i);
-            
-            languageDao.createLanguage(lg);
-        }
+        Company cp;
+        
+        cp = new Company();
+        cp.setCp_name("Apple Inc.");
+        cp.setIcon_url("img/apple.png");
+        companyDao.createCompany(cp);
+        
+        cp = new Company();
+        cp.setCp_name("Facebook, Inc.");
+        cp.setIcon_url("img/facebook.png");
+        companyDao.createCompany(cp);
+        
+        cp = new Company();
+        cp.setCp_name("Google Inc.");
+        cp.setIcon_url("img/google.png");
+        companyDao.createCompany(cp);
+        
+        cp = new Company();
+        cp.setCp_name("Microsoft Corporation");
+        cp.setIcon_url("img/microsoft.png");
+        companyDao.createCompany(cp);
+        
+        cp = new Company();
+        cp.setCp_name("Amazon.com, Inc.");
+        cp.setIcon_url("img/amazon.jpg");
+        companyDao.createCompany(cp);
+        
+//        for (int i=1; i<n; i++){
+//            Languages lg = new Languages();
+//            
+//            lg.setLang_name("Language"+i);
+//            
+//            languageDao.createLanguage(lg);
+//        }
+        
+        Languages lg;
+        
+        lg= new Languages();
+        lg.setLang_name("English");
+        languageDao.createLanguage(lg);
+        
+        lg= new Languages();
+        lg.setLang_name("Arabic");
+        languageDao.createLanguage(lg);
+        
+        lg= new Languages();
+        lg.setLang_name("Bengali");
+        languageDao.createLanguage(lg);
+        
+        lg= new Languages();
+        lg.setLang_name("Chinese");
+        languageDao.createLanguage(lg);
+        
+        lg= new Languages();
+        lg.setLang_name("Dutch");
+        languageDao.createLanguage(lg);
+        
+        lg= new Languages();
+        lg.setLang_name("French");
+        languageDao.createLanguage(lg);
+        
+        lg= new Languages();
+        lg.setLang_name("German");
+        languageDao.createLanguage(lg);
+        
+        lg= new Languages();
+        lg.setLang_name("Greek");
+        languageDao.createLanguage(lg);
+        
+        lg= new Languages();
+        lg.setLang_name("Hindi");
+        languageDao.createLanguage(lg);
+        
+        lg= new Languages();
+        lg.setLang_name("Irish");
+        languageDao.createLanguage(lg);
+        
+        lg= new Languages();
+        lg.setLang_name("Italian");
+        languageDao.createLanguage(lg);
+        
+        lg= new Languages();
+        lg.setLang_name("Japanese");
+        languageDao.createLanguage(lg);
+        
+        lg= new Languages();
+        lg.setLang_name("Korean");
+        languageDao.createLanguage(lg);
+        
+        lg= new Languages();
+        lg.setLang_name("Russian");
+        languageDao.createLanguage(lg);
+        
+        lg= new Languages();
+        lg.setLang_name("Zulu");
+        languageDao.createLanguage(lg);
+        
+        
+        
         
         for (int i=1; i<n; i++){
             Notification nf = new Notification();
@@ -90,15 +182,43 @@ public class DaoConnTest extends SpringUtils {
             
         }
         
-        for (int i=1; i<n; i++){
-            
-            University uni = new University();
-            
-            uni.setUni_name("University"+i);
-            
-            universityDao.creatUniversity(uni);
-            
-        }
+//        for (int i=1; i<n; i++){
+//            
+//            University uni = new University();
+//            
+//            uni.setUni_name("University"+i);
+//            
+//            universityDao.creatUniversity(uni);
+//            
+//        }
+        
+        University uni;
+        
+        uni= new University();
+        uni.setUni_name("New Jersey Institute of Technology");
+        uni.setIcon_url("img/njit_1.png");
+        universityDao.creatUniversity(uni);
+        
+        uni= new University();
+        uni.setUni_name("Donghua University");
+        uni.setIcon_url("img/dhu.png");
+        universityDao.creatUniversity(uni);
+        
+        uni= new University();
+        uni.setUni_name("Huazhong University of Science and Technology");
+        uni.setIcon_url("img/hust.png");
+        universityDao.creatUniversity(uni);
+        
+        uni= new University();
+        uni.setUni_name("North China Eletric Power University");
+        uni.setIcon_url("img/ncepu.png");
+        universityDao.creatUniversity(uni);
+        
+        uni= new University();
+        uni.setUni_name("Valparaiso Universit");
+        uni.setIcon_url("img/valpo.png");
+        universityDao.creatUniversity(uni);
+        
         
         for (int i=1; i<n; i++){
             

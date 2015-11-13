@@ -15,7 +15,7 @@ public class Page<T> {
     
     private List<T> records;
     private int currentPageNum;
-    private static final int PAGESIZE =10;
+    private static final int PAGESIZE =9;
 
     
     private int totalPageNum;
