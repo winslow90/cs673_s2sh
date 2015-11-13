@@ -87,10 +87,10 @@ public class OtherprofileAction extends ActionSupport {
             hissummary=he.getSummary();
             hisphotofilename=he.getPhoto_url();
             
-            hisunis=universityService.listUniversitiesbyUid(me.getUid());
-            hisskils=skillService.listSkillsbyUid(me.getUid());
-            hiscoms=companyService.listCompaniesbyUid(me.getUid());
-            hislangs=languageService.listLanguagesUid(me.getUid());
+            hisunis=universityService.listUniversitiesbyUid(hisuid);
+            hisskils=skillService.listSkillsbyUid(hisuid);
+            hiscoms=companyService.listCompaniesbyUid(hisuid);
+            hislangs=languageService.listLanguagesUid(hisuid);
             
             
         }
