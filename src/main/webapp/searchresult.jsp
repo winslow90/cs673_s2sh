@@ -15,7 +15,67 @@
     </head>
     <body>
         <%@ include file="top.jsp"%>
+        <section style="margin-top:90px;">
+            <div class="container">
+                <div class="col-md-8">
+                     <div class="panel panel-default friends">
+                         <div class="panel-heading">
+                            <h3 class="panel-title">Result</h3>
+                         </div>
+                         <div class="panel-body">
+                              <div class="row">
+                                  <div class="col-sm-6 col-md-4">
+                                    <div class="thumbnail">
+                                        <img src="img/thumbnail.png" alt="..." style="width:130px;height:100px;border-radius:50%;">
+                                            <div class="caption">
+                                                <h4>Mike</h4>
+                                                <p>New jersey institute of technology</p>
+                                                <button type="submit" class="btn btn-success" style="width:211px;position:relative;left:-13px;">more detail</button>
         
+                                             </div>
+                                     </div>
+                                    </div>
+                                  
+                              </div>
+                         </div>
+                         <nav>
+  <ul class="pagination">
+    <li>
+      <button type="button" class="btn btn-info">First</button>
+      
+    </li>
+    <li>
+      <button type="button" class="btn btn-info">Previous</button>
+      
+    </li>
+    <li><button type="button" class="btn btn-info">1</button></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <button type="button" class="btn btn-info">Previous</button>
+      
+    </li>
+    <li>
+      <button type="button" class="btn btn-info">Last</button>
+    </li>
+  </ul>
+</nav>
+                     </div>
+                </div>
+                
+                
+            </div>
+        </section>
+        
+        
+        
+        
+        
+        
+        
+        <!------------------------------------------------------------------------------>
         <s:iterator value="resultUsersPage.records" var="con">            
             <div id="userdiv${con.uid}">
                 <img src="${con.photo_url}" height="50" width="50"/>

@@ -63,7 +63,7 @@
                         <s:hidden name="hisuid" value="%{#con.uid}"></s:hidden>
                         <button type="submit" class="btn btn-success">view</button>
                     </s:form>
-                        
+                        <div class="clear-fix"style="height:3px;"></div>  
                         
                     <div id="userdiv${con.uid}removebtnbx">
                         <button id="userdiv${con.uid}removebtn" type="button" class="btn btn-primary">Remove ${con.lname}</button>
@@ -85,7 +85,7 @@
         </div>
     </div>
         
-        
+    </div>    
     
 </section>
 
