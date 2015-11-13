@@ -80,7 +80,7 @@ var ps = locations[i][5];
         map.setCenter(marker.getPosition())
 
 
-        var content = "Loan Number: " + loan +  '</h3>' + "Address: " + add +'<br/>' + "ps:" + ps   
+        var content = "Name: " + loan +  '</h3>' + "Address: " + add +'<br/>' + "ps:" + ps   
 
   var infowindow = new google.maps.InfoWindow()
 
