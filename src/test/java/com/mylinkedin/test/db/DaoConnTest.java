@@ -128,8 +128,11 @@ public class DaoConnTest extends SpringUtils {
             user.setLocation("location"+i);
             user.setPhoto_url("img/default_icon.jpg");
             
-            Double thelong = longitude + rand.nextLong()%10000/10000;
-            Double thelant = lantitude + rand.nextLong()%10000/10000;
+            Long longrand= (rand.nextLong()%10000);
+            Long lantrand= rand.nextLong()%10000;
+            
+            Double thelong = longitude + longrand.doubleValue()/10000;
+            Double thelant = lantitude + lantrand.doubleValue()/10000;
             
             user.setLongitudestr(thelong.toString());
             user.setLantitudestr(thelant.toString());
@@ -310,18 +313,18 @@ public class DaoConnTest extends SpringUtils {
     @Test
     public void daotest(){
         
-//        CompanyDao companyDao = (CompanyDao) context.getBean("companyDao");
-//        LanguageDao languageDao = (LanguageDao) context.getBean("languageDao");
-//        NotificationDao notificationDao = (NotificationDao) context.getBean("notificationDao");
-//        SkillDao skillDao = (SkillDao) context.getBean("skillDao");        
-//        UniversityDao universityDao = (UniversityDao) context.getBean("universityDao");
-//        UpdateDao updateDao = (UpdateDao) context.getBean("updateDao");
-//        UserDao userDao = (UserDao) context.getBean("userDao");
-//        
-//        this.userDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
-//        this.notificationDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
-//        this.updateDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
-//        this.otherTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
+        CompanyDao companyDao = (CompanyDao) context.getBean("companyDao");
+        LanguageDao languageDao = (LanguageDao) context.getBean("languageDao");
+        NotificationDao notificationDao = (NotificationDao) context.getBean("notificationDao");
+        SkillDao skillDao = (SkillDao) context.getBean("skillDao");        
+        UniversityDao universityDao = (UniversityDao) context.getBean("universityDao");
+        UpdateDao updateDao = (UpdateDao) context.getBean("updateDao");
+        UserDao userDao = (UserDao) context.getBean("userDao");
+        
+        this.userDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
+        this.notificationDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
+        this.updateDaoTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
+        this.otherTest(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
         
 //        companyDao.test();
 //        languageDao.test();
