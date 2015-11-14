@@ -50,7 +50,7 @@
 
                              
                          </div>
-                           <ul class="pagination" style="width:800px;">
+                           <ul class="pagination" style="width:800px;margin-left:30px;">
     <li>
         <s:form action="searchAction_doadvsearch">
             <s:hidden name="fnlike" ></s:hidden>

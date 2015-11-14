@@ -9,8 +9,17 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Profile Page</title>
+        
+    
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+        <script src="js/bootstrap.min.js"></script>
+        
+        <script src="js/validator.min.js"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
          <script type="text/javascript" src="js/util.js"></script>
          
          <script type="text/javascript">
@@ -106,6 +115,386 @@
     </head>
     <body>
         <%@ include file="top.jsp"%>
+        <section style="margin-top:90px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="basic_profile ">
+                            <h2 class="page-header">Basic Personal Info</h2>
+                              <ul>
+                                    <li style="font-size:18px;"><strong>Name: </strong></li>
+                                    <li style="font-size:18px;"><strong>Gender: </strong></li>
+                                    <li style="font-size:18px;"><strong>Email Address: </strong></li>
+                                    <li ><strong style="font-size:18px;">Summary: </strong><p></p>.</li>
+                              </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#basic">Edit MyBasic</button> 
+                   </div>
+                    
+                    <!--Modal--->
+                    <div class="modal fade" id="basic" role="dialog">
+                         <div class="modal-dialog">
+                             <!-- Modal content-->
+                             <div class="modal-content">
+                                 <div class="modal-header" style="padding:35px 50px;">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4><span class="glyphicon glyphicon-lock"></span>Edit My Basic</h4>      
+                                </div>
+                                 <div class="modal-body" style="padding:40px 50px;">
+                                     <form  action="create.html" method="post" data-toggle="validator" role="form">
+                                          <div class="form-group">
+                                                <label for="inputPassword" class="control-label">Password</label>      
+                                                <div class="row-md-4">
+                                                    <input name="pd" type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password">
+      
+                                                </div>
+                                           </div>
+                                           <div class="form-group">
+                                                <label class="row-md-4 control-label" for="textinput">confirm</label>       
+                                                <div class="row-md-4">
+                                                    <input name="pd" type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirm">
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                          </div>
+                                           <div class="form-group">
+                                              <label class="row-md-4 control-label" for="textinput">First name</label>       
+                                               <div class="row-md-4">
+                                                    <input id="textinput" name="fname" type="text" placeholder="First name" class="form-control input-md"> 
+                                               </div>
+                                          </div>
+                                          <div class="form-group">
+                                                <label class="row-md-4 control-label" for="textinput">Last name</label>       
+                                                <div class="row-md-4">
+                                                <input id="textinput" name="lname" type="text" placeholder="Last name" class="form-control input-md"> 
+                                                </div>
+                                         </div>
+                                         <div class="form-group">
+                                            <label class="row-md-4 control-label" for="textinput">gender</label>
+                                            <div class="row-md-4">
+                                            <select class="selectpicker" name="startdate" id="startdate">
+                                                <option>male</option>
+                                                <option>female</option>
+                                            </select>
+                                            </div>
+                                         </div>
+                                         <div class="form-group">
+                                             <label class="row-md-4 control-label" for="textinput">Personal</label>
+                                             <textarea class="form-control" rows="3"></textarea>
+                                         </div>
+                                         <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> save</button>
+                                     </form>
+                                 </div>
+                             </div>
+                             <div class="modal-footer">
+                                <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+         
+                             </div>
+                         </div>
+                    </div>
+                    
+                </div>
+                
+                
+                
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="avatar">
+                           <h2 class="page-header">Avatar Info</h2>
+                            <img src="img/thumbnail2.png" style="border-radius:50%">
+                            
+                        </div>
+                        <div class="col-md-8">
+                        <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#avatar">Edit MyAvatar</button> 
+                        </div>
+                        
+                        
+                        <div class="modal fade" id="avatar" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                     <div class="modal-header" style="padding:35px 50px;">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4><span class="glyphicon glyphicon-lock"></span>Edit My Avatar</h4>      
+                                     </div>
+                                    <div class="modal-body" style="padding:40px 50px;">
+                                        <form  action="create.html" method="post" data-toggle="validator" role="form">
+                                         <div class="form-group">
+                                             <label class="row-md-4 control-label" for="textinput">Avatar</label>
+                                             <input type="file" id="exampleInputFile">
+                                         </div>
+                                         <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> save</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                  <div class="row">
+                    <div class="col-md-8">
+                        <div class="avatar">
+                           <h2 class="page-header">Education</h2>
+                            <ul>
+                                    <li style="font-size:18px;"><strong>School: </strong></li>
+                                  
+                              </ul>
+                            
+                        </div>
+                        <div class="col-md-8">
+                        <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#school">Edit My School</button> 
+                        </div>
+                        
+                        
+                        <div class="modal fade" id="school" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                     <div class="modal-header" style="padding:35px 50px;">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4><span class="glyphicon glyphicon-lock"></span>Edit My School</h4>      
+                                     </div>
+                                    <div class="modal-body" style="padding:40px 50px;">
+                                        <form  action="create.html" method="post" data-toggle="validator" role="form">
+                                         <div class="form-group">
+                                             <ul>
+                                                    <label>School:</label>
+                                               <li>   
+                                                <label>
+                                                    <input type="checkbox" value="New Jersey Institute of Technology">
+                                                        New Jersey Institute of Technology
+                                                </label>
+                                               </li>
+                                               <li>
+                                                 <label>
+                                                      <input type="checkbox" value="Donghua University">
+                                                        Donghua University
+                                                 </label>
+                                               </li>
+                                               <li>
+                                                 <label>
+                                                      <input type="checkbox" value="North China Eletric Power University">
+                                                        North China Eletric Power University
+                                                 </label>
+                                               </li>
+                                               <li>
+                                                 <label>
+                                                      <input type="checkbox" value="Huazhong University of Science and Technology">
+                                                        Huazhong University of Science and Technology
+                                                 </label>
+                                               </li>
+                                                <li>
+                                                 <label>
+                                                      <input type="checkbox" value="Valparaiso Universit">
+                                                        Valparaiso Universit
+                                                 </label>
+                                               </li>
+                                               
+                                             </ul>
+                                         </div>
+                                         <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> save</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                    <div class="row">
+                    <div class="col-md-8">
+                        <div class="avatar">
+                           <h2 class="page-header">Skills</h2>
+                            <ul>
+                                    <li style="font-size:18px;"><strong>Skills: </strong></li>
+                                  
+                              </ul>
+                            
+                        </div>
+                        <div class="col-md-8">
+                        <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#skill">Edit My Skills</button> 
+                        </div>
+                        
+                        
+                        <div class="modal fade" id="skill" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                     <div class="modal-header" style="padding:35px 50px;">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4><span class="glyphicon glyphicon-lock"></span>Edit My Skill</h4>      
+                                     </div>
+                                    <div class="modal-body" style="padding:40px 50px;">
+                                        <form  action="create.html" method="post" data-toggle="validator" role="form">
+                                         <div class="form-group">
+                                             <ul>
+                                                    <label>Skills:</label>
+                                               <li>   
+                                                <label>
+                                                    <input type="checkbox" value="skill1">
+                                                        Skill1
+                                                </label>
+                                               </li>
+
+                                               
+                                             </ul>
+                                         </div>
+                                         <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> save</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                  <div class="row">
+                    <div class="col-md-8">
+                        <div class="avatar">
+                           <h2 class="page-header">Company</h2>
+                            <ul>
+                                    <li style="font-size:18px;"><strong>Company: </strong></li>
+                                  
+                              </ul>
+                            
+                        </div>
+                        <div class="col-md-8">
+                        <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#company">Edit My Companies</button> 
+                        </div>
+                        
+                        
+                        <div class="modal fade" id="company" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                     <div class="modal-header" style="padding:35px 50px;">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4><span class="glyphicon glyphicon-lock"></span>Edit My Company</h4>      
+                                     </div>
+                                    <div class="modal-body" style="padding:40px 50px;">
+                                        <form  action="create.html" method="post" data-toggle="validator" role="form">
+                                         <div class="form-group">
+                                             <ul>
+                                                    <label>Companies:</label>
+                                               <li>   
+                                                <label>
+                                                    <input type="checkbox" value="Apple">
+                                                        Apple Inc
+                                                </label>
+                                               </li>
+
+                                               
+                                             </ul>
+                                         </div>
+                                         <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> save</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="avatar">
+                           <h2 class="page-header">Language</h2>
+                            <ul>
+                                    <li style="font-size:18px;"><strong>Language: </strong></li>
+                                  
+                              </ul>
+                            
+                        </div>
+                        <div class="col-md-8">
+                        <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#language">Edit My Languages:</button> 
+                        </div>
+                        
+                        
+                        <div class="modal fade" id="language" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                     <div class="modal-header" style="padding:35px 50px;">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4><span class="glyphicon glyphicon-lock"></span>Edit My Languages:</h4>      
+                                     </div>
+                                    <div class="modal-body" style="padding:40px 50px;">
+                                        <form  action="create.html" method="post" data-toggle="validator" role="form">
+                                         <div class="form-group">
+                                             <ul>
+                                                    <label>languages:</label>
+                                               <li>   
+                                                <label>
+                                                    <input type="checkbox" value="english">
+                                                        English
+                                                </label>
+                                               </li>
+
+                                               
+                                             </ul>
+                                         </div>
+                                         <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> save</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         <hr/>
