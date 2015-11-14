@@ -115,6 +115,8 @@
     </head>
     <body>
         <%@ include file="top.jsp"%>
+        
+        
         <section style="margin-top:90px;">
             <div class="container">
                 <div class="row">
@@ -122,10 +124,10 @@
                         <div class="basic_profile ">
                             <h2 class="page-header">Basic Personal Info</h2>
                               <ul>
-                                    <li style="font-size:18px;"><strong>Name: </strong></li>
-                                    <li style="font-size:18px;"><strong>Gender: </strong></li>
-                                    <li style="font-size:18px;"><strong>Email Address: </strong></li>
-                                    <li ><strong style="font-size:18px;">Summary: </strong><p></p>.</li>
+                                    <li style="font-size:18px;"><strong>Name: ${sefname}  ${selname}</strong></li>
+                                    <li style="font-size:18px;"><strong>Gender:${segender} </strong></li>
+                                    <li style="font-size:18px;"><strong>Email Address: ${seemail} </strong></li>
+                                    <li ><strong style="font-size:18px;">Summary:${sesummary} </strong><p></p>.</li>
                               </ul>
                         </div>
                     </div>
@@ -143,37 +145,38 @@
                                       <h4><span class="glyphicon glyphicon-lock"></span>Edit My Basic</h4>      
                                 </div>
                                  <div class="modal-body" style="padding:40px 50px;">
-                                     <form  action="create.html" method="post" data-toggle="validator" role="form">
+                                     
+                                     <form  action="${pageContext.request.contextPath}/profileAction_updatebasic.action" method="post" data-toggle="validator" role="form">
                                           <div class="form-group">
                                                 <label for="inputPassword" class="control-label">Password</label>      
                                                 <div class="row-md-4">
-                                                    <input name="pd" type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password">
+                                                    <input name="sepd" type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password">
       
                                                 </div>
                                            </div>
                                            <div class="form-group">
                                                 <label class="row-md-4 control-label" for="textinput">confirm</label>       
                                                 <div class="row-md-4">
-                                                    <input name="pd" type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirm">
+                                                    <input name="sepd" type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirm">
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                           </div>
                                            <div class="form-group">
                                               <label class="row-md-4 control-label" for="textinput">First name</label>       
                                                <div class="row-md-4">
-                                                    <input id="textinput" name="fname" type="text" placeholder="First name" class="form-control input-md"> 
+                                                    <input id="textinput" name="sefname" type="text" placeholder="First name" class="form-control input-md"> 
                                                </div>
                                           </div>
                                           <div class="form-group">
                                                 <label class="row-md-4 control-label" for="textinput">Last name</label>       
                                                 <div class="row-md-4">
-                                                <input id="textinput" name="lname" type="text" placeholder="Last name" class="form-control input-md"> 
+                                                <input id="textinput" name="selname" type="text" placeholder="Last name" class="form-control input-md"> 
                                                 </div>
                                          </div>
                                          <div class="form-group">
                                             <label class="row-md-4 control-label" for="textinput">gender</label>
                                             <div class="row-md-4">
-                                            <select class="selectpicker" name="startdate" id="startdate">
+                                            <select class="selectpicker" name="segender" >
                                                 <option>male</option>
                                                 <option>female</option>
                                             </select>
@@ -181,7 +184,7 @@
                                          </div>
                                          <div class="form-group">
                                              <label class="row-md-4 control-label" for="textinput">Personal</label>
-                                             <textarea class="form-control" rows="3"></textarea>
+                                             <textarea name="sesummary" class="form-control" rows="3"></textarea>
                                          </div>
                                          <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> save</button>
                                      </form>
@@ -202,7 +205,7 @@
                     <div class="col-md-8">
                         <div class="avatar">
                            <h2 class="page-header">Avatar Info</h2>
-                            <img src="img/thumbnail2.png" style="border-radius:50%">
+                            <img src="${sephotoFileName}" style="border-radius:50%;width:100px;height:100px">
                             
                         </div>
                         <div class="col-md-8">
@@ -218,13 +221,14 @@
                                       <h4><span class="glyphicon glyphicon-lock"></span>Edit My Avatar</h4>      
                                      </div>
                                     <div class="modal-body" style="padding:40px 50px;">
-                                        <form  action="create.html" method="post" data-toggle="validator" role="form">
+                                        
+                                        <s:form action="profileAction_updateicon" enctype="multipart/form-data">
                                          <div class="form-group">
                                              <label class="row-md-4 control-label" for="textinput">Avatar</label>
-                                             <input type="file" id="exampleInputFile">
+                                             <s:file name="sephoto" label="Please select your new icon file"></s:file>
                                          </div>
                                          <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> save</button>
-                                        </form>
+                                        </s:form>
                                     </div>
                                 </div>
                             </div>
@@ -239,8 +243,7 @@
                         <div class="avatar">
                            <h2 class="page-header">Education</h2>
                             <ul>
-                                    <li style="font-size:18px;"><strong>School: </strong></li>
-                                  
+                                  <s:action name="universityAction_listunis" executeResult="true"/>
                               </ul>
                             
                         </div>
@@ -257,45 +260,8 @@
                                       <h4><span class="glyphicon glyphicon-lock"></span>Edit My School</h4>      
                                      </div>
                                     <div class="modal-body" style="padding:40px 50px;">
-                                        <form  action="create.html" method="post" data-toggle="validator" role="form">
-                                         <div class="form-group">
-                                             <ul>
-                                                    <label>School:</label>
-                                               <li>   
-                                                <label>
-                                                    <input type="checkbox" value="New Jersey Institute of Technology">
-                                                        New Jersey Institute of Technology
-                                                </label>
-                                               </li>
-                                               <li>
-                                                 <label>
-                                                      <input type="checkbox" value="Donghua University">
-                                                        Donghua University
-                                                 </label>
-                                               </li>
-                                               <li>
-                                                 <label>
-                                                      <input type="checkbox" value="North China Eletric Power University">
-                                                        North China Eletric Power University
-                                                 </label>
-                                               </li>
-                                               <li>
-                                                 <label>
-                                                      <input type="checkbox" value="Huazhong University of Science and Technology">
-                                                        Huazhong University of Science and Technology
-                                                 </label>
-                                               </li>
-                                                <li>
-                                                 <label>
-                                                      <input type="checkbox" value="Valparaiso Universit">
-                                                        Valparaiso Universit
-                                                 </label>
-                                               </li>
-                                               
-                                             </ul>
-                                         </div>
-                                         <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> save</button>
-                                        </form>
+                                        <s:action name="universityAction_selectunis" executeResult="true"/>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -496,7 +462,7 @@
         
         
         
-        
+        <!------------------------------------------------------------------>
         <hr/>
         <div id="basicprofile">
             ${seemail}<br/>

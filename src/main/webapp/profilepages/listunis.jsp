@@ -14,9 +14,8 @@
     </head>
     <body>
         <s:iterator value="myunis" var="uni">
-                <s:property value="#uni.uni_name"/><br/>
-                <s:property value="#uni.icon_url"/><br/>
-                <br/>
+            <li style="font-size:18px;"><strong>School:<s:property value="#uni.uni_name"/> </strong></li>
+                <%--<s:property value="#uni.icon_url"/><br/>--%>
         </s:iterator>
         <s:debug></s:debug>
     </body>
