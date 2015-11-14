@@ -14,10 +14,34 @@
     </head>
     <body>
         <s:form action="companyAction_updatecoms">
-            <s:checkboxlist label="Please select your company" list="allcomsmap" 
-	   name="mycomids" value="mycomids" />
-            
+            <div class="form-group">
+                <label>Companies:</label><br/>
+                <s:checkboxlist label="Please select your company" list="allcomsmap" 
+	   name="mycomids" value="mycomids" /><br/>
+             </div>
             <s:submit value="Submit update of comps" class="buttoninput"/>
         </s:form>
+        
+        
+        <%--
+        <form  action="create.html" method="post" data-toggle="validator" role="form">
+                                         <div class="form-group">
+                                             <ul>
+                                                    <label>Companies:</label>
+                                               <li>   
+                                                <label>
+                                                    <input type="checkbox" value="Apple">
+                                                        Apple Inc
+                                                </label>
+                                               </li>
+
+                                               
+                                             </ul>
+                                         </div>
+                                         <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> save</button>
+                                        </form>
+        --%>
+        
+        
     </body>
 </html>

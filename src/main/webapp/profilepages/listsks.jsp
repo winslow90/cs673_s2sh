@@ -14,9 +14,10 @@
     </head>
     <body>
         <s:iterator value="mysks" var="sk">
-                <s:property value="#sk.sk_name"/><br/>
+            <li style="font-size:18px;"><strong>Skills: <s:property value="#sk.sk_name"/></strong></li>
+                
                 <br/>
         </s:iterator>
-        <s:debug></s:debug>
+        
     </body>
 </html>

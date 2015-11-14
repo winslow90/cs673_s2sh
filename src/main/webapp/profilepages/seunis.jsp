@@ -20,7 +20,7 @@
             
             <s:checkboxlist label="Please select your university" list="allunismap" 
 	   name="myuniids" value="myuniids" /><br/>
-            
+             </div>
             <s:submit value="Submit update of unies" class="buttoninput"/>
         </s:form>
             <%--

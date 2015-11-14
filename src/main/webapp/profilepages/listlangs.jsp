@@ -14,8 +14,9 @@
     </head>
     <body>
         <s:iterator value="mylangs" var="lang">
-                <s:property value="#lang.lang_name"/><br/>
+            <li style="font-size:18px;"><strong>Language: <s:property value="#lang.lang_name"/></strong></li>
+                
         </s:iterator>
-        <s:debug></s:debug>
+        
     </body>
 </html>

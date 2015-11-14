@@ -14,10 +14,9 @@
     </head>
     <body>
         <s:iterator value="mycoms" var="comp">
-                <s:property value="#comp.cp_name"/><br/>
-                <s:property value="#comp.icon_url"/><br/>
-                <br/>
+            <li style="font-size:18px;"><strong>Company: <s:property value="#comp.cp_name"/></strong></li>
+            <%--<s:property value="#comp.icon_url"/>--%>
         </s:iterator>
-        <s:debug></s:debug>
+        
     </body>
 </html>

@@ -14,10 +14,36 @@
     </head>
     <body>
         <s:form action="languageAction_updatelangs">
+            <div class="form-group">
+            <label>languages:</label><br/>
             <s:checkboxlist label="Please select your languages" list="alllangsmap" 
 	   name="mylangids" value="mylangids" />
-            
+            </div>
             <s:submit value="Submit update of languages" class="buttoninput"/>
         </s:form>
+        
+        
+        <%--
+        
+        <form  action="create.html" method="post" data-toggle="validator" role="form">
+                                         <div class="form-group">
+                                             <ul>
+                                                    <label>languages:</label>
+                                               <li>   
+                                                <label>
+                                                    <input type="checkbox" value="english">
+                                                        English
+                                                </label>
+                                               </li>
+
+                                               
+                                             </ul>
+                                         </div>
+                                         <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> save</button>
+                                        </form>
+        
+        
+        --%>
+        
     </body>
 </html>

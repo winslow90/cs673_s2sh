@@ -14,10 +14,38 @@
     </head>
     <body>
         <s:form action="skillAction_updatesks">
+            <div class="form-group">
+                      <label>Skills:</label> <br/>
             <s:checkboxlist label="Please select your skill" list="allsksmap" 
 	   name="myskids" value="myskids" />
-            
+            </div>
             <s:submit value="Submit update of skills" class="buttoninput"/>
         </s:form>
+        
+        
+        <%--
+        
+        <form  action="create.html" method="post" data-toggle="validator" role="form">
+                                         <div class="form-group">
+                                             <ul>
+                                                    <label>Skills:</label>
+                                               <li>   
+                                                <label>
+                                                    <input type="checkbox" value="skill1">
+                                                        Skill1
+                                                </label>
+                                               </li>
+
+                                               
+                                             </ul>
+                                         </div>
+                                         <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> save</button>
+                                        </form>
+        
+        
+        --%>
+        
+        
+        
     </body>
 </html>

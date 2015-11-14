@@ -22,6 +22,8 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
          <script type="text/javascript" src="js/util.js"></script>
          
+         <%--
+         
          <script type="text/javascript">
 		window.onload=function(){
 			document.getElementById("editbasic").onclick=function(){
@@ -111,7 +113,7 @@
 			};
 		};               
 	</script>
-         
+         --%>
     </head>
     <body>
         <%@ include file="top.jsp"%>
@@ -276,7 +278,8 @@
                         <div class="avatar">
                            <h2 class="page-header">Skills</h2>
                             <ul>
-                                    <li style="font-size:18px;"><strong>Skills: </strong></li>
+                                
+                                <s:action name="skillAction_listsks" executeResult="true"/>
                                   
                               </ul>
                             
@@ -294,22 +297,7 @@
                                       <h4><span class="glyphicon glyphicon-lock"></span>Edit My Skill</h4>      
                                      </div>
                                     <div class="modal-body" style="padding:40px 50px;">
-                                        <form  action="create.html" method="post" data-toggle="validator" role="form">
-                                         <div class="form-group">
-                                             <ul>
-                                                    <label>Skills:</label>
-                                               <li>   
-                                                <label>
-                                                    <input type="checkbox" value="skill1">
-                                                        Skill1
-                                                </label>
-                                               </li>
-
-                                               
-                                             </ul>
-                                         </div>
-                                         <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> save</button>
-                                        </form>
+                                        <s:action name="skillAction_selectsks" executeResult="true"/>
                                     </div>
                                 </div>
                             </div>
@@ -324,8 +312,7 @@
                         <div class="avatar">
                            <h2 class="page-header">Company</h2>
                             <ul>
-                                    <li style="font-size:18px;"><strong>Company: </strong></li>
-                                  
+                                <s:action name="companyAction_listcoms" executeResult="true"/>
                               </ul>
                             
                         </div>
@@ -342,22 +329,7 @@
                                       <h4><span class="glyphicon glyphicon-lock"></span>Edit My Company</h4>      
                                      </div>
                                     <div class="modal-body" style="padding:40px 50px;">
-                                        <form  action="create.html" method="post" data-toggle="validator" role="form">
-                                         <div class="form-group">
-                                             <ul>
-                                                    <label>Companies:</label>
-                                               <li>   
-                                                <label>
-                                                    <input type="checkbox" value="Apple">
-                                                        Apple Inc
-                                                </label>
-                                               </li>
-
-                                               
-                                             </ul>
-                                         </div>
-                                         <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> save</button>
-                                        </form>
+                                        <s:action name="companyAction_selectcoms" executeResult="true"/>
                                     </div>
                                 </div>
                             </div>
@@ -372,7 +344,7 @@
                         <div class="avatar">
                            <h2 class="page-header">Language</h2>
                             <ul>
-                                    <li style="font-size:18px;"><strong>Language: </strong></li>
+                                <s:action name="languageAction_listlangs" executeResult="true"/>
                                   
                               </ul>
                             
@@ -390,22 +362,7 @@
                                       <h4><span class="glyphicon glyphicon-lock"></span>Edit My Languages:</h4>      
                                      </div>
                                     <div class="modal-body" style="padding:40px 50px;">
-                                        <form  action="create.html" method="post" data-toggle="validator" role="form">
-                                         <div class="form-group">
-                                             <ul>
-                                                    <label>languages:</label>
-                                               <li>   
-                                                <label>
-                                                    <input type="checkbox" value="english">
-                                                        English
-                                                </label>
-                                               </li>
-
-                                               
-                                             </ul>
-                                         </div>
-                                         <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> save</button>
-                                        </form>
+                                        <s:action name="languageAction_selectlangs" executeResult="true"/>
                                     </div>
                                 </div>
                             </div>
@@ -458,7 +415,7 @@
         
         
         
-        
+                                        <%--
         
         
         
@@ -511,5 +468,6 @@
             <input type="button" id="editmylangs" value="Edit my languages"/>
         </div>
         <hr/>
+                                        --%>
     </body>
 </html>
