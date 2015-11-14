@@ -172,15 +172,82 @@ public class DaoConnTest extends SpringUtils {
             
         }
         
-        for (int i=1; i<n; i++){
-            
-            Skill sk = new Skill();
-            
-            sk.setSk_name("Skill"+i);
-            
-            skillDao.createSkill(sk);
-            
-        }
+//        for (int i=1; i<n; i++){
+//            
+//            Skill sk = new Skill();
+//            
+//            sk.setSk_name("Skill"+i);
+//            
+//            skillDao.createSkill(sk);
+//            
+//        }
+        
+        Skill sk;
+        
+        sk = new Skill();
+        sk.setSk_name("MicroSoft Office");
+        skillDao.createSkill(sk);
+        
+        sk = new Skill();
+        sk.setSk_name("Customer Service");
+        skillDao.createSkill(sk);
+        
+        sk = new Skill();
+        sk.setSk_name("MicroSoft Excel");
+        skillDao.createSkill(sk);
+        
+        sk = new Skill();
+        sk.setSk_name("MicroSoft Word");
+        skillDao.createSkill(sk);
+        
+        sk = new Skill();
+        sk.setSk_name("HTML");
+        skillDao.createSkill(sk);
+        
+        sk = new Skill();
+        sk.setSk_name("MicroSoft PowerPoint");
+        skillDao.createSkill(sk);
+        
+        sk = new Skill();
+        sk.setSk_name("AT&T assembly & C");
+        skillDao.createSkill(sk);
+        
+        sk = new Skill();
+        sk.setSk_name("C++");
+        skillDao.createSkill(sk);
+        
+        sk = new Skill();
+        sk.setSk_name("Java SE");
+        skillDao.createSkill(sk);
+        
+        sk = new Skill();
+        sk.setSk_name("Java EE");
+        skillDao.createSkill(sk);
+        
+        sk = new Skill();
+        sk.setSk_name("Java ME");
+        skillDao.createSkill(sk);
+        
+        sk = new Skill();
+        sk.setSk_name("PHP");
+        skillDao.createSkill(sk);
+        
+        sk = new Skill();
+        sk.setSk_name("Windows");
+        skillDao.createSkill(sk);
+        
+        sk = new Skill();
+        sk.setSk_name("Red had Enterprise Linux 6");
+        skillDao.createSkill(sk);
+        
+        sk = new Skill();
+        sk.setSk_name("Red had Enterprise Linux 7");
+        skillDao.createSkill(sk);
+        
+        sk = new Skill();
+        sk.setSk_name("Team Leadership");
+        skillDao.createSkill(sk);
+        
         
 //        for (int i=1; i<n; i++){
 //            

@@ -22,48 +22,53 @@
         <div class="row">
           <div class="col-md-8">
               
-            <s:iterator value="updates" var="up">
-            <div class="panel panel-default post">
-                <div class="panel-heading">
-                <h3 class="panel-title">Moments</h3>
-              </div>
-              <div class="panel-body">
-                <div class="row">
-                  <div class="col-sm-2">
-                    <a class="post-avatar thumbnail" href="profile.html" style="height:80px;width:80px"><img src="<s:property value="#up.relating_photo_url"/>" style="height:60px;width:60px;border-radius:50%"><div class="text-center"></div></a>
-                    
-                  </div><!-- col-sm-2 end -->
-                  <div class="col-sm-10">
-                    <div class="bubble">
-                      <div class="pointer">
-                        <s:form action="otherprofileAction_viewotherprofile">
-                            <s:hidden name="hisuid" value="%{#up.relating_uid}"></s:hidden>
-                        <p><s:property value="#up.up_datetime"/> I am a software engineer from Amazon and I have experience of programming about three years in java ee field. I have a lot of achievement in the passed three year <button type="submit" class="btn btn-primary btn-xs"style="border-radius: 24px;"><s:property value="#up.up_content"/></button> </p>
-                        </s:form>
-                      </div>
-                      <div class="pointer-border"></div>
-                    </div><!-- bubble end -->
-                    
-                    
-                    <div class="clearfix"></div>
+            
+              <s:if test="%{updates.size()>0}">  
+                <s:iterator value="updates" var="up">
+                <div class="panel panel-default post">
+                    <div class="panel-heading">
+                    <h3 class="panel-title">Moments</h3>
+                  </div>
+                  <div class="panel-body">
+                    <div class="row">
+                      <div class="col-sm-2">
+                        <a class="post-avatar thumbnail" href="profile.html" style="height:80px;width:80px"><img src="<s:property value="#up.relating_photo_url"/>" style="height:60px;width:60px;border-radius:50%"><div class="text-center"></div></a>
 
-                   <!-- <div class="comments">
-                      <div class="comment" style="border-style:none;">
-                        <div class="comment-text">
-                           <button type="submit" class="btn btn-success btn-lg"style="border-radius: 24px;">View</button>
-                        </div>
-                      </div>
-                      <div class="clearfix"></div>
+                      </div><!-- col-sm-2 end -->
+                      <div class="col-sm-10">
+                        <div class="bubble">
+                          <div class="pointer">
+                            <s:form action="otherprofileAction_viewotherprofile">
+                                <s:hidden name="hisuid" value="%{#up.relating_uid}"></s:hidden>
+                            <p><s:property value="#up.up_datetime"/> I am a software engineer from Amazon and I have experience of programming about three years in java ee field. I have a lot of achievement in the passed three year <button type="submit" class="btn btn-primary btn-xs"style="border-radius: 24px;"><s:property value="#up.up_content"/></button> </p>
+                            </s:form>
+                          </div>
+                          <div class="pointer-border"></div>
+                        </div><!-- bubble end -->
 
-                    
-                      <div class="clearfix"></div>
-                    </div> -->
+
+                        <div class="clearfix"></div>
+
+                       <!-- <div class="comments">
+                          <div class="comment" style="border-style:none;">
+                            <div class="comment-text">
+                               <button type="submit" class="btn btn-success btn-lg"style="border-radius: 24px;">View</button>
+                            </div>
+                          </div>
+                          <div class="clearfix"></div>
+
+
+                          <div class="clearfix"></div>
+                        </div> -->
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-        </s:iterator>
-
+                </s:iterator>
+            </s:if>
+            <s:else>
+                <h1>You don't have any updates yet~</h1>
+            </s:else>  
 
 
           </div><!-- col-md-8 end -->
