@@ -22,6 +22,7 @@ import org.apache.struts2.interceptor.validation.SkipValidation;
 public class UserAction extends ActionSupport {
     
     private final String DEFAULT_PHOTO_URL = "img/default_icon.jpg";
+    private final String DEFAULT_PHOTO_URL_F = "img/default_icon_f.jpg";
     private final String DEFAULT_LOCATION="default_location";
     
     private UserService userService;
@@ -125,11 +126,19 @@ public class UserAction extends ActionSupport {
     
     public String register(){
         
+        Long uid;
+        
 //        Long uid = (Long) userService.createUser(email, pd[0], fname, lname, gender, 
 //                        DEFAULT_PHOTO_URL, DEFAULT_LOCATION);
-        
-        Long uid = (Long) userService.createUser2(email, pd[0], fname, lname, gender, 
+        if (gender.equals("Female")){
+            uid = (Long) userService.createUser2(email, pd[0], fname, lname, gender, 
+                        DEFAULT_PHOTO_URL_F, DEFAULT_LOCATION,longitudestr,lantitudestr);
+        }else{
+            uid = (Long) userService.createUser2(email, pd[0], fname, lname, gender, 
                         DEFAULT_PHOTO_URL, DEFAULT_LOCATION,longitudestr,lantitudestr);
+        }
+
+        
         
         getSession().put("me", userService.getUserbyId(uid));
         
