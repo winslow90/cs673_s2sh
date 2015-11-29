@@ -33,7 +33,7 @@ public class SkillAction extends ActionSupport {
     List<Skill> mysks;
     
     HashMap<Long, String> allsksmap;
-    ArrayList<Long> myskids;
+    ArrayList<Long> myskids=new ArrayList();
 
     
     

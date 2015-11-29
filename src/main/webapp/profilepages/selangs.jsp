@@ -16,10 +16,26 @@
         <s:form action="languageAction_updatelangs">
             <div class="form-group">
             <label>languages:</label><br/>
-            <s:checkboxlist label="Please select your languages" list="alllangsmap" 
-	   name="mylangids" value="mylangids" />
+            
+            
+             <s:iterator value="alllangsmap.entrySet()">
+                <li>   
+                    <label>
+                        <input name="mylangids" type="checkbox" value="<s:property value="key"/>"/>
+                        <s:property value="value"/>
+                    </label>
+                </li>
+            </s:iterator>
+            
+            
+            <%--
+                <s:checkboxlist label="Please select your languages" list="alllangsmap" 
+               name="mylangids" value="mylangids" />
+            --%>
             </div>
-            <s:submit value="Submit update of languages" class="buttoninput"/>
+            
+            <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> save</button>
+            <%--<s:submit value="Submit update of languages" class="buttoninput"/>--%>
         </s:form>
         
         

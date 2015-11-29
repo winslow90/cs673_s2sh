@@ -18,10 +18,22 @@
              <div class="form-group">
                     <label>School:</label><br/>
             
+                    <s:iterator value="allunismap.entrySet()">
+                        <li>   
+                            <label>
+                                <input name="myuniids" type="checkbox" value="<s:property value="key"/>"/>
+                                <s:property value="value"/>
+                            </label>
+                        </li>
+                    </s:iterator>
+            <%--
             <s:checkboxlist label="Please select your university" list="allunismap" 
-	   name="myuniids" value="myuniids" /><br/>
+	   name="myuniids" value="myuniids" />
+            --%>
+            
              </div>
-            <s:submit value="Submit update of unies" class="buttoninput"/>
+            <%--<s:submit value="Submit update of unies" class="buttoninput"/>--%>
+            <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> save</button>
         </s:form>
             <%--
         <form  action="create.html" method="post" data-toggle="validator" role="form">

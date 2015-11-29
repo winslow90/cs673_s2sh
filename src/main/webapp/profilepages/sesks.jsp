@@ -16,10 +16,26 @@
         <s:form action="skillAction_updatesks">
             <div class="form-group">
                       <label>Skills:</label> <br/>
+                      
+                    <s:iterator value="allsksmap.entrySet()">
+                        <li>   
+                            <label>
+                                <input name="myskids" type="checkbox" value="<s:property value="key"/>"/>
+                                <s:property value="value"/>
+                            </label>
+                        </li>
+                        
+                    </s:iterator>
+                     
+                        <%--            
             <s:checkboxlist label="Please select your skill" list="allsksmap" 
 	   name="myskids" value="myskids" />
+                        --%>
+            
+            
             </div>
-            <s:submit value="Submit update of skills" class="buttoninput"/>
+            <%--<s:submit value="Submit update of skills" class="buttoninput"/>--%>
+            <button value="Submit update of skills" type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> save</button>
         </s:form>
         
         

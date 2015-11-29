@@ -33,7 +33,7 @@ public class UniversityAction extends ActionSupport {
     List<University> myunis;
     
     HashMap<Long, String> allunismap;
-    ArrayList<Long> myuniids;
+    ArrayList<Long> myuniids = new ArrayList();
 
     
     

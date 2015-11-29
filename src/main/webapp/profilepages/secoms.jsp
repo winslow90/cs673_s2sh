@@ -16,10 +16,27 @@
         <s:form action="companyAction_updatecoms">
             <div class="form-group">
                 <label>Companies:</label><br/>
+                
+                
+                <s:iterator value="allcomsmap.entrySet()">
+                    <li>   
+                        <label>
+                            <input name="mycomids" type="checkbox" value="<s:property value="key"/>"/>
+                            <s:property value="value"/>
+                        </label>
+                    </li>
+                </s:iterator>
+                
+                
+                
+                    <%--
                 <s:checkboxlist label="Please select your company" list="allcomsmap" 
 	   name="mycomids" value="mycomids" /><br/>
+                    --%>
              </div>
-            <s:submit value="Submit update of comps" class="buttoninput"/>
+            <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> save</button>
+            <%--<s:submit value="Submit update of comps" class="buttoninput"/>--%>
+            
         </s:form>
         
         

@@ -33,7 +33,7 @@ public class CompanyAction extends ActionSupport {
     List<Company> mycoms;
     
     HashMap<Long, String> allcomsmap;
-    ArrayList<Long> mycomids;
+    ArrayList<Long> mycomids=new ArrayList();
     
     
     public String listcoms(){

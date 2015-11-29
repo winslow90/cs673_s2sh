@@ -34,7 +34,7 @@ public class LanguageAction extends ActionSupport {
     List<Languages> mylangs;
     
     HashMap<Long, String> alllangsmap;
-    ArrayList<Long> mylangids;
+    ArrayList<Long> mylangids=new ArrayList();
     
     
     public String listlangs(){
