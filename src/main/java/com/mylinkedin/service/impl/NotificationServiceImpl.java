@@ -33,7 +33,16 @@ public class NotificationServiceImpl implements NotificationService {
 
     @Override
     public List<Notification> listNotifications(Serializable uid) {
-        return notificationDao.listNotificationsbyUid(uid);
+//        return notificationDao.listNotificationsbyUid(uid);
+        
+        List<Notification> result = notificationDao.listValidNotificationbyUid(uid);
+        
+        for (Notification nt: result){
+            notificationDao.invalidateNotification(nt);
+        }
+        
+        return result;
+        
     }
 
     @Override

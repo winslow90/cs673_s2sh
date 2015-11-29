@@ -32,7 +32,14 @@ public class UpdateServiceImpl implements UpdateService {
 
     @Override
     public List<Updates> listUpdates(Serializable uid) {
-        return updateDao.listUpdatebyUid(uid);
+//        return updateDao.listUpdatebyUid(uid);
+        List<Updates> result= updateDao.listValidUpdatebyUid(uid);
+        
+        for (Updates up: result){
+            updateDao.invalidateUpdate(up);
+        }
+        
+        return result;
     }
 
     @Override
