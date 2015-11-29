@@ -52,13 +52,6 @@ public class DaoConnTest extends SpringUtils {
         
         int n=6;
         
-//        for (int i=1; i<n; i++){
-//            Company cp = new Company();
-//            cp.setCp_name("Company"+i);
-//            
-//            companyDao.createCompany(cp);
-//        }
-        
         Company cp;
         
         cp = new Company();
@@ -86,13 +79,12 @@ public class DaoConnTest extends SpringUtils {
         cp.setIcon_url("img/amazon.jpg");
         companyDao.createCompany(cp);
         
-//        for (int i=1; i<n; i++){
-//            Languages lg = new Languages();
-//            
-//            lg.setLang_name("Language"+i);
-//            
-//            languageDao.createLanguage(lg);
-//        }
+        
+        
+        
+        
+        
+        
         
         Languages lg;
         
@@ -172,15 +164,6 @@ public class DaoConnTest extends SpringUtils {
             
         }
         
-//        for (int i=1; i<n; i++){
-//            
-//            Skill sk = new Skill();
-//            
-//            sk.setSk_name("Skill"+i);
-//            
-//            skillDao.createSkill(sk);
-//            
-//        }
         
         Skill sk;
         
@@ -248,17 +231,7 @@ public class DaoConnTest extends SpringUtils {
         sk.setSk_name("Team Leadership");
         skillDao.createSkill(sk);
         
-        
-//        for (int i=1; i<n; i++){
-//            
-//            University uni = new University();
-//            
-//            uni.setUni_name("University"+i);
-//            
-//            universityDao.creatUniversity(uni);
-//            
-//        }
-        
+                
         University uni;
         
         uni= new University();
@@ -378,7 +351,7 @@ public class DaoConnTest extends SpringUtils {
         
         User me2 = userDao.getUserbyId(1L);
         
-        for(Long i = 2L;i<8;i++){
+        for(Long i = 2L;i<20;i++){
             User theu = userDao.getUserbyId(i);
             theusers.add(theu);
         }
