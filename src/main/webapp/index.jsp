@@ -26,13 +26,16 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/signin.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="css/style1.css" rel="stylesheet">
-    
+    <link href="css/style1.css" rel="stylesheet">    
     <s:head/>
    
   </head>
 
   <body onload="myFunction()">
+      
+    <div>  
+    <s:actionerror/>
+    </div>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -79,6 +82,7 @@
   <div class="row-md-4">
   <input id="textinput" name="email" type="email" placeholder="Email" class="form-control input-md" required autofocus> 
   </div>
+               
 </div>
             <div class="form-group">
                 <label for="inputPassword" class="control-label">Password</label>      
