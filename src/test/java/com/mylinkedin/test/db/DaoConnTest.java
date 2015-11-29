@@ -220,11 +220,11 @@ public class DaoConnTest extends SpringUtils {
         skillDao.createSkill(sk);
         
         sk = new Skill();
-        sk.setSk_name("Red had Enterprise Linux 6");
+        sk.setSk_name("Red Hat Enterprise Linux 6");
         skillDao.createSkill(sk);
         
         sk = new Skill();
-        sk.setSk_name("Red had Enterprise Linux 7");
+        sk.setSk_name("Red Hat Enterprise Linux 7");
         skillDao.createSkill(sk);
         
         sk = new Skill();
@@ -287,6 +287,7 @@ public class DaoConnTest extends SpringUtils {
             user.setPd("u"+i);
             user.setLocation("location"+i);
             user.setPhoto_url("img/default_icon.jpg");
+            user.setSummary("Hi i am user "+i+"~");
             
             Long longrand= (rand.nextLong()%10000);
             Long lantrand= rand.nextLong()%10000;
@@ -300,6 +301,45 @@ public class DaoConnTest extends SpringUtils {
             userDao.createUser(user);            
         }
         
+        
+        User user;
+        
+        user = new User();        
+        user.setFname("Wentao");
+        user.setLname("Li");
+        user.setEmail("wl256@njit.edu");
+        user.setPd("123456");
+        user.setPhoto_url("img/wtl.jpeg");
+        user.setLongitudestr("-74.15373");
+        user.setLantitudestr("40.7491889");
+        user.setSummary("Hi i am Wentao Li~");
+        user.setGender("Male");
+        userDao.createUser(user);
+        
+        user = new User();        
+        user.setFname("Hongyi");
+        user.setLname("Liu");
+        user.setEmail("hl357@njit.edu");
+        user.setPd("123456");
+        user.setPhoto_url("img/hyl.jpg");
+        user.setLongitudestr("-74.1803297");
+        user.setLantitudestr("40.7442745");
+        user.setSummary("Hi i am Hongyi Liu~");
+        user.setGender("Male");
+        userDao.createUser(user);
+        
+        user = new User();        
+        user.setFname("Leipeng");
+        user.setLname("Gong");
+        user.setEmail("lg229@njit.edu");
+        user.setPd("123456");
+        user.setPhoto_url("img/lpg.jpg");
+        user.setLongitudestr("-74.1784611");
+        user.setLantitudestr("40.7430846");
+        user.setSummary("Hi i am Leipeng Gong~");
+        user.setGender("Male");
+        userDao.createUser(user);
+        
     }
     
     private void userDaoTest(CompanyDao companyDao,
@@ -310,6 +350,19 @@ public class DaoConnTest extends SpringUtils {
                             UpdateDao updateDao,
                             UserDao userDao){
         this.dodatainit(companyDao, languageDao, notificationDao, skillDao, universityDao, updateDao, userDao);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
 
         
