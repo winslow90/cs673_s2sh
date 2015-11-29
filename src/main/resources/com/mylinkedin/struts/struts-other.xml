@@ -30,18 +30,18 @@
                     <result name="ercons">/arcpages/removesuccess.jsp</result>
                     <result name="confail">/arcpages/arcfail.jsp</result>
                     <result name="input" type="chain">updateAction_viewhome</result>
-                    <result name="login">/index.jsp</result>
+                    <result name="login" type="redirectAction">userAction_logout</result>
 		</action>                
 		<action name="updateAction_*" method="{1}" class="updateAction">
                     <result name="success">    /home.jsp    </result>
                     <result name="input">    /index.jsp    </result>
-                    <result name="login">/index.jsp</result>
+                    <result name="login" type="redirectAction">userAction_logout</result>
 		</action>
                 <action name="connectionAction_*" method="{1}" class="connectionAction">
                     <result name="success">    /connections.jsp    </result>
                     <result name="viewcononmap">/connectiononmap.jsp</result>
                     <result name="input" type="chain">updateAction_viewhome</result>
-                    <result name="login">/index.jsp</result>
+                    <result name="login" type="redirectAction">userAction_logout</result>
 		</action>
                 <action name="profileAction_*" method="{1}" class="profileAction">
                     <result name="success">    /profile.jsp    </result>
@@ -49,47 +49,47 @@
                     <result name="selecticon"> /profilepages/iconinput.jsp    </result>
                     <result name="viewprofile" type="chain">profileAction_viewprofile</result>
                     <result name="input" type="chain">updateAction_viewhome</result>
-                    <result name="login">/index.jsp</result>
+                    <result name="login" type="redirectAction">userAction_logout</result>
 		</action>
                 <action name="universityAction_*" method="{1}" class="universityAction">
                     <result name="listunis">/profilepages/listunis.jsp </result>
                     <result name="seunis">  /profilepages/seunis.jsp    </result>
                     <result name="viewprofile" type="chain">profileAction_viewprofile</result>
                     <result name="input" type="chain">updateAction_viewhome</result>
-                    <result name="login">/index.jsp</result>
+                    <result name="login" type="redirectAction">userAction_logout</result>
 		</action>
                 <action name="companyAction_*" method="{1}" class="companyAction">
                     <result name="listcoms">/profilepages/listcoms.jsp </result>
                     <result name="secoms">  /profilepages/secoms.jsp    </result>
                     <result name="viewprofile" type="chain">profileAction_viewprofile</result>
                     <result name="input" type="chain">updateAction_viewhome</result>
-                    <result name="login">/index.jsp</result>
+                    <result name="login" type="redirectAction">userAction_logout</result>
 		</action>
                 <action name="languageAction_*" method="{1}" class="languageAction">
                     <result name="listlangs">/profilepages/listlangs.jsp </result>
                     <result name="selangs">  /profilepages/selangs.jsp    </result>
                     <result name="viewprofile" type="chain">profileAction_viewprofile</result>
                     <result name="input" type="chain">updateAction_viewhome</result>
-                    <result name="login">/index.jsp</result>
+                    <result name="login" type="redirectAction">userAction_logout</result>
 		</action>
                 <action name="skillAction_*" method="{1}" class="skillAction">
                     <result name="listsks">/profilepages/listsks.jsp </result>
                     <result name="sesks">  /profilepages/sesks.jsp    </result>
                     <result name="viewprofile" type="chain">profileAction_viewprofile</result>
                     <result name="input" type="chain">updateAction_viewhome</result>
-                    <result name="login">/index.jsp</result>
+                    <result name="login" type="redirectAction">userAction_logout</result>
 		</action>
                 <action name="searchAction_*" method="{1}" class="searchAction">
                     <result name="viewadvsearch">/advsearch.jsp </result>
                     <result name="listresult">  /searchresult.jsp    </result>
                     <result name="input" type="chain">updateAction_viewhome</result>
-                    <result name="login">/index.jsp</result>
+                    <result name="login" type="redirectAction">userAction_logout</result>
 		</action>
                 <action name="otherprofileAction_*" method="{1}" class="otherprofileAction">
                     <result name="success">/otherprofile.jsp </result>
                     <result name="viewhome" type="chain">updateAction_viewhome</result>
                     <result name="input" type="chain">updateAction_viewhome</result>
-                    <result name="login">/index.jsp</result>
+                    <result name="login" type="redirectAction">userAction_logout</result>
 		</action>
 	</package>
 </struts>

@@ -6,7 +6,7 @@
 <struts>
 	<package name="user" namespace="/" extends="struts-default">
 		<action name="userAction_*" method="{1}" class="userAction">
-                    <result name="success" type="chain">updateAction_viewhome</result>
+                    <result name="success" type="redirectAction">updateAction_viewhome</result>
                     <result name="input">    /index.jsp    </result>
 		</action>
 	</package>
