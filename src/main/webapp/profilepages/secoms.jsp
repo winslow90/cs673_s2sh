@@ -21,7 +21,11 @@
                 <s:iterator value="allcomsmap.entrySet()">
                     <li>   
                         <label>
-                            <input name="mycomids" type="checkbox" value="<s:property value="key"/>"/>
+                            <input name="mycomids" type="checkbox" value="<s:property value="key"/>"
+                                <s:if test="mycomids.contains(key)">
+                                    checked
+                                </s:if>
+                            />
                             <s:property value="value"/>
                         </label>
                     </li>

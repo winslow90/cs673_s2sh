@@ -17,11 +17,16 @@
         <s:form action="universityAction_updateunis">
              <div class="form-group">
                     <label>School:</label><br/>
+                    <s:debug></s:debug>
             
                     <s:iterator value="allunismap.entrySet()">
                         <li>   
                             <label>
-                                <input name="myuniids" type="checkbox" value="<s:property value="key"/>"/>
+                                <input name="myuniids" type="checkbox" value="<s:property value="key"/>" 
+                                       <s:if test="myuniids.contains(key)">
+                                       checked
+                                       </s:if>
+                                />
                                 <s:property value="value"/>
                             </label>
                         </li>

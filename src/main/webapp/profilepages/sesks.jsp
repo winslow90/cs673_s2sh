@@ -20,7 +20,11 @@
                     <s:iterator value="allsksmap.entrySet()">
                         <li>   
                             <label>
-                                <input name="myskids" type="checkbox" value="<s:property value="key"/>"/>
+                                <input name="myskids" type="checkbox" value="<s:property value="key"/>"
+                                    <s:if test="myskids.contains(key)">
+                                        checked
+                                    </s:if>
+                                />
                                 <s:property value="value"/>
                             </label>
                         </li>

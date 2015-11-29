@@ -21,7 +21,11 @@
              <s:iterator value="alllangsmap.entrySet()">
                 <li>   
                     <label>
-                        <input name="mylangids" type="checkbox" value="<s:property value="key"/>"/>
+                        <input name="mylangids" type="checkbox" value="<s:property value="key"/>"
+                            <s:if test="mylangids.contains(key)">
+                                checked
+                                </s:if>
+                        />
                         <s:property value="value"/>
                     </label>
                 </li>
