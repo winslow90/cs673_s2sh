@@ -286,7 +286,16 @@ public class DaoConnTest extends SpringUtils {
             user.setEmail("u"+i+"@u.com");
             user.setPd("u"+i);
             user.setLocation("location"+i);
-            user.setPhoto_url("img/default_icon.jpg");
+            
+            if (rand.nextInt()%2==0){
+                user.setPhoto_url("img/default_icon.jpg");
+                user.setGender("Male");
+            }else{
+                user.setPhoto_url("img/default_icon_f.jpg");
+                user.setGender("Female");
+            }
+            
+            
             user.setSummary("Hi i am user "+i+"~");
             
             Long longrand= (rand.nextLong()%10000);
