@@ -13,9 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        
-        ${usertoadd.fname}&nbsp&nbsp${usertoadd.fname}&nbsp&nbsp has been added
-        
-        <s:debug></s:debug>
+        <button type="button" class="btn btn-primary" disabled="disabled">${usertoadd.lname} added</button>
+        <%--${usertoadd.fname}&nbsp&nbsp${usertoadd.fname}&nbsp&nbsp has been added--%>
     </body>
 </html>

@@ -44,7 +44,7 @@
              <div class="container">
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
-<form action="${pageContext.request.contextPath}/searchAction_doadvsearch.action" class="formoid-solid-blue" style="background-color:#1A2223;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:480px;min-width:150px" method="post"><div class="title"><h2>Adance Search</h2></div>
+<form action="${pageContext.request.contextPath}/searchAction_doadvsearch.action" class="formoid-solid-blue" style="background-color:#1A2223;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:480px;min-width:150px" method="post"><div class="title"><h2>Advance Search</h2></div>
 	<div class="element-input"><div class="item-cont"><i class="fa fa-search" style="position: absolute;top:15px;left:0.9em;"></i><input class="large" type="text" name="fnlike"  placeholder="Search First Name like"/><!--<span class="icon-place">--></span></div></div>
 	<div class="element-input"><div class="item-cont"><i class="fa fa-search" style="position: absolute;top:15px;left:0.9em;"></i><input class="large" type="text" name="lnlike" placeholder="Search Last Name like"/></div></div>
 	<div class="element-input"><div class="item-cont"><i class="fa fa-search" style="position: absolute;top:15px;left:0.9em;"></i><input class="large" type="text" name="sumlike" placeholder="Summary contains like"/></div></div>
