@@ -29,7 +29,7 @@ var locations = [
     
     <s:iterator value="connections" var="con" status="stat">
             
-        <s:if test="#stat.index>0">,</s:if>['<s:property value="#con.lname"/>', <s:property value="#con.lantitudestr"/>, <s:property value="#con.longitudestr"/>, '<s:property value="#con.location"/>','<s:property value="#con.photo_url"/>','<s:property value="#con.summary"/>']
+        <s:if test="#stat.index>0">,</s:if><s:if test="!#con.lantitudestr.trim().isEmpty()" >['<s:property value="#con.lname"/>', <s:property value="#con.lantitudestr"/>, <s:property value="#con.longitudestr"/>, '<s:property value="#con.location"/>','<s:property value="#con.photo_url"/>','<s:property value="#con.summary"/>']</s:if>
         
     </s:iterator>   
   
