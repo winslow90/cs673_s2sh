@@ -113,15 +113,17 @@ google.maps.event.addListener(marker,'click', (function(marker,content,infowindo
 <body onload="initialize()">
         <%@ include file="top.jsp"%>
         <section style="margin-top:90px;">
-      <div class="container"  >
-        <div class="row" id="default" style="width:2000px;height:1420px;">
-         <!-- <div class="col-md-12"id="default" style="width:1000px;height:1000px;">
+            <div class="container" >
+          
+          
+      <div class="row" id="default" style="width:100%;height:1024px;position: absolute;top:-10px;left:15px;'">   </div> 
+         <!-- <div class="col-md-12"id="default" style="width:1000px;height:1000px;">-->
             
    
         
 
           
-        </div>-->
+        
       </div>
     </div>
     </section>

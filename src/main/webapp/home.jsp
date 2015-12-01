@@ -84,9 +84,9 @@
                                 
                     <s:form action="otherprofileAction_viewotherprofile">
                         <s:hidden name="hisuid" value="%{#con.uid}"></s:hidden>
-                      <li id="userdiv${con.uid}"> <button type="submit" class="btn btn-primary btn-xs" style="background-color:#fff;border-style:none;" title="<s:property value="#con.fname"/> <s:property value="#con.lname"/>"><img src="${con.photo_url}"  style="border-radius:50%"></button></li>
+                        <li id="userdiv${con.uid}" class="thumbnail"  > <button type="submit" class="btn btn-primary btn-xs"   style="background-color:#fff;border-style:none; " title="<s:property value="#con.fname"/> <s:property value="#con.lname"/>"><img src="${con.photo_url}"  ></button></li>
                     </s:form> 
-                </s:iterator>        
+                </s:iterator>         
                 </ul>
                   
                 <div class="clearfix"></div>
