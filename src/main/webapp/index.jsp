@@ -32,10 +32,6 @@
   </head>
 
   <body onload="myFunction()">
-      
-    <div>  
-    <s:actionerror/>
-    </div>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -46,6 +42,9 @@
           <form class="navbar-form navbar-right" method="post" action="${pageContext.request.contextPath}/userAction_login.action">
             <div class="form-group" >
                 <input name="logemail" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus >
+            </div>
+            <div class="form-group col-xs-10" style="color:red;">
+                <s:actionerror/>
             </div>
             <div class="form-group">
                 <input name="logpd" type="password" placeholder="Password" class="form-control" required>
