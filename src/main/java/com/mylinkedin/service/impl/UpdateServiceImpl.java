@@ -54,7 +54,7 @@ public class UpdateServiceImpl implements UpdateService {
             Updates up = new Updates();
             up.setUp_type(1L);
             up.setUp_content(
-                    me.getFname()+" "+me.getLname()+"has just connectted "+added.getFname()+added.getLname()+"<br/>"+
+                    me.getFname()+" "+me.getLname()+"has just connectted "+added.getFname()+added.getLname()+
                     "Do you interest him or her?"
                 );
             up.setUp_datetime(new Date());

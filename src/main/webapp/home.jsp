@@ -40,7 +40,7 @@
                           <div class="pointer">
                             <s:form action="otherprofileAction_viewotherprofile">
                                 <s:hidden name="hisuid" value="%{#up.relating_uid}"></s:hidden>
-                            <p><s:property value="#up.up_datetime"/> I am a software engineer from Amazon and I have experience of programming about three years in java ee field. I have a lot of achievement in the passed three year <button type="submit" class="btn btn-primary btn-xs"style="border-radius: 24px;"><s:property value="#up.up_content"/></button> </p>
+                            <p><s:property value="#up.up_datetime"/> Updates: <button type="submit" class="btn btn-primary btn-xs"style="border-radius: 24px;"><s:property value="#up.up_content"/></button> </p>
                             </s:form>
                           </div>
                           <div class="pointer-border"></div>
