@@ -62,6 +62,7 @@ public class UserAction extends ActionSupport {
                 if (m.matches()){
                     if (this.userService.checkEmailExist(email)){
                         this.addFieldError("email", "The email you enter has already exsited");
+                        this.addActionError("The email you enter has already exsited");
                     }
                 }else{
                     this.addFieldError("email", "Please enter a valid email");
