@@ -91,7 +91,7 @@
   </div>
 </div>
              <div class="form-group">
-                <label class="row-md-4 control-label" for="textinput">confirm</label>       
+                <label class="row-md-4 control-label" for="textinput">Confirm</label>       
   <div class="row-md-4">
   <input name="pd" type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirm" required>
       <div class="help-block with-errors"></div>

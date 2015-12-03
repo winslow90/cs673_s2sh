@@ -61,7 +61,7 @@
                     
                     <s:form action="otherprofileAction_viewotherprofile">
                         <s:hidden name="hisuid" value="%{#con.uid}"></s:hidden>
-                        <button type="submit" class="btn btn-success">view</button>
+                        <button type="submit" class="btn btn-success">View</button>
                     </s:form>
                         <div class="clear-fix"style="height:3px;"></div>  
                         

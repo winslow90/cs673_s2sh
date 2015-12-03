@@ -67,7 +67,7 @@
                 </s:iterator>
             </s:if>
             <s:else>
-                <h1>You don't have any updates yet~</h1>
+                <h1>Oops~ You don't have any updates yet~</h1>
             </s:else>  
 
 
