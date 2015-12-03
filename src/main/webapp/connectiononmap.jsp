@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>View Connection on Map</title>
         
      <style type="text/css">
   html { height: 100% }
@@ -29,7 +29,7 @@ var locations = [
     
     <s:iterator value="connections" var="con" status="stat">
             
-        <s:if test="#stat.index>0">,</s:if><s:if test="!#con.lantitudestr.trim().isEmpty()" >['<s:property value="#con.lname"/>', <s:property value="#con.lantitudestr"/>, <s:property value="#con.longitudestr"/>, '<s:property value="#con.location"/>','<s:property value="#con.photo_url"/>','<s:property value="#con.summary"/>']</s:if>
+        <s:if test="#stat.index>0">,</s:if>['<s:property value="#con.lname"/>',<s:property value="#con.lantitudestr"/>,<s:property value="#con.longitudestr"/>,'<s:property value="#con.location"/>','<s:property value="#con.photo_url"/>','<s:property value="#con.summary"/>']
         
     </s:iterator>   
   
@@ -110,6 +110,7 @@ google.maps.event.addListener(marker,'click', (function(marker,content,infowindo
         
         
     </head>
+    
 <body onload="initialize()">
         <%@ include file="top.jsp"%>
         <section style="margin-top:90px;">
@@ -128,4 +129,9 @@ google.maps.event.addListener(marker,'click', (function(marker,content,infowindo
     </div>
     </section>
     </body>
+    <%--
+    <body>
+        <s:debug></s:debug>
+    </body>
+    --%>
 </html>

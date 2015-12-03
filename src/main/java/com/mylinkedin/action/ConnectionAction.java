@@ -41,6 +41,12 @@ public class ConnectionAction extends ActionSupport {
         
         connections = userService.getConnection(me.getUid());
         
+        for (User con : connections){
+            if (!con.getLantitudestr().trim().isEmpty()){
+                connections.remove(con);
+            }
+        }
+        
         notification = notificationService.listNotifications(me.getUid());
         
         
