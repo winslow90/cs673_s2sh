@@ -350,7 +350,7 @@
                             
                         </div>
                         <div class="col-md-8">
-                        <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#language">Edit My Languages:</button> 
+                        <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#language">Edit My Languages</button> 
                         </div>
                         
                         
