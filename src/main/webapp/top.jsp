@@ -173,7 +173,7 @@
       
       <!--<a href="#">Connection</a>-->
       <s:url value="connectionAction_viewconnection" var="viewconnection"/>
-      <s:a href="%{viewconnection}">Connection</s:a>
+      <s:a href="%{viewconnection}">Connections</s:a>
       
       
   <!--</button>-->

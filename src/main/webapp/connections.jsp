@@ -44,7 +44,7 @@
                  
             <div class="panel panel-default friends">
               <div class="panel-heading">
-                <h3 class="panel-title">Friends</h3>
+                <h3 class="panel-title">Connections</h3>
               </div>
               <div class="panel-body">
                <div class="row">
