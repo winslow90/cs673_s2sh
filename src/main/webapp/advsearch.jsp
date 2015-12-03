@@ -70,11 +70,15 @@
                     <s:submit value="Search" class="buttoninput"/>
                 </s:form>
 --%>
+
+<%--
 <h1><strong><s:debug></s:debug></strong></h1>
              </div>  
         </section>
     </body>
-    
+--%>
+
+
     <script type="text/javascript" src="js/bootstrap/bootstrap-dropdown.js"></script>
 <script>
      $(document).ready(function(){
