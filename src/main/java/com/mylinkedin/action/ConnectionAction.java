@@ -11,6 +11,7 @@ import com.mylinkedin.service.NotificationService;
 import com.mylinkedin.service.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -39,13 +40,8 @@ public class ConnectionAction extends ActionSupport {
         
         me = (User) this.getSession().get("me");
         
-        connections = userService.getConnection(me.getUid());
+        connections = userService.getConnection(me.getUid());       
         
-        for (User con : connections){
-            if (!con.getLantitudestr().trim().isEmpty()){
-                connections.remove(con);
-            }
-        }
         
         notification = notificationService.listNotifications(me.getUid());
         
@@ -57,7 +53,14 @@ public class ConnectionAction extends ActionSupport {
         
         me = (User) this.getSession().get("me");
         
-        connections = userService.getConnection(me.getUid());
+        List<User> theconnections = userService.getConnection(me.getUid());
+        connections = new ArrayList();
+        
+        for (User con : theconnections){
+            if (!con.getLantitudestr().trim().isEmpty()){
+                connections.add(con);
+            }
+        }
         
         notification = notificationService.listNotifications(me.getUid());
         
