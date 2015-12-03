@@ -176,7 +176,7 @@
                                                 </div>
                                          </div>
                                          <div class="form-group">
-                                            <label class="row-md-4 control-label" for="textinput">gender</label>
+                                            <label class="row-md-4 control-label" for="textinput">Gender</label>
                                             <div class="row-md-4">
                                             <select class="selectpicker" name="segender" >
                                                 <option>male</option>
@@ -188,7 +188,7 @@
                                              <label class="row-md-4 control-label" for="textinput">Personal</label>
                                              <textarea name="sesummary" class="form-control" rows="3"></textarea>
                                          </div>
-                                         <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> save</button>
+                                         <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Save</button>
                                      </form>
                                  </div>
                              </div>
@@ -206,7 +206,7 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="avatar">
-                           <h2 class="page-header">Avatar Info</h2>
+                           <h2 class="page-header">Avatar Photo</h2>
                             <img src="${sephotoFileName}" style="border-radius:50%;width:100px;height:100px">
                             
                         </div>
@@ -229,7 +229,7 @@
                                              <label class="row-md-4 control-label" for="textinput">Avatar</label>
                                              <s:file name="sephoto" label="Please select your new icon file"></s:file>
                                          </div>
-                                         <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> save</button>
+                                         <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Save</button>
                                         </s:form>
                                     </div>
                                 </div>
@@ -342,7 +342,7 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="avatar">
-                           <h2 class="page-header">Language</h2>
+                           <h2 class="page-header">Languages</h2>
                             <ul>
                                 <s:action name="languageAction_listlangs" executeResult="true"/>
                                   

@@ -117,7 +117,7 @@
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:rgb(90,90,90);font-size:20px;">
    <span class="glyphicon glyphicon-user" aria-hidden="true"style="color:rgb(153,153,153);"></span> 
   </button>
-    <ul class="dropdown-menu"><div style="background-color:black"><font style="color:#fff">Account & setting</font></div>
+    <ul class="dropdown-menu"><div style="background-color:black"><font style="color:#fff">Account & Settings</font></div>
         
         <s:url value="profileAction_viewprofile" var="profile"/>
         <li><s:a href="%{profile}" style="color:#fff">&nbsp;<span class="glyphicon glyphicon glyphicon-cog">&nbsp;Account</span></s:a></li>
@@ -125,7 +125,7 @@
         
         <!--<li><a href="#" style="color:#fff">&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;People</a></li>-->
         <s:url value="userAction_logout" var="logout"/>
-        <li><s:a href="%{logout}" style="color:#fff">&nbsp;<span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;&nbsp;logout</s:a></li>
+        <li><s:a href="%{logout}" style="color:#fff">&nbsp;<span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;&nbsp;Logout</s:a></li>
         
         
         
